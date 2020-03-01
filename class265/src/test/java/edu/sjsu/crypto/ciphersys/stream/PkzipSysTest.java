@@ -8,9 +8,9 @@ class PkzipSysTest {
 
 	@Test
 	void test() {
-		String plaintext = "defend the east wall!";
-		String pass = "GoToHell#007";
-		String ciphertext = "756467646f653164786520756062753177616c7d30";
+		String plaintext = "Sida love this class!";
+		String pass = "CDC";
+		String ciphertext = "320c67794ea36a81b6";
 		
 		PkzipSys sys = new PkzipSys (pass);
 		System.out.println("ciphertext = [" + sys.encrypt(plaintext)+ "]");
