@@ -33,7 +33,7 @@ public class TeaSys extends TeaAbs {
 		return ciphertext;
 	}
 	
-	public DWord EncryptOneBlock(DWord P) {
+	private DWord EncryptOneBlock(DWord P) {
 		Word L = P.leftWord();
 		Word R = P.rightWord();
 		Word sum = Word.ZERO();
@@ -78,7 +78,7 @@ public class TeaSys extends TeaAbs {
 		return plaintext;
 	}
 
-	public DWord DecryptOneBlock(DWord P) {
+	private DWord DecryptOneBlock(DWord P) {
 		Word L = P.leftWord();
 		Word R = P.rightWord();
 		Word sum = DELTA_WORD.shiftLeft(5);
@@ -110,7 +110,7 @@ public class TeaSys extends TeaAbs {
 		return DWord.constructFrom2Words(L, R);
 	}
 	
-	public void printSubKeysArray() {
+	private void printSubKeysArray() {
 		for (int i = 0; i < SK.length; i++) {
 			SK[i].printHexStr();
 		}

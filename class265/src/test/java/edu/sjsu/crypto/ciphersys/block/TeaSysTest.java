@@ -7,9 +7,8 @@ class TeaSysTest {
 	@Test
 	void test() {
 		String plaintext = "sida love this class!";
-		String ciphertext = "0667ad148a7283f9321e4644de186af00c26c00058feff88";
+		String ciphertext = "649578fe6bcb072d639dfc30bb4e2afd80eba712ab0db908";
 		String pass = "v!ru5";
-		//String pass = "abcdefghijklmnop";
 		
 		TeaSys sys1 = new TeaSys(pass);
 		System.out.println("Ciphertext = [" + sys1.encrypt(plaintext)+ "]");
