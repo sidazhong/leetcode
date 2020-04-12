@@ -8,12 +8,18 @@ class SimpleSubSysTest {
 
 	@Test
 	void SimpleSubSys() {
-		int key = 15;
-		SimpleSubSys sys = new SimpleSubSys(key);
-		String plaintext = "my name is sida, I like this class!";
-		System.out.println("Ciphertext = ['" + sys.encrypt(plaintext)+ "']");
-		String ciphertext = "CD RAPHH RPCRTAAPIXDC";
-		System.out.println("Recovered Plaintext = [" + sys.decrypt(ciphertext)+ "]");
+		int pass = 15;
+		SimpleSubSys sys_en = new SimpleSubSys(pass);
+		String plaintext = "attack at dawn!";
+		System.out.println(plaintext);
+		System.out.println("Ciphertext = [" + sys_en.encrypt(plaintext)+ "]");
+		
+		System.out.println();
+		
+		SimpleSubSys sys_de = new SimpleSubSys(pass);
+		String ciphertext = "ZACIIJ JB CHFV!";
+		System.out.println(ciphertext);
+		System.out.println("Recovered Plaintext = [" + sys_de.decrypt(ciphertext)+ "]");
 	}
 
 }
