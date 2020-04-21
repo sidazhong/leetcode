@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class HelloWorld {
   
   public static void greeting() {
-    log.info("Hello World!");
+	  System.out.println("test");
   }
   
   public static void usingCryptoUtil1() {
