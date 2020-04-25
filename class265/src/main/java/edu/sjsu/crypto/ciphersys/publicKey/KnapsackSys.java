@@ -98,7 +98,7 @@ public class KnapsackSys extends KnapsackAbs {
 		
 		//generate regular Array
 		this.m = Function.generateRandomPositiveInteger(rnd);
-		this.p = Function.generateRandomPrimeBigIntegerBiggerThan(su_knapsack.memberAt(31), rnd);
+		this.p = Function.generateRandomPrimeBigIntegerBiggerThan(su_knapsack.sum(), rnd);
 		Knapsack re_knapsack = su_knapsack.toRegularKnapsack(this.m, this.p);
 		
 		this.publicKey = new KnapsackPublicKey(keyHolderName,re_knapsack);

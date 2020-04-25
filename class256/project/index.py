@@ -8,12 +8,12 @@ from gensim.similarities import Similarity
 
 class deduplication:
     documents = [
-        #"Used SpaceX rocket as-is, buyer must transport.",
-        #"Used SpaceX rocket as-is, buyer must transport.",
+        "The sky is very blue.",
+        "The sky is not blue.",
         #"For sale: bulk 100lbs pack of spaghetti noodles",
         #"Spaghetti noodles for sale — 100lbs bulk pack",
-        "Pale blue tuxedo, used, good condition. Call 555–555–5555",
-        "Brand new yellow tuxedo in great condition!"
+        #"Pale blue tuxedo, used, good condition. Call 555–555–5555",
+        #"Brand new yellow tuxedo in great condition!"
     ]
 
     def start(self):
