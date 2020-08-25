@@ -58,8 +58,6 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/sida/Desktop/css265/hw8/cryptoUtil-1.8.jar"/>
-	<classpathentry kind="lib" path="/home/sida/Desktop/css265/hw7/cryptoUtil-1.7.jar"/>
-	<classpathentry kind="lib" path="/home/sida/Desktop/css265/hw6/cryptoUtil-1.6.jar"/>
+	<classpathentry kind="lib" path="/home/sida/Desktop/css265/hw10/cryptoUtil-1.10.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

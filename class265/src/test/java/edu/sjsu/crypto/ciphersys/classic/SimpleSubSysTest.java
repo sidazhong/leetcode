@@ -8,7 +8,7 @@ class SimpleSubSysTest {
 
 	@Test
 	void SimpleSubSys() {
-		int pass = 15;
+		int pass = 6;
 		SimpleSubSys sys_en = new SimpleSubSys(pass);
 		String plaintext = "attack at dawn!";
 		System.out.println(plaintext);
@@ -17,7 +17,7 @@ class SimpleSubSysTest {
 		System.out.println();
 		
 		SimpleSubSys sys_de = new SimpleSubSys(pass);
-		String ciphertext = "ZACIIJ JB CHFV!";
+		String ciphertext = "PIIPRZ PI SPLC!";
 		System.out.println(ciphertext);
 		System.out.println("Recovered Plaintext = [" + sys_de.decrypt(ciphertext)+ "]");
 	}

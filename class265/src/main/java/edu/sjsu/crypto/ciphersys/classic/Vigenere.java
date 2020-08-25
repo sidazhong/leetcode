@@ -52,7 +52,7 @@ public class Vigenere {
 	}
 	
 	public int encrypt_look(String text,char c) {
-		return (text.indexOf(c)+26-this.pass.length())%26;
+		return (text.indexOf(c)+26)%26;
 	}
 	
 	public int decrypt_look(char[] text,char c) {
@@ -97,7 +97,7 @@ public class Vigenere {
 		
 		int ii=0;
 		for(int i = 0; i < text_array.length; i++) {
-			if(pass_array.length-1==i%pass_array.length) {
+			if(i%pass_array.length==0) {
 				ii=0;
 			}else {
 				ii++;
@@ -112,7 +112,7 @@ public class Vigenere {
 		CSR alpha_csr = CSR.constructFromText(ALPHRA);
 		
 		for(int i = 0; i < 26; i++) {
-			char[] alpha_array = alpha_csr.rotateLeft(i+pass.length()).toCharArr();
+			char[] alpha_array = alpha_csr.rotateLeft(i).toCharArr();
 			for(int ii = 0; ii < 26; ii++) {
 				this.lookupTable[i][ii]=alpha_array[ii];
 			}
@@ -127,7 +127,6 @@ public class Vigenere {
 		    System.out.println();
 		}
 	}
-	
 	
 	
 	
