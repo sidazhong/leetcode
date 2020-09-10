@@ -13,7 +13,8 @@ function decrypt(ciphertext, privKey) {
 }
 
 function blind(message, pubKey) {
-	let r = 16;
+  //let r = 16;
+  let r = Math.floor(Math.random() * 88) + 1;
 	
 	//M' = M * Be mod N
 	let blinded = message * r ** pubKey.e % pubKey.N;
