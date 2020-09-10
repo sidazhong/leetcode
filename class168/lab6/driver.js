@@ -114,12 +114,12 @@ function determineCheater(guid, ris1, ris2) {
       console.log(check+" is cheater");
       return;
     }
+  }
 
-    if(ris1[i] == ris2[i]){
+  if(ris1 == ris2){
       console.log("merchant is cheater");
       return;
     }
-  }
 }
 
 let coin = new Coin('alice', 20, N, E);
