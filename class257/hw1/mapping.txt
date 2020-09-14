@@ -1,0 +1,72 @@
+<a foo="blah"><b>goo</b></a>
+
+Node 
+ID 1
+Parent_ID NULL
+Type element
+Label a
+value <b>goo</b>
+
+Node
+ID 2
+Parent_ID 1
+Type attribute
+Label foo
+value blah
+
+Node
+ID 3
+Parent_ID 1
+Type element
+Label b
+value goo
+
+
+<rss>
+<channel>
+	<item></item>
+	.....
+</channel>
+</rss>
+
+
+planes_for_sale
+ID   adID
+1	1
+1	2
+
+ad
+ID	sellerID		year		make 	model 	color
+1	1	 		1960		&c;		150		white
+2	2			1945		Douglas..	DC-3		red
+
+seller
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

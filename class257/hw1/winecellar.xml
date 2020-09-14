@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+
+<winecellar>
+	<wine winekey="1">
+		<name>Jacques Selosse Brut Initial</name> 
+		<year>2012</year> 
+		<type>Champagne</type> <price>150</price>
+	</wine>
+	<wine winekey="2">
+		<name>Meneghetti White</name> <year>2010</year>
+		<type>white wine</type> <price>18</price>
+	</wine> 
+</winecellar>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	
+	<!-- company -->
+	<xsd:element name="company">
+	  <xsd:complexType>
+	    <xsd:sequence>
+	      <xsd:element ref="shopping_cart"/>
+	    </xsd:sequence>
+	  </xsd:complexType>
+	</xsd:element>
+
+	<!-- shopping_cart -->
+	<xsd:attribute name="user" type="xsd:string"/>
+	<xsd:element name="shopping_cart">
+	  <xsd:complexType>
+	    <xsd:sequence>
+	      <xsd:element ref="item" minOccurs="0" maxOccurs="unbounded"/>
+	    </xsd:sequence>
+	    <xsd:attribute name="user" type="xsd:string" use="required"/>
+	  </xsd:complexType>
+	</xsd:element>
+
+  <!-- item -->   
+	<xsd:element name="ID" type="xsd:int"/>
+	<xsd:element name="type" type="xsd:string"/>
+	<xsd:element name="price" type="xsd:string"/>
+	<xsd:element name="vendor" type="xsd:string"/>
+	<xsd:element name="item">
+	  <xsd:complexType>
+	    <xsd:sequence>
+	      <xsd:element ref="ID"/>
+	      <xsd:element ref="type"/>
+	      <xsd:element ref="price"/>
+	      <xsd:element ref="vendor"/>
+	      <xsd:element name="collection" minOccurs="0"/>
+	    </xsd:sequence>
+	  </xsd:complexType>
+	</xsd:element>
+	
+	<!-- collection -->
+	<xsd:simpleType name="stringType">
+	  <xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:element name="item_name" type="stringType"/>
+	<xsd:element name="collection">
+	  <xsd:complexType>
+	    <xsd:sequence>
+	      <xsd:element ref="item_name"/>
+	    </xsd:sequence>
+	  </xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

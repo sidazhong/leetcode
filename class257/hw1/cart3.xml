@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cart_to_table.xsl"?>
+<company>
+  <shopping_cart user="mallyaan">
+      <item>
+          <ID>1</ID>
+          <type>Chef Knife</type>
+          <price>10</price>
+          <vendor>Seller 1</vendor>
+      </item>
+      <item>
+          <ID>2</ID>
+          <type>Baseball Bat</type>
+          <price>100</price>
+          <vendor>Seller 2</vendor>
+          <collection>
+          	<item_name>Batting Glove</item_name>
+ 						<item_name>Batting Helmet</item_name>
+ 						<item_name>Batting Shoes</item_name>
+ 		  		</collection>
+      </item>
+  </shopping_cart>
+</company>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

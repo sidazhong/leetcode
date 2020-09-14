@@ -1,0 +1,70 @@
+<!-- shopping_cart.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="shopping_cart.dtd" type="application/xml-dtd"?>
+
+<!DOCTYPE Company [
+ <!ELEMENT cart (item*) >
+ <!ELEMENT item (ID, type, price, vendor, collection*) >
+ <!ELEMENT ID (#PCDATA)>
+ <!ELEMENT type (#PCDATA)>
+ <!ELEMENT price (#PCDATA)>
+ <!ELEMENT vendor (#PCDATA)>
+ <!ENTITY electronics-vendor "Apple">
+ <!ATTLIST type perishable (yes|no) #IMPLIED >
+ <!ATTLIST type category (Grocery|Electronics|Clothing) #REQUIRED >
+ <!ATTLIST cart user CDATA #REQUIRED>
+ <!ENTITY apple_deal "iPad Pro + Apple Pencil 2 + Paper-like Screen Protector">
+]> 
+ 
+ <cart user="Niraj">
+    <item>
+        <ID>1</ID>
+        <type category="Electronics">Smart Phone</type>
+        <price>$900.00</price>
+        <vendor>&electronics-vendor;</vendor>
+    </item>
+    
+    <item>
+        <ID>2</ID>
+        <type category="Clothing">T-shirt</type>
+        <price>$30.00</price>
+        <vendor>Peter England</vendor>
+    </item>
+    <item>
+        <ID>3</ID>
+        <type perishable="yes" category="Grocery">Fruit</type>
+        <price>$2.00</price>
+        <vendor>D-Mart</vendor>
+    </item>
+    <item>
+        <ID>4</ID>
+        <type category="Electronics">&apple_deal;</type>
+        <price>$1100.00</price>
+        <vendor>&electronics-vendor;</vendor>
+    </item>
+ </cart>
+
+
+<!-- 解释：
+ELEMENT 标签名
+	#PCDATA 最后一层标签，里面添加东西
+	(ID, type, price, vendor) 多选方法有顺序   没顺序是 |
+	item* 0个更多 
+	item+ 1个更多  
+
+ATTLIST 标签里面的属性名
+	(yes|no) 属性多选方法
+	#REQUIRED 不能为空
+	#IMPLIED 不能为NULL
+	CDATA 标签属性可以添加东西
+
+ENTITY 变量名
+	&electronics-vendor;  前后用&;括起来
+-->
+
+
+
+
+
+
+

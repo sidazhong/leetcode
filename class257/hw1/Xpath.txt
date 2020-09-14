@@ -1,0 +1,24 @@
+/html//div[contains(@class, 'slide')]/h1
+<!--
+	"//"中间跳过标签
+	contains包含标签的class
+-->
+
+
+/html/head/link[rel = 'stylesheet']/@href
+<!--
+	"="准确匹配
+	"@"找到标签属性
+-->
+
+
+/html//div[contains(@class, 'slide')]//ul/li[3]
+<!--
+	"[3]"标签的第几个
+-->
+
+
+
+
+
+
