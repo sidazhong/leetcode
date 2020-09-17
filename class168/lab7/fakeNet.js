@@ -31,6 +31,7 @@ exports.broadcast = function(msg, o) {
 exports.send = function(recipient, msg, o) {
   let s = JSON.stringify(o);
   let m = minerNameMap[recipient];
+
   if (m) {
     m.emit(msg, JSON.parse(s));
   }

@@ -127,7 +127,8 @@ DELETE FROM table_name
 
 
 
-
+The md5 certificate of receipt of your homework is:
+19:15:18 e07c9edc094f1a6e509ac8792beeed36
 
 
 
