@@ -87,8 +87,32 @@ class MerkleTree {
     // array so that a user who knows only the path and the Merkle root can
     // verify the path.
 
+    let pool = [];
+    pool = this.rec_get_path(i,pool);
+
+    path['pool'] = pool;
     return path;
   }
+
+  rec_get_path(i,pool){
+    //out
+    if(i==0){
+      return pool;
+    }
+
+    //get parentNode
+    let parent_i = parseInt((i-1)/2);
+
+    //get brotherNode
+    let brother_i = (i%2==0)? i-1 : i+1;
+
+    //store path
+    pool.push(brother_i);
+
+    //recusive
+    return this.rec_get_path(parent_i,pool);
+  }
+
 
   // Return true if the tx matches the path.
   verify(tx, path) {
@@ -101,6 +125,25 @@ class MerkleTree {
     // starting at i, hash the appropriate nodes and verify that their hashes
     // match their parent nodes, until finally hitting the Merkle root.
     // If the Merkle root matches the path, return true.
+
+    for (let k in path.pool) {
+
+      //left children
+      if(path.pool[k]%2==0){
+        h = utils.hash("" + h + "," + this.hashes[path.pool[k]]); 
+      }
+      //right children
+      else{
+        h = utils.hash("" + this.hashes[path.pool[k]] + "," + h); 
+      }
+    }
+    
+    //all the way to the root child
+    if(h == this.hashes[0]){
+      return true;
+    }else{
+      return false;
+    }
   }
 
   // Returns a boolean indicating whether this node is part
