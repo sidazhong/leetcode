@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cart_to_table.xsl"?>
+<company>
+	<shopping_cart user="Niraj">
+	    <item>
+	        <ID>1</ID>
+	        <type>Smart Phone</type>
+	        <price>10</price>
+	        <vendor>Apple</vendor>
+	    </item>
+	    <item>
+	        <ID>2</ID>
+	        <type>T-shirt</type>
+	        <price>10</price>
+	        <vendor>Peter England</vendor>
+	        <collection>
+          	<item_name>Tommy</item_name>
+ 						<item_name>Forever 21</item_name>
+ 						<item_name>Fitness Man</item_name>
+ 		  		</collection>
+	    </item>
+	    <item>
+	        <ID>3</ID>
+	        <type>Fruit</type>
+	        <price>2</price>
+	        <vendor>D-Mart</vendor>
+	        <collection>
+          	<item_name>Apple</item_name>
+ 						<item_name>Orange</item_name>
+ 						<item_name>Banana</item_name>
+ 		  		</collection>
+	    </item>
+	    <item>
+	        <ID>4</ID>
+	        <type>iPad Pro + Apple Pencil 2 + Paper-like Screen Protector</type>
+	        <price>1100</price>
+	        <vendor>Apple</vendor>
+	    </item>
+	 </shopping_cart>
+</company>

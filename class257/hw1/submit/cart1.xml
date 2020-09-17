@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="cart_to_table.xsl"?>
+<company>
+  <shopping_cart user="sida">
+      <item>
+          <ID>1</ID>
+          <type>orange</type>
+          <price>10</price>
+          <vendor>Sunshine Farm</vendor>
+      </item>
+      <item>
+          <ID>2</ID>
+          <type>apple</type>
+          <price>2</price>
+          <vendor>Sunshine Farm</vendor>
+      </item>
+  </shopping_cart>
+</company>
