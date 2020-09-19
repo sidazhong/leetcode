@@ -127,7 +127,6 @@ class MerkleTree {
     // If the Merkle root matches the path, return true.
 
     for (let k in path.pool) {
-
       //left children
       if(path.pool[k]%2==0){
         h = utils.hash("" + h + "," + this.hashes[path.pool[k]]); 

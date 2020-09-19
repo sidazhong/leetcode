@@ -48,7 +48,13 @@ class SpyAgency {
     let selected = rand.nextInt(blindDocs.length);
     console.log(`Agency selected ${selected}`);
     
+    console.log("test1");
+
+    //       selected   verifyAndSign(spy.blinded_factor,spy.origin_documents);
     response(selected, (blindingFactors, originalDocs) => {
+
+      console.log("test3");
+
       blindDocs.forEach((doc, i) => {
         // No blinding factor is expected for the selected identity.
         if (i === selected) return;

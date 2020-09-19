@@ -73,7 +73,10 @@ agency.signDocument(blindDocs, (selected, verifyAndSign) => {
   //
   // The verifyAndSign function will return the blinded signature.
   // Unblind it, and make sure that the signature is valid for
-  // the selected document.
+	// the selected document.
+	
+	console.log("test2");
+
 	let selected_blinded_factor = spy.blinded_factor[selected];
 	let selected_origin_documents = spy.origin_documents[selected];
 	
