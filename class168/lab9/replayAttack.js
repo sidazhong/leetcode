@@ -59,12 +59,14 @@ maleficent.on(Blockchain.PROOF_FOUND, (receiveBlock) => {
   // If the block reward is being given to minnie
   if(maleficent.storeTransaction!==undefined && receiveBlock.rewardAddr === maleficent.storeTransaction.from){
     //rebroadcast the saved transaction so that maleficent can steal the reward.
+    //maleficent.storeTransaction['nonce']=1000000;
     fakeNet.broadcast(Blockchain.POST_TRANSACTION, maleficent.storeTransaction);
   }
 });
 
 // Creating genesis block
 let genesis = Blockchain.makeGenesis({
+  //blockClass: Block,
   blockClass: BuggyBlock,
   transactionClass: Transaction,
   powLeadingZeroes: 14,
@@ -105,7 +107,7 @@ alice.postTransaction([{ amount: 40, address: belle.address }]);
 
 // Minnie transfers some money to Maleficent.
 console.log(`Minnie is transfering 25 gold to ${maleficent.address}`);
-minnie.postTransaction([{ amount: 1, address: maleficent.address }]);
+minnie.postTransaction([{ amount: 25, address: maleficent.address }]);
 
 // Print out the final balances after it has been running for some time.
 setTimeout(() => {
