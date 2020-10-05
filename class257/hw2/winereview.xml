@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<winereviews>
+<winereview winekey="1">
+<author>Chris Pollett</author>
+<title>Great</title>
+<description>This wine was great!</description>
+<rating>5</rating>
+</winereview>
+<winereview winekey="2">
+<author>Chris Pollett</author>
+<title>Sucked</title>
+<description>This wine was horrible!</description>
+<rating>1</rating>
+</winereview>
+</winereviews>

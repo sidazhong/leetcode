@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<winecellar>
+<wine winekey="1">
+<name>Jacques Selosse Brut Initial</name>
+<year>2012</year>
+<type>Champagne</type>
+<grape percentage="100">Chardonnay</grape>
+<price currency="EURO">150</price>
+<geo>
+<country>France</country>
+<region>Champagne</region> </geo>
+<quantity>12</quantity>
+</wine>
+<wine  winekey="2">
+<name>Meneghetti White</name> <year>2010</year>
+<type>white wine</type>
+<grape percentage="80">Chardonnay</grape>
+<grape percentage="20">Pinot Blanc</grape>
+<price currency="EURO">18</price>
+<geo>
+<country>Croatia</country>
+<region>Istria</region> </geo>
+<quantity>20</quantity> </wine>
+</winecellar>
