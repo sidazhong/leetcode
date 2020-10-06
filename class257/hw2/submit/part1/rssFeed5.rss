@@ -1,311 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
-   <category term="worldnews" label="r/worldnews" />
-   <updated>2020-10-04T00:10:50+00:00</updated>
-   <icon>https://www.redditstatic.com/icon.png/</icon>
-   <id>/r/worldnews/.rss</id>
-   <link rel="self" href="https://www.reddit.com/r/worldnews/.rss" type="application/atom+xml" />
-   <link rel="alternate" href="https://www.reddit.com/r/worldnews/" type="text/html" />
-   <subtitle>A place for major news from around the world, excluding US-internal news.</subtitle>
-   <title>World News</title>
-   <entry>
-      <author>
-         <name>/u/baumannk</name>
-         <uri>https://www.reddit.com/user/baumannk</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/baumannk"&gt; /u/baumannk &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.theguardian.com/world/2020/oct/03/chilean-police-throw-boy-16-off-bridge-during-protests"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4jlyb/chilean_police_throw_boy_16_off_bridge_during/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4jlyb</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4jlyb/chilean_police_throw_boy_16_off_bridge_during/" />
-      <updated>2020-10-03T17:58:30+00:00</updated>
-      <title>Chilean police throw boy, 16, off bridge during protests | Chile</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/zsreport</name>
-         <uri>https://www.reddit.com/user/zsreport</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/zsreport"&gt; /u/zsreport &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://globalnews.ca/news/7373856/quebec-joyce-echaquan-family-lawsuit/"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4f014/justice_for_joyce_family_of_indigenous_woman_who/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4f014</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4f014/justice_for_joyce_family_of_indigenous_woman_who/" />
-      <updated>2020-10-03T13:28:28+00:00</updated>
-      <title>‘Justice for Joyce’: Family of Indigenous woman who died in Quebec hospital announces lawsuit</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/Facerealityalready</name>
-         <uri>https://www.reddit.com/user/Facerealityalready</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/Facerealityalready"&gt; /u/Facerealityalready &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://thehill.com/policy/international/519455-germany-calls-for-russian-sanctions-for-alleged-poisoning-of-opposition"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4fogh/germany_calls_for_russian_sanctions_after_alleged/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4fogh</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4fogh/germany_calls_for_russian_sanctions_after_alleged/" />
-      <updated>2020-10-03T14:11:58+00:00</updated>
-      <title>Germany calls for Russian sanctions after alleged poisoning of opposition leader</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/RevistaLegerin</name>
-         <uri>https://www.reddit.com/user/RevistaLegerin</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/RevistaLegerin"&gt; /u/RevistaLegerin &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.nuceciwan54.com/en/2020/10/03/anonymous-hacks-83-websites-belonging-to-azerbaijani-government-in-support-of-armenia/"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4hua2/anonymous_hacks_83_websites_belonging_to/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4hua2</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4hua2/anonymous_hacks_83_websites_belonging_to/" />
-      <updated>2020-10-03T16:19:31+00:00</updated>
-      <title>Anonymous hacks 83 websites belonging to Azerbaijani government in support of Armenia</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/ManiaforBeatles</name>
-         <uri>https://www.reddit.com/user/ManiaforBeatles</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/ManiaforBeatles"&gt; /u/ManiaforBeatles &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.theguardian.com/australia-news/2020/oct/03/new-zealand-refuses-quarantine-free-travel-from-australia-as-act-joins-travel-bubble"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4do1j/new_zealand_refuses_quarantinefree_trips_from/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4do1j</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4do1j/new_zealand_refuses_quarantinefree_trips_from/" />
-      <updated>2020-10-03T10:38:39+00:00</updated>
-      <title>New Zealand refuses quarantine-free trips from Australia as Australian Capital Territory joins travel bubble: NZ PM Jacinda Ardern says her country will not open up until Australia records a month without community transmission of Covid-19</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/Tesg9029</name>
-         <uri>https://www.reddit.com/user/Tesg9029</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/Tesg9029"&gt; /u/Tesg9029 &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.japantimes.co.jp/news/2020/10/02/national/coronavirus-vaccination-given-free-japan/"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4dfjf/coronavirus_vaccination_to_be_given_for_free_in/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4dfjf</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4dfjf/coronavirus_vaccination_to_be_given_for_free_in/" />
-      <updated>2020-10-03T10:16:59+00:00</updated>
-      <title>Coronavirus vaccination to be given for free in Japan</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/redhatGizmo</name>
-         <uri>https://www.reddit.com/user/redhatGizmo</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/redhatGizmo"&gt; /u/redhatGizmo &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://indianexpress.com/article/world/egypt-unearths-59-ancient-coffins-buried-more-than-2600-years-ago-near-saqqara-pyramids-6689281/"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4iwv4/egypt_unearths_59_ancient_coffins_buried_more/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4iwv4</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4iwv4/egypt_unearths_59_ancient_coffins_buried_more/" />
-      <updated>2020-10-03T17:18:38+00:00</updated>
-      <title>Egypt unearths 59 ancient coffins buried more than 2,600 years ago near Saqqara pyramids</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/newlox</name>
-         <uri>https://www.reddit.com/user/newlox</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/newlox"&gt; /u/newlox &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.theweathernetwork.com/ca/news/article/rare-halloween-blue-moon-lights-up-the-scariest-night-of-the-year"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4buy4/a_rare_halloween_blue_moon_will_light_up_the/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4buy4</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4buy4/a_rare_halloween_blue_moon_will_light_up_the/" />
-      <updated>2020-10-03T07:46:51+00:00</updated>
-      <title>A rare Halloween Blue Moon will light up the scariest night of the year</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/Facerealityalready</name>
-         <uri>https://www.reddit.com/user/Facerealityalready</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/Facerealityalready"&gt; /u/Facerealityalready &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://uk.reuters.com/article/uk-health-coronavirus-france/french-coronavirus-cases-reach-record-level-with-nearly-17000-new-infections-idUKKBN26O0VK"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4kw1g/french_coronavirus_cases_reach_record_level_with/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4kw1g</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4kw1g/french_coronavirus_cases_reach_record_level_with/" />
-      <updated>2020-10-03T19:12:58+00:00</updated>
-      <title>French coronavirus cases reach record level with nearly 17,000 new infections</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/ahm713</name>
-         <uri>https://www.reddit.com/user/ahm713</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/ahm713"&gt; /u/ahm713 &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://see.news/merkel-warns-of-new-dangerous-wave-of-coronavirus-within/"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4hqy4/merkel_warns_of_new_dangerous_wave_of_coronavirus/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4hqy4</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4hqy4/merkel_warns_of_new_dangerous_wave_of_coronavirus/" />
-      <updated>2020-10-03T16:14:20+00:00</updated>
-      <title>Merkel Warns of New Dangerous Wave of Coronavirus within Coming Months</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/mom0nga</name>
-         <uri>https://www.reddit.com/user/mom0nga</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/mom0nga"&gt; /u/mom0nga &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://apnews.com/article/virus-outbreak-iran-nuclear-nuclear-weapons-india-antonio-guterres-46b2e72691a43d8950eaff925c4402ee"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4k81l/un_chief_world_is_living_in_shadow_of_nuclear/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4k81l</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4k81l/un_chief_world_is_living_in_shadow_of_nuclear/" />
-      <updated>2020-10-03T18:34:16+00:00</updated>
-      <title>UN chief: World is living in `shadow of nuclear catastrophe’</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/tom4ick</name>
-         <uri>https://www.reddit.com/user/tom4ick</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/tom4ick"&gt; /u/tom4ick &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.ynetnews.com/article/HJK2bD8ID"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4n5ka/defying_protest_ban_thousands_of_israelis/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4n5ka</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4n5ka/defying_protest_ban_thousands_of_israelis/" />
-      <updated>2020-10-03T21:29:52+00:00</updated>
-      <title>Defying protest ban, thousands of Israelis demonstrate against Israeli prime minister</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/SofiSofly</name>
-         <uri>https://www.reddit.com/user/SofiSofly</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/SofiSofly"&gt; /u/SofiSofly &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.dw.com/en/belarus-cancels-all-accreditation-for-foreign-journalists/a-55130433"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4c5f7/belarus_cancels_all_accreditation_for_foreign/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4c5f7</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4c5f7/belarus_cancels_all_accreditation_for_foreign/" />
-      <updated>2020-10-03T08:16:13+00:00</updated>
-      <title>Belarus cancels all accreditation for foreign journalists</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/carsonbiz</name>
-         <uri>https://www.reddit.com/user/carsonbiz</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/carsonbiz"&gt; /u/carsonbiz &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.cbc.ca/news/world/venice-flood-barrier-deployed-1.5749385"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4fob3/a_longdelayed_flood_barrier_system_successfully/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4fob3</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4fob3/a_longdelayed_flood_barrier_system_successfully/" />
-      <updated>2020-10-03T14:11:42+00:00</updated>
-      <title>A long-delayed flood barrier system successfully protected Venice from a high tide for the first time on Saturday, bringing big relief to the lagoon city after years of repeated inundations.</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/Sirene-Naia</name>
-         <uri>https://www.reddit.com/user/Sirene-Naia</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/Sirene-Naia"&gt; /u/Sirene-Naia &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.aljazeera.com/news/2020/10/3/top-thai-zoo-official-shot-dead-amid-missing-wildlife-scandal"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4mdge/top_thai_zoo_official_shot_dead_while/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4mdge</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4mdge/top_thai_zoo_official_shot_dead_while/" />
-      <updated>2020-10-03T20:42:18+00:00</updated>
-      <title>Top Thai zoo official shot dead while investigating disappearance of a rare albino barking deer. The gunman, also a senior official at the zoo, and long time friend of the victim killed himself after fleeing the scene. Some suspicions that the deer was sold to or stolen by wildlife traffickers.</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/beefwbroccoli</name>
-         <uri>https://www.reddit.com/user/beefwbroccoli</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/beefwbroccoli"&gt; /u/beefwbroccoli &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.independent.co.uk/news/world/americas/canada-lgbt-conversion-therapy-liberal-party-justin-trudeau-b750661.html"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j46vjt/canada_reintroduces_bill_to_ban_lgbt_conversion/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j46vjt</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j46vjt/canada_reintroduces_bill_to_ban_lgbt_conversion/" />
-      <updated>2020-10-03T01:13:53+00:00</updated>
-      <title>Canada reintroduces bill to ban LGBT+ conversion therapy</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/esoterix_luke</name>
-         <uri>https://www.reddit.com/user/esoterix_luke</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/esoterix_luke"&gt; /u/esoterix_luke &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.newsweek.com/xi-jinping-donald-trump-coronavirus-wishes-1536171"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4g1eq/after_china_state_media_said_trump_paid_the_price/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4g1eq</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4g1eq/after_china_state_media_said_trump_paid_the_price/" />
-      <updated>2020-10-03T14:35:27+00:00</updated>
-      <title>After China state media said Trump "paid the price" for COVID-19 response, President Xi wishes him well</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/AmSerge</name>
-         <uri>https://www.reddit.com/user/AmSerge</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/AmSerge"&gt; /u/AmSerge &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.france24.com/en/20201002-turkey-has-a-clear-objective-of-reinstating-the-turkish-empire-armenian-pm-says"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4attt/turkey_has_a_clear_objective_of_reinstating_the/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4attt</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4attt/turkey_has_a_clear_objective_of_reinstating_the/" />
-      <updated>2020-10-03T06:08:38+00:00</updated>
-      <title>'Turkey has a clear objective of reinstating the Turkish empire', Armenian PM says</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/TerraNova55</name>
-         <uri>https://www.reddit.com/user/TerraNova55</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/TerraNova55"&gt; /u/TerraNova55 &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://siberiantimes.com/other/others/news/eco-disaster-at-kamchatka-peninsula-with-mass-death-of-sea-animals-at-precious-pacific-beach/"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4icnl/eco_disaster_at_kamchatka_peninsula_with_mass/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4icnl</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4icnl/eco_disaster_at_kamchatka_peninsula_with_mass/" />
-      <updated>2020-10-03T16:47:44+00:00</updated>
-      <title>Eco disaster at Kamchatka peninsula with mass death of sea animals at precious Pacific beach</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/TiltedFedora</name>
-         <uri>https://www.reddit.com/user/TiltedFedora</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/TiltedFedora"&gt; /u/TiltedFedora &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;amp;objectid=12370060"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4990w/covid_19_coronavirus_jacinda_ardern_sends_trump/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4990w</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4990w/covid_19_coronavirus_jacinda_ardern_sends_trump/" />
-      <updated>2020-10-03T04:04:28+00:00</updated>
-      <title>Covid 19 coronavirus: Jacinda Ardern sends Trump New Zealand's best wishes</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/ManiaforBeatles</name>
-         <uri>https://www.reddit.com/user/ManiaforBeatles</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/ManiaforBeatles"&gt; /u/ManiaforBeatles &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.theguardian.com/uk-news/2020/oct/03/new-uk-app-records-police-encounters-and-saves-footage-in-cloud"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4g0xv/new_uk_app_records_police_encounters_and_saves/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4g0xv</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4g0xv/new_uk_app_records_police_encounters_and_saves/" />
-      <updated>2020-10-03T14:34:39+00:00</updated>
-      <title>New UK app records police encounters and saves footage in cloud - Legal Lifelines app intended to provide alternative evidence to police bodycam footage</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/TheLoveOfPI</name>
-         <uri>https://www.reddit.com/user/TheLoveOfPI</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/TheLoveOfPI"&gt; /u/TheLoveOfPI &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.cnn.com/2020/10/03/africa/nigeria-cheaper-covid-19-test-kits-intl/index.html"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4ir2s/nigerian_scientists_develop_cheaper_and_faster/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4ir2s</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4ir2s/nigerian_scientists_develop_cheaper_and_faster/" />
-      <updated>2020-10-03T17:09:31+00:00</updated>
-      <title>Nigerian scientists develop cheaper and faster Covid-19 test kits</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/Facerealityalready</name>
-         <uri>https://www.reddit.com/user/Facerealityalready</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/Facerealityalready"&gt; /u/Facerealityalready &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.newsweek.com/coronavirus-paris-maximum-alert-icu-critical-1536025"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4224h/paris_could_be_put_on_maximum_alert_lockdown_as/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4224h</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4224h/paris_could_be_put_on_maximum_alert_lockdown_as/" />
-      <updated>2020-10-02T20:13:34+00:00</updated>
-      <title>Paris could be put on "maximum alert," lockdown as ICU bed occupancy hits critical level</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/Quasiterran</name>
-         <uri>https://www.reddit.com/user/Quasiterran</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/Quasiterran"&gt; /u/Quasiterran &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.aljazeera.com/news/2020/10/3/egypt-unveils-59-ancient-coffins-in-major-archaeological-discover"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4jwfw/egypt_unveils_59_ancient_coffins_in_major/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4jwfw</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4jwfw/egypt_unveils_59_ancient_coffins_in_major/" />
-      <updated>2020-10-03T18:15:19+00:00</updated>
-      <title>Egypt unveils 59 ancient coffins in major archaeological find | Middle East</title>
-   </entry>
-   <entry>
-      <author>
-         <name>/u/getBusyChild</name>
-         <uri>https://www.reddit.com/user/getBusyChild</uri>
-      </author>
-      <category term="worldnews" label="r/worldnews" />
-      <content type="html">&amp;#32; submitted by &amp;#32; &lt;a href="https://www.reddit.com/user/getBusyChild"&gt; /u/getBusyChild &lt;/a&gt; &lt;br/&gt; &lt;span&gt;&lt;a href="https://www.aljazeera.com/news/2020/10/3/new-caledonia-set-for-2nd-referendum-on-independence-from-france?s=09"&gt;[link]&lt;/a&gt;&lt;/span&gt; &amp;#32; &lt;span&gt;&lt;a href="https://www.reddit.com/r/worldnews/comments/j4m33d/new_caledonia_set_for_2nd_referendum_on/"&gt;[comments]&lt;/a&gt;&lt;/span&gt;</content>
-      <id>t3_j4m33d</id>
-      <link href="https://www.reddit.com/r/worldnews/comments/j4m33d/new_caledonia_set_for_2nd_referendum_on/" />
-      <updated>2020-10-03T20:24:46+00:00</updated>
-      <title>New Caledonia set for 2nd referendum on independence from France</title>
-   </entry>
-</feed>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+  <channel>
+    <atom:link href="http://feeds.skynews.com/feeds/rss/us.xml" rel="self" type="application/rss+xml"/>
+    <title>US News - The latest headlines from the US | Sky News</title>
+    <link>http://news.sky.com/us</link>
+    <image>
+      <title>US News - The latest headlines from the US | Sky News</title>
+      <url>http://feeds.skynews.com/images/web/logo/skynews_rss.png</url>
+      <link>http://news.sky.com/us</link>
+    </image>
+    <description>The latest news, video and expert analysis from around the United States of America.</description>
+    <language>en-GB</language>
+    <copyright>Copyright 2016, BSKYB. All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 05 Oct 2020 22:27:00 +0100</lastBuildDate>
+    <category>Sky News</category>
+    <ttl>1</ttl>
+    <item>
+      <title>'Maybe I'm immune': Trump leaves hospital after coronavirus treatment</title>
+      <link>http://news.sky.com/story/donald-trump-to-leave-hospital-after-coronavirus-treatment-12091144</link>
+      <description>Donald Trump has left hospital after being treated for coronavirus.</description>
+      <pubDate>Mon, 05 Oct 2020 19:39:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/donald-trump-to-leave-hospital-after-coronavirus-treatment-12091144</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-trump-hospital_5119843.jpg?20201006000524" length="0" type="image/jpeg"/>
+      <media:description type="html">President Trump spent tree days in hospital</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-trump-hospital_5119843.jpg?20201006000524" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-trump-hospital_5119843.jpg?20201006000524"/>
+    </item>
+    <item>
+      <title>Fauci calls Trump 'superspreader' gathering dangerous</title>
+      <link>http://news.sky.com/story/coronavirus-dr-anthony-fauci-calls-white-house-gathering-days-before-donald-trumps-coronavirus-diagnosis-dangerous-12091261</link>
+      <description>The top US infectious diseases doctor has warned a White House event which did not appear to follow coronavirus restrictions was &quot;dangerous&quot;.</description>
+      <pubDate>Mon, 05 Oct 2020 22:27:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/coronavirus-dr-anthony-fauci-calls-white-house-gathering-days-before-donald-trumps-coronavirus-diagnosis-dangerous-12091261</guid>
+      <enclosure url="http://e3.365dm.com/20/09/70x70/skynews-donald-trump-amy-coney-barrett_5109977.jpg?20201005224545" length="0" type="image/jpeg"/>
+      <media:description type="html">WASHINGTON, DC - SEPTEMBER 26: U.S. President Donald Trump (L) arrives to introduce 7th U.S. Circuit Court Judge Amy Coney Barrett as his nominee to the Supreme Court in the Rose Garden at the White House September 26, 2020 in Washington, DC. With 38 days until the election, Trump tapped Barrett to be his third Supreme Court nominee in just four years and to replace the late Associate Justice Ruth Bader Ginsburg, who will be buried at Arlington National Cemetery on Tuesday. (Photo by Chip Somode</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/09/70x70/skynews-donald-trump-amy-coney-barrett_5109977.jpg?20201005224545" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/09/70x70/skynews-donald-trump-amy-coney-barrett_5109977.jpg?20201005224545"/>
+    </item>
+    <item>
+      <title>Trump doctors must resist 'VIP syndrome', warns COVID expert</title>
+      <link>http://news.sky.com/story/coronavirus-trump-doctors-must-resist-vip-syndrome-warns-leader-of-worlds-biggest-covid-study-12091095</link>
+      <description>The doctor leading the world's largest study of COVID-19 treatment says Donald Trump should not be given experimental drugs that have yet to be fully tested.</description>
+      <pubDate>Mon, 05 Oct 2020 18:36:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/coronavirus-trump-doctors-must-resist-vip-syndrome-warns-leader-of-worlds-biggest-covid-study-12091095</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-trump-arrives-at-hospital_5116426.jpg?20201003044420" length="0" type="image/jpeg"/>
+      <media:description type="html">S. President Donald Trump exits Marine One at Walter Reed National Military Medical Center </media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-trump-arrives-at-hospital_5116426.jpg?20201003044420" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-trump-arrives-at-hospital_5116426.jpg?20201003044420"/>
+    </item>
+    <item>
+      <title>Trump's drive-by during COVID-19 treatment was 'insanity', top doctor says</title>
+      <link>http://news.sky.com/story/trump-pays-surprise-visit-to-supporters-outside-hospital-12090431</link>
+      <description>US President Donald Trump's drive-by for supporters has been criticised as &quot;insanity&quot; by a top doctor.</description>
+      <pubDate>Sun, 04 Oct 2020 22:26:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/trump-pays-surprise-visit-to-supporters-outside-hospital-12090431</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-us-president-donald-trump_5118858.jpg?20201005011154" length="0" type="image/jpeg"/>
+      <media:description type="html">Donald Trump waves to supporters as he rides by in the presidential motorcade in front of Walter Reed National Military Medical Center</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-us-president-donald-trump_5118858.jpg?20201005011154" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-us-president-donald-trump_5118858.jpg?20201005011154"/>
+    </item>
+    <item>
+      <title>Trump says he now 'understands' the coronavirus but his actions prove otherwise</title>
+      <link>http://news.sky.com/story/trump-says-he-now-understands-the-coronavirus-but-his-actions-prove-otherwise-12090481</link>
+      <description>Horns had been blaring all day as Donald Trump's supporters drove up and down the road outside his hospital.</description>
+      <pubDate>Mon, 05 Oct 2020 03:27:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/trump-says-he-now-understands-the-coronavirus-but-his-actions-prove-otherwise-12090481</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-trump-bethesda_5118873.jpg?20201005035641" length="0" type="image/jpeg"/>
+      <media:description type="html">Supporters of the US president hold flags as they rally outside of Walter Reed Medical Center in Bethesda, Maryland on October 4, 2020, where the president is being treated for Covid-19.</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-trump-bethesda_5118873.jpg?20201005035641" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-trump-bethesda_5118873.jpg?20201005035641"/>
+    </item>
+    <item>
+      <title>Timeline of Donald Trump's treatment for COVID-19</title>
+      <link>http://news.sky.com/story/coronavirus-timeline-of-donald-trumps-treatment-for-covid-19-12090914</link>
+      <description>Donald Trump has been receiving treatment for COVID-19 for several days.</description>
+      <pubDate>Mon, 05 Oct 2020 14:23:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/coronavirus-timeline-of-donald-trumps-treatment-for-covid-19-12090914</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/182a64d52917904ab22d5caba05f819fdc4c5f3deb9ea6eb546882803948d53d_5117514.jpg?20201005214706" length="0" type="image/jpeg"/>
+      <media:description type="html">Donlad Trump delivers a video message folloing his coronavirus diagnosis.</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/182a64d52917904ab22d5caba05f819fdc4c5f3deb9ea6eb546882803948d53d_5117514.jpg?20201005214706" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/182a64d52917904ab22d5caba05f819fdc4c5f3deb9ea6eb546882803948d53d_5117514.jpg?20201005214706"/>
+    </item>
+    <item>
+      <title>Who else close to Donald Trump has tested positive for COVID-19?</title>
+      <link>http://news.sky.com/story/trump-coronavirus-who-else-close-to-the-us-president-has-tested-positive-for-covid-19-12088412</link>
+      <description>Several cases have been confirmed among those who have had close contact with Donald Trump and his aide Hope Hicks, whose diagnosis prompted the test that confirmed the US president had the coronavirus.</description>
+      <pubDate>Sat, 03 Oct 2020 04:16:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/trump-coronavirus-who-else-close-to-the-us-president-has-tested-positive-for-covid-19-12088412</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-graphic-donald-trump_5116527.jpg?20201003081335" length="0" type="image/jpeg"/>
+      <media:description type="html">Donald Trump and his aide Hope Hicks</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-graphic-donald-trump_5116527.jpg?20201003081335" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-graphic-donald-trump_5116527.jpg?20201003081335"/>
+    </item>
+    <item>
+      <title>Spike Lee film star Thomas Jefferson Byrd killed in shooting</title>
+      <link>http://news.sky.com/story/thomas-jefferson-byrd-spike-lee-film-star-killed-in-shooting-in-atlanta-12090593</link>
+      <description>Spike Lee and Viola Davis are leading the tributes following the death of actor Thomas Jefferson Byrd, who has died after being shot multiple times.</description>
+      <pubDate>Mon, 05 Oct 2020 08:46:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/thomas-jefferson-byrd-spike-lee-film-star-killed-in-shooting-in-atlanta-12090593</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-thomas-jefferson-byrd_5119045.jpg?20201005085206" length="0" type="image/jpeg"/>
+      <media:description type="html">Actor Thomas Jefferson Byrd on June 21, 2014 in New York City</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-thomas-jefferson-byrd_5119045.jpg?20201005085206" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-thomas-jefferson-byrd_5119045.jpg?20201005085206"/>
+    </item>
+    <item>
+      <title>Trump may be infected but he still wants us to know who's in charge</title>
+      <link>http://news.sky.com/story/trump-coronavirus-president-may-be-infected-but-he-still-wants-us-know-whos-in-charge-12090479</link>
+      <description>After some seriously mixed messaging on Donald Trump's health, Sunday brought another optimistic message from his doctors - not only was he on the mend, but he might be out by as early as today.</description>
+      <pubDate>Mon, 05 Oct 2020 02:44:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/trump-coronavirus-president-may-be-infected-but-he-still-wants-us-know-whos-in-charge-12090479</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-donald-trump-walter-reed-hospital_5118870.jpg?20201005032211" length="0" type="image/jpeg"/>
+      <media:description type="html">President Donald Trump in his conference room at the Walter Reed National Military Medical Center. Pic: White House</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-donald-trump-walter-reed-hospital_5118870.jpg?20201005032211" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-donald-trump-walter-reed-hospital_5118870.jpg?20201005032211"/>
+    </item>
+    <item>
+      <title>Revealed: UK shields used in US BLM protests, despite govt claim of &quot;no evidence&quot;</title>
+      <link>http://news.sky.com/story/revealed-uk-shields-used-in-us-blm-protests-despite-govt-claim-of-no-evidence-12088842</link>
+      <description>UK-made anti-riot gear has been widely used in America during clashes with Black Lives Matter protesters, despite the government's claim there is &quot;no evidence&quot; British equipment was used, Sky News has found.&amp;#160;</description>
+      <pubDate>Sat, 03 Oct 2020 14:46:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/revealed-uk-shields-used-in-us-blm-protests-despite-govt-claim-of-no-evidence-12088842</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-arms-shields_5117030.png?20201003162149" length="0" type="image/png"/>
+      <media:description type="html">An officer in Washington DC  carries a UK-made shield</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-arms-shields_5117030.png?20201003162149" width="70" height="70"/>
+      <media:content type="image/png" url="http://e3.365dm.com/20/10/70x70/skynews-arms-shields_5117030.png?20201003162149"/>
+    </item>
+  </channel>
+</rss>

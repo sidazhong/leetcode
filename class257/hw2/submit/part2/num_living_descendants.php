@@ -22,10 +22,15 @@ class num_living_descendants extends debug{
             return $rs_memcache;
         }
         
-        $query="MATCH (child:person)-[r:is_child]->(parent:person) where parent.name='{$this->name}' and NOT EXISTS(child.death_year) RETURN COUNT(r)";
+        $query="
+                MATCH (a:person { name: '{$this->name}' })<-[*0..100]-(x) 
+                WHERE NOT EXISTS(x.death_year) 
+                RETURN COUNT(x)-1;";
+        
+        
         $rs=$this->obj_neo4j->run($query)->getRecord();
         if(!empty($rs)){
-            $count=$rs->value("COUNT(r)");
+            $count=$rs->value("COUNT(x)-1");
         }
         
         $this->obj_memcache->set("num_living_descendants",$count,false,60);

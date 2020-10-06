@@ -28,12 +28,15 @@ class relationship extends debug{
             return $rs_memcache;
         }
         
-        $query="MATCH (a:person {name: '{$this->name1}'}), (b:person {name: '{$this->name2}'}) RETURN EXISTS( (a)-[:is_child]-(b) )";
+        $query="
+            MATCH (a:person { name: '{$this->name1}' }),(b:person { name: '{$this->name2}' }), p = shortestPath((a)-[*..100]-(b))
+            RETURN p";
+        
         $rs=$this->obj_neo4j->run($query)->getRecord();
         if(empty($rs)){
             $result="NOT_RELATED\n";
         }else{
-            if(!empty($rs->value('EXISTS( (a)-[:is_child]-(b) )'))){
+            if(!empty($rs->value('p'))){
                 $result="RELATED\n";
             }else{
                 $result="NOT_RELATED\n";
