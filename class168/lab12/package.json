@@ -1,0 +1,15 @@
+{
+  "name": "lab12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mnemonics.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "sida",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
+  }
+}
