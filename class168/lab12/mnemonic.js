@@ -34,6 +34,17 @@ class Mnemonic {
     //
     // ***YOUR CODE HERE***
     //
+    
+    let bit_8 = [];
+    for (var i = 0; i < bs.length; i++) {
+    	if(bit_8[parseInt(i/8)]===undefined){
+    		bit_8[parseInt(i/8)]=bs[i];
+    	}else{
+    		bit_8[parseInt(i/8)]+=bs[i];
+    	}
+    }
+  
+    return bit_8;
   }
 
   // Takes a buffer and returns an array of 11-bit unsigned ints
@@ -155,7 +166,6 @@ class Mnemonic {
     let wordArray = words.split(' ');
     // Extra byte for checksum
     this.seq = Buffer.alloc(NUM_BYTES + 1);
-
     //
     // ***YOUR CODE HERE***
     //
@@ -166,31 +176,21 @@ class Mnemonic {
     // Using that string of bits, convert to bytes and write
     // to the `this.seq` buffer.
 
-
-    console.log(Mnemonic.split(Buffer.from(wordArray[0])));
-    
     // Determine the string of bits from the specified words.
-    //console.log(Mnemonic.translate11bit(this.getKeyByValue(this.wordlist,wordArray[0])));
-
-    //Using that string of bits, convert to bytes
-
-
-    //console.log(Mnemonic.convertBinStringToByte(this.getKeyByValue(this.wordlist,wordArray[0])));
-
-    /*
+    let num_bit11 = "";
     for(let k in wordArray){
-      this.seq.writeUInt8(this.convertBinStringToByte(wordArray[k]),k);
+    	if(wordArray[k]!==""){
+    		num_bit11 +=  Mnemonic.translate11bit(this.wordlist.indexOf(wordArray[k]));
+    	}
     }
-
-    console.log(wordArray);
-    console.log(this.seq);
-    */
+    
+    let numb_bit8 = Mnemonic.convertBinStringToByte(num_bit11);
+    
+    for(let k in numb_bit8){
+    	this.seq.writeUInt8(parseInt(numb_bit8[k],2),parseInt(k));
+    }
   }
-
-  getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
-  }
- 
+  
   // Returns true if the checksum matches its contents.
   isValid() {
     let checksum = this.calcChecksum();
