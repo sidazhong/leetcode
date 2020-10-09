@@ -35,16 +35,7 @@ class Mnemonic {
     // ***YOUR CODE HERE***
     //
     
-    let bit_8 = [];
-    for (var i = 0; i < bs.length; i++) {
-    	if(bit_8[parseInt(i/8)]===undefined){
-    		bit_8[parseInt(i/8)]=bs[i];
-    	}else{
-    		bit_8[parseInt(i/8)]+=bs[i];
-    	}
-    }
-  
-    return bit_8;
+    return parseInt(bs,2);
   }
 
   // Takes a buffer and returns an array of 11-bit unsigned ints
@@ -184,10 +175,17 @@ class Mnemonic {
     	}
     }
     
-    let numb_bit8 = Mnemonic.convertBinStringToByte(num_bit11);
+    let bit_8 = [];
+    for (var i = 0; i < num_bit11.length; i++) {
+    	if(bit_8[parseInt(i/8)]===undefined){
+    		bit_8[parseInt(i/8)]=num_bit11[i];
+    	}else{
+    		bit_8[parseInt(i/8)]+=num_bit11[i];
+    	}
+    }
     
-    for(let k in numb_bit8){
-    	this.seq.writeUInt8(parseInt(numb_bit8[k],2),parseInt(k));
+    for(let k in bit_8){
+    	this.seq.writeUInt8(Mnemonic.convertBinStringToByte(bit_8[k]),parseInt(k));
     }
   }
   
