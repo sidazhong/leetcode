@@ -133,11 +133,11 @@ class Mnemonic {
     let rs ="";
     for(let k in arr){
       rs += this.wordlist[arr[k]];
-      if(k!==arr.length-1){
+      if(parseInt(k)!==arr.length-1){
         rs += " ";
       }
     }
-
+    
     return rs;
   }
 
