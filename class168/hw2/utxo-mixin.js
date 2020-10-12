@@ -122,13 +122,57 @@ module.exports = {
     // Once the transaction is created, sign it with all private keys for the UTXOs used.
     // The order that you call the 'sign' method must match the order of the from and pubKey fields.
 
-
     //
     // **YOUR CODE HERE**
     //
-
-
-
+  	
+  	// Calculate the total value of gold needed and make sure the client has sufficient gold.
+  	let total_value = fee;
+  	for(let k in outputs){
+  		total_value += outputs[k]['amount'];
+  	}
+  	if(this.getConfirmedBalance() < total_value){
+  		throw 'not sufficient balance';
+  	}
+  	
+    // If they do, gather up UTXOs from the wallet (starting with the oldest) until the total
+    // value of the UTXOs meets or exceeds the gold required.
+  	let UTXOs = 0;
+  	let from = [];
+  	let pubKey = [];
+  	let privateKey = [];
+  	for(let k in this.wallet){
+  		UTXOs += this.lastConfirmedBlock.balances.get(this.wallet[k].address);
+  		from.push(this.wallet[k].address);
+  		pubKey.push(this.wallet[k]['keyPair']['public']);
+  		privateKey.push(this.wallet[k]['keyPair']['private']);
+  		if(UTXOs >= total_value){
+  			break;
+  		}
+  	}
+  	
+    // Determine by how much the collected UTXOs exceed the total needed.
+    // Create a new address to receive this "change" and add it to the list of outputs.
+  	let exceed = UTXOs - total_value;
+  	let new_address = utils.calcAddress(utils.generateKeypair().public);
+  	outputs.push({"amount":exceed,"address":new_address});
+  	
+  	// Call `Blockchain.makeTransaction`, noting that 'from' and 'pubKey' are arrays
+    // instead of single values.  The nonce field is not needed, so set it to '0'.
+    let tx = Blockchain.makeTransaction({
+      from: from,
+      nonce: 0,
+      pubKey: pubKey,
+      outputs: outputs,
+      fee: fee,
+    });
+  	
+    // Once the transaction is created, sign it with all private keys for the UTXOs used.
+    // The order that you call the 'sign' method must match the order of the from and pubKey fields.
+  	for(let k in privateKey){
+  		tx.sign(privateKey[k]);
+  	} 
+  	
     // Adding transaction to pending.
     this.pendingOutgoingTransactions.set(tx.id, tx);
 
@@ -140,6 +184,27 @@ module.exports = {
     }
 
     return tx;
-  },
-  
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

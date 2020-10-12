@@ -1,6 +1,6 @@
 "use strict";
 
-const { Miner } = require("spartan-gold");
+const { Miner, utils } = require("spartan-gold");
 
 const UtxoMixin = require("./utxo-mixin.js");
 
@@ -52,9 +52,18 @@ module.exports = class UtxoMiner extends Miner {
     //
     // **YOUR CODE HERE**
     //
-
-
-
+  	
+  	//you will need to compare the lastBlock's rewardAddr field against the miner's current address
+  	
+  	let new_address = "";
+  	if(this.lastBlock.rewardAddr === this.address){
+  		//make sure that the address does not already have a balance of gold associated with it.
+  		if(this.lastBlock.balances.get(this.address)!==undefined){
+  			new_address = utils.calcAddress(utils.generateKeypair().public);
+  			this.lastBlock.balances[new_address] = this.lastBlock.coinbaseReward;
+  		}
+  	}
+  	
     super.startNewSearch(...args);
   }
 
