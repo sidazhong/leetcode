@@ -159,6 +159,8 @@ function readUserInput() {
   Pending transactions: ${minnie.showPendingOut()}
   
   What would you like to do?
+  *create new (a)ddress?
+  *show my (U)TXOs?
   *(c)onnect to miner?
   *(t)ransfer funds?
   *(r)esend pending transactions?
@@ -170,6 +172,30 @@ function readUserInput() {
   Your choice: `, (answer) => {
     console.clear();
     switch (answer.trim().toLowerCase()) {
+    	
+    	
+    	
+    	case 'a':
+        console.log(`create new (a)ddress`);
+        address = minnie.createAddress();
+        console.log(address);
+        break;
+        
+        
+    	case 'u':
+        console.log(`show my (U)TXOs`);
+        minnie.showAllUtxos();
+        break;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
       case 'x':
         console.log(`Shutting down.  Have a nice day.`);
         process.exit(0);
