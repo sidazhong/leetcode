@@ -58,8 +58,12 @@ module.exports = class UtxoBlock extends Block {
     
     //update the balances of the accounts receiving the gold.
     for(let k in tx.outputs){
-    	this.balances[tx.outputs[k].address] = tx.outputs[k].amount;
+    	this.balances.set(tx.outputs[k].address, tx.outputs[k].amount);
     	console.log("***Giving "+tx.outputs[k].amount+" to "+tx.outputs[k].address);
+    }
+    
+    for(let k in this.balances){
+    	console.log(this.balances[k]);
     }
     
     return true;

@@ -6,6 +6,7 @@ const UtxoBlock = require('./utxo-block.js');
 const UtxoClient = require('./utxo-client.js');
 const UtxoMiner = require('./utxo-miner.js');
 const UtxoTransaction = require('./utxo-transaction.js');
+//const TcpMiner = require('./tcpMiner.js');
 
 /**
  * In Part 2, we build the UTXO model.  Note that the Block, Client, Miner,
@@ -86,12 +87,6 @@ console.log();
 console.log(`***Alice is transferring 40 gold to Bob at address ${addr}`);
 console.log();
 alice.postTransaction([{ amount: 40, address: addr }]);
-
-
-console.log(showBalances());
-
-/*
-
 setTimeout(() => {
   console.log();
   showBalances();
@@ -116,10 +111,6 @@ setTimeout(() => {
 
   process.exit(0);
 }, 9000);
-
-
-*/
-
 
 
 

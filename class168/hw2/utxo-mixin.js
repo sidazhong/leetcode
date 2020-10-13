@@ -121,6 +121,8 @@ module.exports = {
     //
     // Once the transaction is created, sign it with all private keys for the UTXOs used.
     // The order that you call the 'sign' method must match the order of the from and pubKey fields.
+  	//
+  	// update the wallet 
 
     //
     // **YOUR CODE HERE**
@@ -146,6 +148,8 @@ module.exports = {
   		from.push(this.wallet[k].address);
   		pubKey.push(this.wallet[k]['keyPair']['public']);
   		privateKey.push(this.wallet[k]['keyPair']['private']);
+  		
+  		//delete old wallet address
   		if(UTXOs >= total_value){
   			break;
   		}
@@ -154,7 +158,7 @@ module.exports = {
     // Determine by how much the collected UTXOs exceed the total needed.
     // Create a new address to receive this "change" and add it to the list of outputs.
   	let exceed = UTXOs - total_value;
-  	let new_address = utils.calcAddress(utils.generateKeypair().public);
+  	let new_address = this.createAddress();
   	outputs.push({"amount":exceed,"address":new_address});
   	
   	// Call `Blockchain.makeTransaction`, noting that 'from' and 'pubKey' are arrays
@@ -171,6 +175,7 @@ module.exports = {
     // The order that you call the 'sign' method must match the order of the from and pubKey fields.
   	for(let k in privateKey){
   		tx.sign(privateKey[k]);
+  		this.wallet.shift();
   	} 
   	
     // Adding transaction to pending.
@@ -182,7 +187,7 @@ module.exports = {
     if (this.addTransaction !== undefined) {
       this.addTransaction(tx);
     }
-
+    
     return tx;
   }
 }
