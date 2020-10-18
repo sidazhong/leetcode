@@ -84,11 +84,10 @@ module.exports = class CoinAgeBlock extends Block {
 	  	//Update the target according to the miner's coin age.
 	  	let coinAgeShift = Math.floor(prevBlock.coinAgeOf(prevBlock.rewardAddr) / 500);
     	
-    	if(coinAgeShift==0){
-    		this.adjustedTarget = prevBlock.target;
-    	}else{
+    	this.adjustedTarget = prevBlock.target;
+    	if(coinAgeShift!==0){
     		for (let i = 0; i < coinAgeShift; i++) {
-      		this.adjustedTarget = prevBlock.target.shiftLeft(1);
+    			this.adjustedTarget = this.adjustedTarget.shiftLeft(1);
       	}
     	}
     	

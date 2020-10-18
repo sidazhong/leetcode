@@ -77,7 +77,6 @@ scrooge.initialize();
 // Alice transfers some money to Bob.
 console.log(`Alice is transferring 40 gold to ${bob.address}`);
 
-/*
 alice.postTransaction([{ amount: 40, address: bob.address }]);
 
 // Print out the final balances after it has been running for some time.
@@ -100,8 +99,6 @@ let showFinalBalances = function() {
 }
 
 setTimeout(showFinalBalances, 7000);
-
-*/
 
 
 
