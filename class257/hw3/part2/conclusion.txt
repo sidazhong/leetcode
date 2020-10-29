@@ -1,0 +1,17 @@
+Timing analysis
+
+When the input data is 100,000, the time gap between the three types of tables is not big, about 0.03 seconds.
+foo is the fastest, goo is the second, moo is the slowest, sometimes goo is faster than foo
+
+When the input data is 1,000,000 pieces, the time difference between the three types of tables is very obvious. 
+foo and goo are similar, moo is slow by about 3 seconds.
+
+This shows that when the id increases linearly from 1, it is right only append, which is the fastest in a database with a btree structure. 
+Because increment is an internal function of the database, foo is a little bit faster than goo, but it is not obvious.
+
+
+B-tree hex analysis
+Open foo with hex editor. The 0D in line 2000 is the first meaningful hex number, which means that this is the first leaf table b-tree page. 
+After that, every 1000 lines will have an identifier starting with 0D, which represents another page. 
+The first 01 after 0D indicates that this is the start of the first freeblock. After 5000 lines, there is no 01, because this is the last block. 
+In line 3000, a 63 followed by 03, which means that there are 63 cells in this page.
