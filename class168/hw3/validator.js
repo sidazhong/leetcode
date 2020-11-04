@@ -333,17 +333,45 @@ module.exports = class Validator extends Miner {
     //
     //1) If locked on to a previous block, vote for the locked block.
     if(this.lockedBlock!==undefined){
+    	//console.log("============================================================"+this.lockedBlock.blockID);
     	vote = Vote.makeVote(this,"prevote",this.lockedBlock.blockID);
     }
     //2) Otherwise, if a valid proposal is received, vote for the new block.
     else{
     	for(let k in this.proposals){
-    		vote = Vote.makeVote(this,"prevote",this.proposals[k].blockID);
-        
-    		//*******************************===========*******************************
-    		this.collectPrevote(vote);
+    		//Ignore invalid proposals.
+    		if(this.proposals[k].round!==this.round || this.proposals[k].height!==this.height){
+    			continue;
+    		}else{
+    			
+    			//proposals behavior
+      		for(let kk in this.proposals){
+      			if(kk<=k){
+      				continue;
+      			}else{
+      				//same address && same height && same round 
+      				if(this.proposals[k].from===this.proposals[kk].from && this.proposals[k].height===this.proposals[kk].height && this.proposals[k].round===this.proposals[kk].round){
+      					//HOWEVER! diff blockID, possible double spend behavior
+      					if(this.proposals[k].blockID !== this.proposals[kk].blockID){
+      						this.postEvidenceTransaction(this.proposals[k].from, this.proposals[k], this.proposals[kk]);
+      					}
+      				}
+      			}
+      		}
+      		
+      		//valid proposal
+      		vote = Vote.makeVote(this,"prevote",this.proposals[k].blockID);
+      		
+      		/*
+      		console.log(this.height);
+      		console.log(this.round);
+      		console.log(vote);
+    			*/
+    		}
     	}
     }
+    
+    //console.log(this.proposals);
     
     //3) Otherwise vote NIL.
     if(vote === undefined){

@@ -18,6 +18,18 @@ const { utils } = require('spartan-gold');
 module.exports = class Proposal{
 
   constructor({from, pubKey, block, blockID, height, round, sig}) {
+  	
+  	//ok 
+  	//from height round (diff)
+  	//block (same)
+  	
+  	//same user voted 2 blocks, byzantine
+  	//from height round (same)
+  	//block (diff)
+  	
+  	//
+  	
+  	
     this.from = from;
     this.block = block;
     this.height = height;
