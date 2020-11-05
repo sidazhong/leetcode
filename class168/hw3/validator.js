@@ -333,8 +333,7 @@ module.exports = class Validator extends Miner {
     //
     //1) If locked on to a previous block, vote for the locked block.
     if(this.lockedBlock!==undefined){
-    	//console.log("============================================================"+this.lockedBlock.blockID);
-    	vote = Vote.makeVote(this,"prevote",this.lockedBlock.blockID);
+    	vote = Vote.makeVote(this,"prevote",this.lockedBlock.id);
     }
     //2) Otherwise, if a valid proposal is received, vote for the new block.
     else{
@@ -361,21 +360,15 @@ module.exports = class Validator extends Miner {
       		
       		//valid proposal
       		vote = Vote.makeVote(this,"prevote",this.proposals[k].blockID);
-      		
-      		/*
-      		console.log(this.height);
-      		console.log(this.round);
-      		console.log(vote);
-    			*/
     		}
     	}
     }
     
-    //console.log(this.proposals);
-    
     //3) Otherwise vote NIL.
     if(vote === undefined){
     	vote = Vote.makeNilVote(this,"prevote");
+    }else{
+    	//console.log(vote);
     }
     
     this.log(`Voting for block ${vote.blockID}`);
@@ -424,6 +417,7 @@ module.exports = class Validator extends Miner {
     	
     	//lock on that block
     	this.lockedBlock=this.proposedBlocks[winningBlockID];
+    	
     	this.log(`Locking on to block ${winningBlockID}`);
     	
     	//broadcast precommit.
