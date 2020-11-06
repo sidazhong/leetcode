@@ -9,11 +9,11 @@ const Vote = require('./vote.js');
 module.exports = class Validator extends Miner {
 
   /**
-   * We can't update transactions while looking for a proof in this model,
-   * unlike in proof-of-work.  Therefore, we accumulate transactions and
-   * save them for the next block.
-   * 
-   */
+	 * We can't update transactions while looking for a proof in this model,
+	 * unlike in proof-of-work. Therefore, we accumulate transactions and save
+	 * them for the next block.
+	 * 
+	 */
   constructor(...args) {
     super(...args);
 
@@ -22,8 +22,8 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Starts listeners and begins block production.
-   */
+	 * Starts listeners and begins block production.
+	 */
   initialize() {
     this.startNewSearch();
 
@@ -46,13 +46,12 @@ module.exports = class Validator extends Miner {
 
     // Start block production
     setTimeout(() => this.newRound(), 0);
-
   }
 
   /**
-   * In addition to other responsibilities related to searching for a new block,
-   * the accumulated power must be copied over for the round.
-   */
+	 * In addition to other responsibilities related to searching for a new block,
+	 * the accumulated power must be copied over for the round.
+	 */
   startNewSearch() {
     super.startNewSearch();
     this.roundAccumPower = new Map(this.currentBlock.accumPower);
@@ -67,20 +66,21 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Bonded gold is not available for spending.
-   */
+	 * Bonded gold is not available for spending.
+	 */
   get availableGold() {
     return super.availableGold - this.amountGoldBonded();
   }
 
   /**
-   * Verifies that a vote is valid and stores it in the ballotBox
-   * if it is.  If there is Byzantine behavior, an exception will
-   * be raised.
-   * 
-   * @param {Vote} vote - A vote of whatever kind.
-   * @param {Object} ballotBox - The collection of votes.
-   */
+	 * Verifies that a vote is valid and stores it in the ballotBox if it is. If
+	 * there is Byzantine behavior, an exception will be raised.
+	 * 
+	 * @param {Vote}
+	 *          vote - A vote of whatever kind.
+	 * @param {Object}
+	 *          ballotBox - The collection of votes.
+	 */
   verifyAndVote(vote, ballotBox) {
     vote = new Vote(vote);
 
@@ -107,20 +107,21 @@ module.exports = class Validator extends Miner {
         this.postEvidenceTransaction(vote.from, currentVote, vote);
       }
     }
-
+    
     // If we made it here, store the validator's vote.
     ballotBox[vote.from] = vote;
   }
 
   /**
-   * This method counts the number of votes for a specified block,
-   * where the keys identify the blocks and the values represent
-   * the total number of votes (amount of stake) for that block.
-   * 
-   * @param {Object} ballotBox - Collection of votes, blockID -> amount votes.
-   * 
-   * @returns ID of the winning block.
-   */
+	 * This method counts the number of votes for a specified block, where the
+	 * keys identify the blocks and the values represent the total number of votes
+	 * (amount of stake) for that block.
+	 * 
+	 * @param {Object}
+	 *          ballotBox - Collection of votes, blockID -> amount votes.
+	 * 
+	 * @returns ID of the winning block.
+	 */
   countVotes(ballotBox) {
     let totalStake = this.currentBlock.getTotalStake();
     let votesNeeded = 2 * totalStake / 3;
@@ -142,7 +143,8 @@ module.exports = class Validator extends Miner {
       let currentVotes = candidateBlocks[blockID] || 0;
       currentVotes += stake;
       candidateBlocks[blockID] = currentVotes;
-      //this.log(`...${vote.from} votes for ${blockID} (${this.height}-${this.round}) with ${stake} votes`);
+      // this.log(`...${vote.from} votes for ${blockID}
+			// (${this.height}-${this.round}) with ${stake} votes`);
       if (currentVotes > votesNeeded) {
         if (blockID === StakeBlockchain.NIL) {
           winningBlockID = StakeBlockchain.NIL;
@@ -156,8 +158,8 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Start a new round to come to consensus on a block.
-   */
+	 * Start a new round to come to consensus on a block.
+	 */
   newRound() {
     // If we have committed to a block, we don't do any more rounds
     // until we reach a new height.
@@ -170,7 +172,7 @@ module.exports = class Validator extends Miner {
     // are automatically counted as prevotes and precommits for
     // all subsequent rounds.
     Object.keys(this.commits).forEach((voterAddr) => {
-      //this.log(`Copying over vote for ${voterAddr}`);
+      // this.log(`Copying over vote for ${voterAddr}`);
       let commit = this.commits[voterAddr];
       this.prevotes[voterAddr] = commit;
       this.precommits[voterAddr] = commit;
@@ -193,14 +195,14 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Determines the block proposer based on their "accumulated power".
-   * It uses a weighted round-robin algorithm where validators with
-   * more stake propose blocks more often.
-   */
+	 * Determines the block proposer based on their "accumulated power". It uses a
+	 * weighted round-robin algorithm where validators with more stake propose
+	 * blocks more often.
+	 */
   determineProposer() {
     let proposerPower = 0;
     this.roundAccumPower.forEach((power, addr) => {
-      //this.log(`   ${addr} has ${power} (${typeof power}) voting power.`);
+      // this.log(` ${addr} has ${power} (${typeof power}) voting power.`);
       if (power > proposerPower) {
         this.currentProposer = addr;
         proposerPower = power;
@@ -211,15 +213,18 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * This method implements Tendermint's approach for updating voting power,
-   * following the algorithm described in Section 4.3 of the 0.5 version of
-   * their paper.  (Note that the 0.6 version of their paper does not show
-   * their round-robin algorithm).
-   * 
-   * @param {Map} accumPower - A map of addresses to accumulated power.
-   * @param {Map} bondBalances - A map of addresses to the amount of bonded coins.
-   * @param proposerAddr - The address of the block proposer.
-  */
+	 * This method implements Tendermint's approach for updating voting power,
+	 * following the algorithm described in Section 4.3 of the 0.5 version of
+	 * their paper. (Note that the 0.6 version of their paper does not show their
+	 * round-robin algorithm).
+	 * 
+	 * @param {Map}
+	 *          accumPower - A map of addresses to accumulated power.
+	 * @param {Map}
+	 *          bondBalances - A map of addresses to the amount of bonded coins.
+	 * @param proposerAddr -
+	 *          The address of the block proposer.
+	 */
   updatePower(accumPower, bondBalances, proposerAddr) {
     //
     // **YOUR CODE HERE**
@@ -227,11 +232,13 @@ module.exports = class Validator extends Miner {
     // For every validator (including the proposer), increase their accumulated
     // power according to the amount of coins they currently have bonded.
     //
-    // Calculate the total increase in power.  (You can do this when you loop
+    // Calculate the total increase in power. (You can do this when you loop
     // through the validators in the previous step).
     //
-    // Once you have calculated the total increase, deduct that amount from the block
-    // proposer's accumulated power.  (The effect of this step is that the proposer
+    // Once you have calculated the total increase, deduct that amount from the
+		// block
+    // proposer's accumulated power. (The effect of this step is that the
+		// proposer
     // is moved back in the queue.)
   	
   	
@@ -241,23 +248,23 @@ module.exports = class Validator extends Miner {
   	accumPower.forEach(function(v, k) {
   		accumPower.set(k,accumPower.get(k)+bondBalances.get(k));
   		
-      // Calculate the total increase in power.  (You can do this when you loop
+      // Calculate the total increase in power. (You can do this when you loop
       // through the validators in the previous step).
   		TotalIncremented+=bondBalances.get(k);
   	})
   	
-  	// Once you have calculated the total increase, deduct that amount from the block
+  	// Once you have calculated the total increase, deduct that amount from the
+		// block
     // proposer's accumulated power.
   	accumPower.set(proposerAddr,accumPower.get(proposerAddr)-TotalIncremented);
   }
 
   /**
-   * Makes a proposal for a block, as defined by the proposal class.
-   * 
-   * Note that there should be a "proof-of-lock", but we are omitting
-   * it for simplicity.  Note that doing so does open us up to some
-   * attacks.
-   */
+	 * Makes a proposal for a block, as defined by the proposal class.
+	 * 
+	 * Note that there should be a "proof-of-lock", but we are omitting it for
+	 * simplicity. Note that doing so does open us up to some attacks.
+	 */
   proposeBlock() {
     
     this.currentBlock = StakeBlockchain.makeBlock(this.address, this.lastBlock);
@@ -274,10 +281,11 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Signs and broadcasts a block proposal.
-   * 
-   * @param {StakeBlock} block - Proposed block.
-   */
+	 * Signs and broadcasts a block proposal.
+	 * 
+	 * @param {StakeBlock}
+	 *          block - Proposed block.
+	 */
   shareProposal(block) {
     let proposal = new Proposal({
       from: this.address,
@@ -294,11 +302,12 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * This method collects proposals until the wall time.
-   * It also stores the proposed block for later use.
-   * 
-   * @param {Proposal} proposal - A proposal for a new block, along with some metadata.
-   */
+	 * This method collects proposals until the wall time. It also stores the
+	 * proposed block for later use.
+	 * 
+	 * @param {Proposal}
+	 *          proposal - A proposal for a new block, along with some metadata.
+	 */
   collectProposal(proposal) {
     this.proposals.push(new Proposal(proposal));
     let block = StakeBlockchain.deserializeBlock(proposal.block);
@@ -315,42 +324,43 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Prevote for a proposal, by the following rules:
-   * 
-   * 1) If locked on to a previous block, vote for the locked block.
-   * 
-   * 2) Otherwise, if a valid proposal is received, vote for the new block.
-   * 
-   * 3) Otherwise vote NIL.
-   * 
-   * This method should also check for conflicting proposals from the block proposer.
-   */
+	 * Prevote for a proposal, by the following rules:
+	 * 
+	 * 1) If locked on to a previous block, vote for the locked block.
+	 * 
+	 * 2) Otherwise, if a valid proposal is received, vote for the new block.
+	 * 
+	 * 3) Otherwise vote NIL.
+	 * 
+	 * This method should also check for conflicting proposals from the block
+	 * proposer.
+	 */
   prevote() {
     let vote = undefined;
 
     //
     // **YOUR CODE HERE**
     //
-    //1) If locked on to a previous block, vote for the locked block.
+    // 1) If locked on to a previous block, vote for the locked block.
     if(this.lockedBlock!==undefined){
     	vote = Vote.makeVote(this,"prevote",this.lockedBlock.id);
     }
-    //2) Otherwise, if a valid proposal is received, vote for the new block.
+    // 2) Otherwise, if a valid proposal is received, vote for the new block.
     else{
     	for(let k in this.proposals){
-    		//Ignore invalid proposals.
+    		// Ignore invalid proposals.
     		if(this.proposals[k].round!==this.round || this.proposals[k].height!==this.height){
     			continue;
     		}else{
     			
-    			//proposals behavior
+    			// proposals behavior
       		for(let kk in this.proposals){
       			if(kk<=k){
       				continue;
       			}else{
-      				//same address && same height && same round 
+      				// same address && same height && same round
       				if(this.proposals[k].from===this.proposals[kk].from && this.proposals[k].height===this.proposals[kk].height && this.proposals[k].round===this.proposals[kk].round){
-      					//HOWEVER! diff blockID, possible double spend behavior
+      					// HOWEVER! diff blockID, possible double spend behavior
       					if(this.proposals[k].blockID !== this.proposals[kk].blockID){
       						this.postEvidenceTransaction(this.proposals[k].from, this.proposals[k], this.proposals[kk]);
       					}
@@ -358,49 +368,50 @@ module.exports = class Validator extends Miner {
       			}
       		}
       		
-      		//valid proposal
+      		// valid proposal
       		vote = Vote.makeVote(this,"prevote",this.proposals[k].blockID);
     		}
     	}
+    	
     }
     
-    //3) Otherwise vote NIL.
+    // 3) Otherwise vote NIL.
     if(vote === undefined){
     	vote = Vote.makeNilVote(this,"prevote");
-    }else{
-    	//console.log(vote);
     }
     
     this.log(`Voting for block ${vote.blockID}`);
 
     // Clearing out proposals and sharing vote.
     this.proposals = [];
+    this.collectPrevote(vote);
     this.net.broadcast(StakeBlockchain.PREVOTE, vote);
 
     // After voting, set timer before determining precommit.
     setTimeout(() => this.precommit(), this.round*StakeBlockchain.DELTA);
   }
-
+  
   /**
-   * Validates prevote, saving it if it is a valid vote.
-   * This step will also catch any attempts to double-vote.
-   * 
-   * @param {Vote} vote - incoming vote.
-   */
+	 * Validates prevote, saving it if it is a valid vote. This step will also
+	 * catch any attempts to double-vote.
+	 * 
+	 * @param {Vote}
+	 *          vote - incoming vote.
+	 */
   collectPrevote(vote) {
     this.verifyAndVote(vote, this.prevotes);
   }
 
   /**
-   * Precommit to a block, by the following rules.
-   * 
-   * 1) If a block gains 2/3 votes, lock on that block and broadcast precommit.
-   *   Move on to the commit phase.
-   * 
-   * 2) If NIL gains 2/3 votes, release any locks.
-   * 
-   * 3) If no 2/3 majority is reached do nothing.
-   */
+	 * Precommit to a block, by the following rules.
+	 * 
+	 * 1) If a block gains 2/3 votes, lock on that block and broadcast precommit.
+	 * Move on to the commit phase.
+	 * 
+	 * 2) If NIL gains 2/3 votes, release any locks.
+	 * 
+	 * 3) If no 2/3 majority is reached do nothing.
+	 */
   precommit() {
   	let winningBlockID = this.countVotes(this.prevotes);
     this.prevotes = {};
@@ -412,30 +423,30 @@ module.exports = class Validator extends Miner {
     // **YOUR CODE HERE**
     //
     
-    //1) If a block gains 2/3 votes
+    // 1) If a block gains 2/3 votes
     if(winningBlockID!==undefined && winningBlockID!=="NIL"){
     	
-    	//lock on that block
+    	// lock on that block
     	this.lockedBlock=this.proposedBlocks[winningBlockID];
     	
     	this.log(`Locking on to block ${winningBlockID}`);
     	
-    	//broadcast precommit.
+    	// broadcast precommit.
     	let precommit = Vote.makeVote(this,"precommit",winningBlockID);
-    	//this.collectPrecommit(precommit);
+    	this.collectPrecommit(precommit);
     	this.net.broadcast(StakeBlockchain.PRECOMMIT, precommit);
     }
     
-    //2) If NIL gains 2/3 votes
+    // 2) If NIL gains 2/3 votes
     if(winningBlockID!==undefined && winningBlockID==="NIL"){
     	
-    	//release any locks.
+    	// release any locks.
     	delete this.lockedBlock;
     }
     
-    //3) If no 2/3 majority is reached
+    // 3) If no 2/3 majority is reached
     if(winningBlockID===undefined){
-    	//do nothing.
+    	// do nothing.
     }
     
     // Setting to decide on whether to commit.
@@ -443,19 +454,20 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Validates precommit vote, saving it if it is a valid vote.
-   * This step will also catch any attempts to double-vote.
-   * 
-   * @param {Vote} vote - incoming vote.
-   */
+	 * Validates precommit vote, saving it if it is a valid vote. This step will
+	 * also catch any attempts to double-vote.
+	 * 
+	 * @param {Vote}
+	 *          vote - incoming vote.
+	 */
   collectPrecommit(precommit) {
     this.verifyAndVote(precommit, this.precommits);
   }
 
   /**
-   * If 2/3 precommits are received, the validator commits.
-   * Otherwise, it begins a new round.
-   */
+	 * If 2/3 precommits are received, the validator commits. Otherwise, it begins
+	 * a new round.
+	 */
   commitDecision() {
     let winningBlockID = this.countVotes(this.precommits);
     this.precommits = {};
@@ -479,12 +491,12 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * As soon as the validator receives 2/3 precommits:
-   * 
-   * 1) Get the block if the validator does not already have it.
-   * 
-   * 2) Once the validator has the block, broadcast a commit.
-   */
+	 * As soon as the validator receives 2/3 precommits:
+	 * 
+	 * 1) Get the block if the validator does not already have it.
+	 * 
+	 * 2) Once the validator has the block, broadcast a commit.
+	 */
   commit(winningBlockID) {
     // NOTE: We are not handling the case where the block is not available.
     // In order to do that, we would need to request a missing block if we
@@ -498,7 +510,7 @@ module.exports = class Validator extends Miner {
     // Look up the block for winningBlockID from this.proposedBlocks.
     // (Since we don't drop messages in our simulation, it should be available.)
     // 
-    // Set this.nextBlock to that block.  Note this should be set to a Block
+    // Set this.nextBlock to that block. Note this should be set to a Block
     // instance, not the ID of a block.
     //
     // Finally, broadcast a commit vote for the block.
@@ -508,26 +520,27 @@ module.exports = class Validator extends Miner {
     
     // Finally, broadcast a commit vote for the block.
     let commit = Vote.makeVote(this,"commit",winningBlockID);
-    //this.collectCommit(commit);
+    this.collectCommit(commit);
     this.net.broadcast(StakeBlockchain.COMMIT, commit);
 
     setTimeout(() => this.finalizeCommit(), this.round*StakeBlockchain.DELTA);
   }
 
   /**
-   * Validates commit vote, saving it if it is a valid vote.
-   * This step will also catch any attempts to double-vote.
-   * 
-   * @param {Vote} vote - incoming vote.
-   */
+	 * Validates commit vote, saving it if it is a valid vote. This step will also
+	 * catch any attempts to double-vote.
+	 * 
+	 * @param {Vote}
+	 *          vote - incoming vote.
+	 */
   collectCommit(commit) {
     this.verifyAndVote(commit, this.commits);
   }
 
   /**
-   * Once we have committed, we wait until we received 2/3 of (weighted) commits
-   * from other validators.
-   */
+	 * Once we have committed, we wait until we received 2/3 of (weighted) commits
+	 * from other validators.
+	 */
   finalizeCommit() {
     let winningBlockID = this.countVotes(this.commits);
 
@@ -542,12 +555,13 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Once we have received commits from 2/3 of validators (weighted by their stake),
-   * we begin looking for the next block.
-   */
+	 * Once we have received commits from 2/3 of validators (weighted by their
+	 * stake), we begin looking for the next block.
+	 */
   newHeight() {
-    // NOTE: The protocol specifies that we should gather up additional signatures
-    // at this point.  We are skipping that part.
+    // NOTE: The protocol specifies that we should gather up additional
+		// signatures
+    // at this point. We are skipping that part.
 
     // Announce new block.
     this.currentBlock = this.nextBlock;
@@ -564,27 +578,31 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * In contrast to the standard version of SpartanGold, we queue up transactions
-   * for the next block.  This change is required, because otherwise all signatures
-   * would be invalid if we added a new transaction.
-   * 
-   * @param {Transaction} tx - The transaction we wish to add to the block.
-   */
+	 * In contrast to the standard version of SpartanGold, we queue up
+	 * transactions for the next block. This change is required, because otherwise
+	 * all signatures would be invalid if we added a new transaction.
+	 * 
+	 * @param {Transaction}
+	 *          tx - The transaction we wish to add to the block.
+	 */
   addTransaction(tx) {
     tx = StakeBlockchain.makeTransaction(tx);
     this.transactions.add(tx);
   }
 
   /**
-   * In Tendermint, we would post an evidence transaction, seizing a portion
-   * of the validator's bonded coins.
-   * 
-   * In our case, we will just crash the system.
-   * 
-   * @param faultyAddr - The address of the Byzantine validator.
-   * @param oldMessage - The proposal or vote we had received previously.
-   * @param newMessage - The conflicting proposal/vote.
-   */
+	 * In Tendermint, we would post an evidence transaction, seizing a portion of
+	 * the validator's bonded coins.
+	 * 
+	 * In our case, we will just crash the system.
+	 * 
+	 * @param faultyAddr -
+	 *          The address of the Byzantine validator.
+	 * @param oldMessage -
+	 *          The proposal or vote we had received previously.
+	 * @param newMessage -
+	 *          The conflicting proposal/vote.
+	 */
   postEvidenceTransaction(faultyAddr, oldMessage, newMessage) {
     throw new Error(`
       Possible Byzantine behavior by ${faultyAddr}.
@@ -594,9 +612,9 @@ module.exports = class Validator extends Miner {
   }
 
   /**
-   * Utility method that displays all confirmed balances for all clients,
-   * according to the client's own perspective of the network.
-   */
+	 * Utility method that displays all confirmed balances for all clients,
+	 * according to the client's own perspective of the network.
+	 */
   showAllBalances() {
     this.log("Showing balances:");
     for (let [id,balance] of this.lastConfirmedBlock.balances) {
