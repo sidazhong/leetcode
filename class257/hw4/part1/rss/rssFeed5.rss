@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+  <channel>
+    <atom:link href="http://feeds.skynews.com/feeds/rss/us.xml" rel="self" type="application/rss+xml"/>
+    <title>US News - The latest headlines from the US | Sky News</title>
+    <link>http://news.sky.com/us</link>
+    <image>
+      <title>US News - The latest headlines from the US | Sky News</title>
+      <url>http://feeds.skynews.com/images/web/logo/skynews_rss.png</url>
+      <link>http://news.sky.com/us</link>
+    </image>
+    <description>The latest news, video and expert analysis from around the United States of America.</description>
+    <language>en-GB</language>
+    <copyright>Copyright 2016, BSKYB. All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 05 Oct 2020 22:27:00 +0100</lastBuildDate>
+    <category>Sky News</category>
+    <ttl>1</ttl>
+    <item>
+      <title>'Maybe I'm immune': Trump leaves hospital after coronavirus treatment</title>
+      <link>http://news.sky.com/story/donald-trump-to-leave-hospital-after-coronavirus-treatment-12091144</link>
+      <description>Donald Trump has left hospital after being treated for coronavirus.</description>
+      <pubDate>Mon, 05 Oct 2020 19:39:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/donald-trump-to-leave-hospital-after-coronavirus-treatment-12091144</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-trump-hospital_5119843.jpg?20201006000524" length="0" type="image/jpeg"/>
+      <media:description type="html">President Trump spent tree days in hospital</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-trump-hospital_5119843.jpg?20201006000524" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-trump-hospital_5119843.jpg?20201006000524"/>
+    </item>
+    <item>
+      <title>Fauci calls Trump 'superspreader' gathering dangerous</title>
+      <link>http://news.sky.com/story/coronavirus-dr-anthony-fauci-calls-white-house-gathering-days-before-donald-trumps-coronavirus-diagnosis-dangerous-12091261</link>
+      <description>The top US infectious diseases doctor has warned a White House event which did not appear to follow coronavirus restrictions was &quot;dangerous&quot;.</description>
+      <pubDate>Mon, 05 Oct 2020 22:27:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/coronavirus-dr-anthony-fauci-calls-white-house-gathering-days-before-donald-trumps-coronavirus-diagnosis-dangerous-12091261</guid>
+      <enclosure url="http://e3.365dm.com/20/09/70x70/skynews-donald-trump-amy-coney-barrett_5109977.jpg?20201005224545" length="0" type="image/jpeg"/>
+      <media:description type="html">WASHINGTON, DC - SEPTEMBER 26: U.S. President Donald Trump (L) arrives to introduce 7th U.S. Circuit Court Judge Amy Coney Barrett as his nominee to the Supreme Court in the Rose Garden at the White House September 26, 2020 in Washington, DC. With 38 days until the election, Trump tapped Barrett to be his third Supreme Court nominee in just four years and to replace the late Associate Justice Ruth Bader Ginsburg, who will be buried at Arlington National Cemetery on Tuesday. (Photo by Chip Somode</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/09/70x70/skynews-donald-trump-amy-coney-barrett_5109977.jpg?20201005224545" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/09/70x70/skynews-donald-trump-amy-coney-barrett_5109977.jpg?20201005224545"/>
+    </item>
+    <item>
+      <title>Trump doctors must resist 'VIP syndrome', warns COVID expert</title>
+      <link>http://news.sky.com/story/coronavirus-trump-doctors-must-resist-vip-syndrome-warns-leader-of-worlds-biggest-covid-study-12091095</link>
+      <description>The doctor leading the world's largest study of COVID-19 treatment says Donald Trump should not be given experimental drugs that have yet to be fully tested.</description>
+      <pubDate>Mon, 05 Oct 2020 18:36:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/coronavirus-trump-doctors-must-resist-vip-syndrome-warns-leader-of-worlds-biggest-covid-study-12091095</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-trump-arrives-at-hospital_5116426.jpg?20201003044420" length="0" type="image/jpeg"/>
+      <media:description type="html">S. President Donald Trump exits Marine One at Walter Reed National Military Medical Center </media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-trump-arrives-at-hospital_5116426.jpg?20201003044420" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-trump-arrives-at-hospital_5116426.jpg?20201003044420"/>
+    </item>
+    <item>
+      <title>Trump's drive-by during COVID-19 treatment was 'insanity', top doctor says</title>
+      <link>http://news.sky.com/story/trump-pays-surprise-visit-to-supporters-outside-hospital-12090431</link>
+      <description>US President Donald Trump's drive-by for supporters has been criticised as &quot;insanity&quot; by a top doctor.</description>
+      <pubDate>Sun, 04 Oct 2020 22:26:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/trump-pays-surprise-visit-to-supporters-outside-hospital-12090431</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-us-president-donald-trump_5118858.jpg?20201005011154" length="0" type="image/jpeg"/>
+      <media:description type="html">Donald Trump waves to supporters as he rides by in the presidential motorcade in front of Walter Reed National Military Medical Center</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-us-president-donald-trump_5118858.jpg?20201005011154" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-us-president-donald-trump_5118858.jpg?20201005011154"/>
+    </item>
+    <item>
+      <title>Trump says he now 'understands' the coronavirus but his actions prove otherwise</title>
+      <link>http://news.sky.com/story/trump-says-he-now-understands-the-coronavirus-but-his-actions-prove-otherwise-12090481</link>
+      <description>Horns had been blaring all day as Donald Trump's supporters drove up and down the road outside his hospital.</description>
+      <pubDate>Mon, 05 Oct 2020 03:27:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/trump-says-he-now-understands-the-coronavirus-but-his-actions-prove-otherwise-12090481</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-trump-bethesda_5118873.jpg?20201005035641" length="0" type="image/jpeg"/>
+      <media:description type="html">Supporters of the US president hold flags as they rally outside of Walter Reed Medical Center in Bethesda, Maryland on October 4, 2020, where the president is being treated for Covid-19.</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-trump-bethesda_5118873.jpg?20201005035641" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-trump-bethesda_5118873.jpg?20201005035641"/>
+    </item>
+    <item>
+      <title>Timeline of Donald Trump's treatment for COVID-19</title>
+      <link>http://news.sky.com/story/coronavirus-timeline-of-donald-trumps-treatment-for-covid-19-12090914</link>
+      <description>Donald Trump has been receiving treatment for COVID-19 for several days.</description>
+      <pubDate>Mon, 05 Oct 2020 14:23:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/coronavirus-timeline-of-donald-trumps-treatment-for-covid-19-12090914</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/182a64d52917904ab22d5caba05f819fdc4c5f3deb9ea6eb546882803948d53d_5117514.jpg?20201005214706" length="0" type="image/jpeg"/>
+      <media:description type="html">Donlad Trump delivers a video message folloing his coronavirus diagnosis.</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/182a64d52917904ab22d5caba05f819fdc4c5f3deb9ea6eb546882803948d53d_5117514.jpg?20201005214706" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/182a64d52917904ab22d5caba05f819fdc4c5f3deb9ea6eb546882803948d53d_5117514.jpg?20201005214706"/>
+    </item>
+    <item>
+      <title>Who else close to Donald Trump has tested positive for COVID-19?</title>
+      <link>http://news.sky.com/story/trump-coronavirus-who-else-close-to-the-us-president-has-tested-positive-for-covid-19-12088412</link>
+      <description>Several cases have been confirmed among those who have had close contact with Donald Trump and his aide Hope Hicks, whose diagnosis prompted the test that confirmed the US president had the coronavirus.</description>
+      <pubDate>Sat, 03 Oct 2020 04:16:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/trump-coronavirus-who-else-close-to-the-us-president-has-tested-positive-for-covid-19-12088412</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-graphic-donald-trump_5116527.jpg?20201003081335" length="0" type="image/jpeg"/>
+      <media:description type="html">Donald Trump and his aide Hope Hicks</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-graphic-donald-trump_5116527.jpg?20201003081335" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-graphic-donald-trump_5116527.jpg?20201003081335"/>
+    </item>
+    <item>
+      <title>Spike Lee film star Thomas Jefferson Byrd killed in shooting</title>
+      <link>http://news.sky.com/story/thomas-jefferson-byrd-spike-lee-film-star-killed-in-shooting-in-atlanta-12090593</link>
+      <description>Spike Lee and Viola Davis are leading the tributes following the death of actor Thomas Jefferson Byrd, who has died after being shot multiple times.</description>
+      <pubDate>Mon, 05 Oct 2020 08:46:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/thomas-jefferson-byrd-spike-lee-film-star-killed-in-shooting-in-atlanta-12090593</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-thomas-jefferson-byrd_5119045.jpg?20201005085206" length="0" type="image/jpeg"/>
+      <media:description type="html">Actor Thomas Jefferson Byrd on June 21, 2014 in New York City</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-thomas-jefferson-byrd_5119045.jpg?20201005085206" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-thomas-jefferson-byrd_5119045.jpg?20201005085206"/>
+    </item>
+    <item>
+      <title>Trump may be infected but he still wants us to know who's in charge</title>
+      <link>http://news.sky.com/story/trump-coronavirus-president-may-be-infected-but-he-still-wants-us-know-whos-in-charge-12090479</link>
+      <description>After some seriously mixed messaging on Donald Trump's health, Sunday brought another optimistic message from his doctors - not only was he on the mend, but he might be out by as early as today.</description>
+      <pubDate>Mon, 05 Oct 2020 02:44:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/trump-coronavirus-president-may-be-infected-but-he-still-wants-us-know-whos-in-charge-12090479</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-donald-trump-walter-reed-hospital_5118870.jpg?20201005032211" length="0" type="image/jpeg"/>
+      <media:description type="html">President Donald Trump in his conference room at the Walter Reed National Military Medical Center. Pic: White House</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-donald-trump-walter-reed-hospital_5118870.jpg?20201005032211" width="70" height="70"/>
+      <media:content type="image/jpeg" url="http://e3.365dm.com/20/10/70x70/skynews-donald-trump-walter-reed-hospital_5118870.jpg?20201005032211"/>
+    </item>
+    <item>
+      <title>Revealed: UK shields used in US BLM protests, despite govt claim of &quot;no evidence&quot;</title>
+      <link>http://news.sky.com/story/revealed-uk-shields-used-in-us-blm-protests-despite-govt-claim-of-no-evidence-12088842</link>
+      <description>UK-made anti-riot gear has been widely used in America during clashes with Black Lives Matter protesters, despite the government's claim there is &quot;no evidence&quot; British equipment was used, Sky News has found.&amp;#160;</description>
+      <pubDate>Sat, 03 Oct 2020 14:46:00 +0100</pubDate>
+      <guid>http://news.sky.com/story/revealed-uk-shields-used-in-us-blm-protests-despite-govt-claim-of-no-evidence-12088842</guid>
+      <enclosure url="http://e3.365dm.com/20/10/70x70/skynews-arms-shields_5117030.png?20201003162149" length="0" type="image/png"/>
+      <media:description type="html">An officer in Washington DC  carries a UK-made shield</media:description>
+      <media:thumbnail url="http://e3.365dm.com/20/10/70x70/skynews-arms-shields_5117030.png?20201003162149" width="70" height="70"/>
+      <media:content type="image/png" url="http://e3.365dm.com/20/10/70x70/skynews-arms-shields_5117030.png?20201003162149"/>
+    </item>
+  </channel>
+</rss>
