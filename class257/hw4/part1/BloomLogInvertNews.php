@@ -38,6 +38,7 @@ class BloomLogInvertNews extends debug{
                 $title=empty($vv['title'])?"":$vv['title'];
                 $description=empty($vv['description'])?"":$vv['description'];
                 $vv['hash']=md5($title.$description);
+                $vv['timestamp']=$this->rsstotime($vv['pubDate']);
                 
                 //checkblook filter
                 if($this->check_bloom_filter($vv['title'],$vv['hash'])){
@@ -326,10 +327,17 @@ class BloomLogInvertNews extends debug{
                         $end.=dechex($v);
                     }
                     $end=hexdec($end);
-                    $rs[]=json_decode(substr($indexing_file,$vv,$end),true);
+                    if(!empty(json_decode(substr($indexing_file,$vv,$end),true))){
+                        $rs[]=json_decode(substr($indexing_file,$vv,$end),true);
+                    }
                 }
             }
         }
+        
+        //sort
+        usort($rs, function($a, $b) {
+            return $b['timestamp'] <=> $a['timestamp'];
+        });
         
         debug::D($rs);
     }
