@@ -1,0 +1,128 @@
+https://www.tutorialspoint.com/haskell/haskell_types_and_type_class.htm
+http://learnyouahaskell.com/recursion
+
+启动 
+	ghci
+	
+退出
+	:quit
+	
+运行文件
+	runhaskell main.hs
+	
+注释
+	单行	--
+	多行 {- -}
+	
+注意事项
+	不能tab，只能空格，类似python	
+	
+守护者
+	| 通常在function 里面，类似if else
+	
+等于，不等于
+	==
+	/=
+	
+复杂字符串例子
+	– ++ concatenation
+	– : prepend an item
+	– !! get an element at the given index
+	– head first item
+	– tail rest of the list
+	– last last item
+	– init the beginning part of the list
+
+	let s = "bra" in s !! 2 : s ++ 'c' : last s : "da" ++ s
+  "a bra c a da bra"
+	
+例子
+
+	add :: Integer -> Integer -> Integer   --function declaration 
+		//参数2个Integer，返回1个Integer
+
+	Prelude> 2+2  				//直接输入，得到结果
+		4
+		
+	Prelude> :t "a" 			//:t 就是 input的意思，必须接字符串
+		"a" :: [Char]
+		
+	Prelude> '\97' 			//ASCII码
+		'a'
+		
+	Prelude> True && True 
+		True
+		
+	[1,2,3,4,5] 	//定义数组
+		[1,2,3,4,5]
+	
+	Prelude> [x*2| x<-[1..10]] 			//一些循环操作的写法
+		[2,4,6,8,10,12,14,16,18,20]  
+	Prelude> [x*2| x<-[1..5]] 
+		[2,4,6,8,10]  
+	Prelude> [x| x<-[1..5]] 
+		[1,2,3,4,5]	
+	
+	Prelude> (1,1,'a')		//3段式
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
