@@ -84,7 +84,7 @@ class HealthOlap extends debug{
         $sql=str_replace("start-year", "`start-year`", $sql);
         $sql=str_replace("start-month", "`start-month`", $sql);
         $sql=str_replace("start-day", "`start-day`", $sql);
-        
+z
         $rs_query = $this->db_EXERCISE->query($sql);
         
         $rs=[];

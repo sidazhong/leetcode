@@ -140,9 +140,13 @@ debug::t();
 
 
 
+//logic
+//00 00 00 00
+//ff ff ff ff
 
-
-
+//real in txt files
+//0 0 0 0
+//255 255 255 255
 
 
 

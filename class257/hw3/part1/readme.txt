@@ -1,5 +1,9 @@
 part 1
 	note:
+		To get the terms in document I am using the "bag of words" function in PHP.
+		I think it is more acurate than javascript. maybe not fully meet the requirment. 
+		But I really hope that I can get parcial credit.
+	
 		disabled mongoDB password authorization. 
 			file location: ~/mongod.conf 
 				#authorization: enabled

@@ -1,0 +1,22 @@
+business process: The company buys new goods from suppliers
+
+define:
+	First of all, there must be a clear definition of data quality requirements. 
+	For example, what type of data is fault-tolerant and what type of data must be completely accurate. 
+	These require the Leaderships to reach a consensus first. 
+	Some modules have different quality requirements. 
+	For example, the name of the supplier can be misspelled, but the delivery time cannot be missing. 
+	The supplier’s credit card must have all information completely correct.
+	
+measure:
+  The quality of the data is assessed to arrive at a correct percentage. 
+  The assessment criteria can be incompleteness, inaccuracy, inconsistency, invalidity, redundancy, stardard.
+	
+analyze:
+	identify issues of wrong data and classify the type of error. 
+	Data quality can be divided into multiple indicators, such as complete, accurate, conformance and completion.
+	
+improve:
+	Find out what caused the wrong data. Complete initial data verification. 
+	Fix incorrect data. Monitor data and get data quality feedback in time.
+	

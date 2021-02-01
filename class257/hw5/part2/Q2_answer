@@ -1,0 +1,13 @@
+Simulate the business process of a user buying toothpaste:
+
+1. Show the best selling toothpaste in the past week (Data Virtualization)
+
+2. List toothpaste related products, razors, towels, facial cleansers (Data propagation)
+
+3. Users buy toothpaste, the inventory is reduced accordingly, this toothpaste popularity +1 (Changed Data Capture)
+
+4. The stock of toothpaste is not enough and needs to be restocked, but the toothpaste supplier is also out of stock, 
+	 Adjust all systems to immediately remove this toothpaste and close the advertisement of this toothpaste (Data federation)
+
+5. The supervisor reanalyzed the sales of this toothpaste and worked out a new purchase plan (Data consolidation)
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="card_to_table.xsl"?>
+	<business_card>
+		<name>Sida</name>
+		<email>sida9567@gmail.com</email>
+		<phone>5735769567</phone>
+		<address>329 Norwich Ave, Milpitas, CA 95035</address>
+</business_card>

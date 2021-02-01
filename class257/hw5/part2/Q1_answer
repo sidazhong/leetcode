@@ -1,0 +1,63 @@
+Data consolidation:
+	BulkCo's system can be divided into 3 independent parts, PigIron 300 database, HR system, and customers system.
+	The data of these three independent parts need to be integrated into a higher quality data set to satisfy the single source of truth theorem.
+	The integrated data is usually stored in the data warehouse for data reporting and data analysis.
+	For example, recently affected by the epidemic, the HR system has frequent personnel turnover and there are also many temporary employees.
+	Many users return goods in the customers system. There are many products in the database that cannot be supplemented from the source
+	All these data anomalies caused by the epidemic are all integrated and sent to the data warehouse for analysis.
+	
+Data federation:
+	The main purpose of Data federation is to keep the three systems of database, HR, and customers synchronized at all times.
+	For example, in the product management Pig Iron 300 system, a toothpaste stock is insufficient.
+	While preparing to replenish the new source of goods, an accident happened suddenly, causing the new source of goods to be delayed for a period of time.
+	The unexpected delay was not updated in the customers system in time, and the user thought there was toothpaste stock.
+	At this time, data federation is required to run a queryt to coordinate all subsystems.
+	
+Data propagation:
+  Data propagation can analyze different external data sources together locally. Especially suitable for advertising recommendation system.
+  For example, BulkCo can link to some third-party data sources to understand the user's address, life, usual search keywords, and shopping habits.
+  Thereby recommending some products specifically for this user as advertisements.
+  
+Changed Data Capture:
+  Abbreviated as CDC, set up start events in multiple systems to change the information of multiple databases at the same time
+  For example, in the customers system, when a user purchases a toothpaste, the inventory of the product database is updated through the CDC.
+  If the toothpaste in inventory database is not enough, the employee is told through the event that the toothpaste need to be purchased.
+  
+Data Virtualization:
+  Data Virtualization is similar to a data lake, which simultaneously obtains and integrates information source data from multiple systems.
+  The difference is that Data Virtualization does not store actual data, or only uses cache for temporary storage. In this way, user can view and modify data instantly.
+  On the client side, Data Virtualization can be used to recommend some current hot commodities to users in real time.
+  On the management side, managers can adjust the weight of the price and the number of times the advertisement page appears through the sales of each product.
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

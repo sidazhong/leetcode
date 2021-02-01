@@ -15,6 +15,67 @@
  * MATCH (n) RETURN n LIMIT 25    //show all nodes
  * CREATE (n:Person { name: 'Andy', title: 'Developer' })
  * 
+ * 
+    
+MATCH (n)
+DETACH DELETE n
+  
+MATCH (n) RETURN n LIMIT 25
+  
+CREATE (n:person { name: "Person_0"})
+CREATE (n:person { name: "Person_1"})
+CREATE (n:person { name: "Person_2"})
+CREATE (n:person { name: "Person_3"})
+CREATE (n:person { name: "Person_4"})
+CREATE (n:person { name: "Person_5"})
+CREATE (n:person { name: "Person_6"})
+CREATE (n:person { name: "Person_7"})
+CREATE (n:person { name: "Person_8"})
+CREATE (n:person { name: "Person_9"})
+  
+MATCH (self:person) WHERE self.name = 'Person_0' CREATE (self)-[r:know]->(self) 
+MATCH (self:person) WHERE self.name = 'Person_1' CREATE (self)-[r:know]->(self) 
+MATCH (self:person) WHERE self.name = 'Person_2' CREATE (self)-[r:know]->(self) 
+MATCH (self:person) WHERE self.name = 'Person_3' CREATE (self)-[r:know]->(self) 
+MATCH (self:person) WHERE self.name = 'Person_4' CREATE (self)-[r:know]->(self) 
+MATCH (self:person) WHERE self.name = 'Person_5' CREATE (self)-[r:know]->(self) 
+MATCH (self:person) WHERE self.name = 'Person_6' CREATE (self)-[r:know]->(self) 
+MATCH (self:person) WHERE self.name = 'Person_7' CREATE (self)-[r:know]->(self) 
+MATCH (self:person) WHERE self.name = 'Person_8' CREATE (self)-[r:know]->(self)
+MATCH (self:person) WHERE self.name = 'Person_9' CREATE (self)-[r:know]->(self) 
+  
+MATCH (first:person),(second:person) WHERE first.name = 'Person_0' AND second.name = 'Person_1' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_1' AND second.name = 'Person_2' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_2' AND second.name = 'Person_3' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_3' AND second.name = 'Person_4' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_4' AND second.name = 'Person_5' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_5' AND second.name = 'Person_6' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_6' AND second.name = 'Person_7' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_7' AND second.name = 'Person_8' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_8' AND second.name = 'Person_9' CREATE (first)-[r:know]->(second)
+MATCH (first:person),(second:person) WHERE first.name = 'Person_9' AND second.name = 'Person_7' CREATE (first)-[r:know]->(second)
+
+
+MATCH (p1:person)-[:know]->(p2:person) 
+WITH p1,count(p2) as count
+WHERE count > 1
+RETURN p1
+
+MATCH (p1:person)-[:know]->(p2:person) 
+WITH p1,count(p2) as count
+WHERE count > 1
+RETURN p1
+
+MATCH (a:person { name: '{$this->name1}' }),(b:person { name: '{$this->name2}' }), p = shortestPath((a)-[*..100]-(b))
+RETURN p";
+
+
+MATCH (p1:person)-[:know]->(p2:person), (p2:person)-[:know]->(p3:person)
+WHERE p3.name = "Person_7"
+RETURN p1
+
+
+ * 
  */
 
 require_once 'vendor/autoload.php';
