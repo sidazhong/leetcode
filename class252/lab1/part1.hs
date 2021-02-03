@@ -1,11 +1,35 @@
+http://codecheck.it/files/1801270115e7z5z5wxbxeqdep0nhqg29hic
+
 maxNum :: [Integer] -> Integer
 maxNum [] = error "empty list" 
-maxNum [v] = v 
-maxNum (x:xs) -- Divide the array into one element and the following array
-    | x >= maxNumber = x  -- If the current first number is greater and equal than the last largest number, use the current number
-    | x < maxNumber = maxNumber --  If the current first number is greater than the last largest number, use the the last largest number
+maxNum [x] = x
+maxNum (x:xs) 
+    | x > maxNumber = x  
+    | otherwise = maxNumber 
     where 
-      maxNumber = maxNum xs -- Recursively loop to find the largest number
+      maxNumber = maxNum xs 
+      
+      
+
+maxNum [] = error "Not implemented"
+maxNum [x] = x
+maxNum (x:xs) = 
+  if x > maxNumber
+    then x
+  else 
+    maxNumber
+  where 
+    maxNumber = maxNum xs
+      
+
+      
+maxNum :: [Integer] -> Integer
+maxNum [] = error "Not implemented"
+maxNum [x] = x
+maxNum (x:xs) = maxNum ([y | y <- xs, y > x]++[x])
+
+
+
 
 main :: IO ()
 main = do
