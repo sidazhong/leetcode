@@ -1,0 +1,20 @@
+//安装
+apt-get install texlive
+
+//解析
+latex test.tex
+
+//查看
+xdvi test.dvi
+
+//编辑器
+https://www.overleaf.com/?r=21c5fbc5&rm=d&rs
+
+//教学
+https://www.youtube.com/watch?v=25LExaNtdF0
+
+
+
+我的第一个女朋友是在火车上认识的。她原本是被雇佣做女朋友的，在中国逢年过节很多家长会问儿女的婚姻情况。
+带一个女孩和家里人吃一顿饭可以让他们放心和闭嘴。但是雇佣的那个人没想到，那个火车开的很慢，那个女孩做在我旁边，
+所以我们整整聊了15个小时。结局是那个女孩取消了之前的雇佣协议，跟我一起回老家吃了饭见了父母。

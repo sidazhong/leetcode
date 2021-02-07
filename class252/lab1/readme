@@ -72,11 +72,29 @@ http://www.cs.sjsu.edu/~austin/cs252-spring21/
 		
 		
 		
+maxNum (x:xs) = maxNum ([y | y <- xs, y > x]++[x])
+		
+Prelude> [y | y <- [1,2,3], y > 1]
+[2,3]
 		
 		
 		
 		
 		
+maxNum (x:xs) = maxNum ([y | y <- xs, y > x]++[x])
+ok the symbo "|" is more like a "pipe" instead of guard.
+
+Prelude> [y | y <- [1,2,3], y > 1]		------------- [2,3]
+I run this sytax in the terminal, it returns [2,3], make a lot of sense now. 
+
+For Example, if it goes [1,2,3], what happened is:
+
+1st recursion: [1][2,3] -> [2,3] ++ [1] -> [2,3,1]
+2st recursion: [2][3,1] -> [3] ++ [2] -> [3,2]
+3st recursion: [3][2] -> [] ++ [3] -> [3]
+4st recursion: [3] -> 3
+
+
 		
 		
 		
