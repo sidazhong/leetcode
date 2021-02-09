@@ -70,7 +70,6 @@ bigSubtract' (x:xs) (y:ys) z
 
 
 
-
 bigEq :: BigNum -> BigNum -> Bool
 bigEq _ _ = error "Your code here"
 
@@ -87,14 +86,17 @@ bigDec x = bigSubtract x [1]
 bigMultiply :: BigNum -> BigNum -> BigNum
 bigMultiply x [0] = [0]
 bigMultiply [0] y = [0]
-bigMultiply x y = bigMultiply' x y 0
+bigMultiply x [y] = bigMultiply' x [y] 0
+bigMultiply x (y:ys) = bigAdd (bigMultiply x [y]) ([0]++bigMultiply x ys)
 
--- 3 * 4 =12     [3] [4]  --->  [12]
--- 3001074098 * 4 =  [98,74,1,3] [4]	---> [392,296,4,12]
--- putStrLn $ show $ bigMultiply [500,1] [9]
--- putStrLn $ show $ bigMultiply [500,1] [9] ---> [500,13]
--- putStrLn $ show $ bigMultiply [500,1] [900] ---> [0,350,1]
--- putStrLn $ show $ bigMultiply [111,11] [100] ----> [100][111][1]
+-- putStrLn $ show $ bigMultiply [3] [4] -- [12] -- 3 * 4 =12  
+-- putStrLn $ show $ bigMultiply [98,74,1,3] [4] -- [392,296,4,12] 
+-- putStrLn $ show $ bigMultiply [500,1] [9] -- [500,13]	-- 500 * 9 -> pass "4" and left "500"
+-- putStrLn $ show $ bigMultiply [999] [10] --[990,9]	-- 999 * 10 -> pass "9" and left "990"
+-- putStrLn $ show $ bigMultiply [500,1] [900] -- [0,350,1]	-- 500 * 900 -> pass "450" left "1000", and 1*900+450 = 1350 > 1000 -> bigadd
+-- putStrLn $ show $ bigMultiply [111,11] [100] -- [100][111][1] -- 111 * 100 -> pass 11 and left "100", and 11*100 + 11
+-- putStrLn $ show $ bigMultiply [111,1] [111] -- [321,123]
+-- putStrLn $ show $ bigMultiply [111,1] [111,1] -- [321][234][1] -- 123321 + 1111000 = 1234321 -- [321,123] + [0,111,1] -- [321,123] + [0]++[111,1]
 
 bigMultiply' :: BigNum -> BigNum -> Block -> BigNum
 bigMultiply' [] y 0 = []
@@ -107,7 +109,7 @@ bigMultiply' (x:xs) [y] z
   | x*y+z >= maxblock = bigAdd [x*y] [z]
   where 
     rs1 = x*y+z
-    rs2 = x*y `mod` maxblock
+    rs2 = x*y `mod` maxblock+z
 
 
 

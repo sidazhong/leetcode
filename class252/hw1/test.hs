@@ -35,12 +35,21 @@ main = do
   putStrLn $ show $ bigMultiply [3] [4]
   putStrLn $ show $ bigMultiply [987,1] [0]
   putStrLn $ show $ bigMultiply [98,74,1,3] [4]
+  putStrLn $ show $ bigMultiply [999] [10]
   putStrLn $ show $ bigMultiply [500,1] [9]
   putStrLn $ show $ bigMultiply [500,1] [900]
-  putStrLn $ show $ bigMultiply [999] [10]
   putStrLn $ show $ bigMultiply [111,11] [100]
   
-  --putStrLn $ show $ bigMultiply [98,74,1,3] [291,456,128,493]
+  putStrLn "==="
+  putStrLn $ show $ bigMultiply [111,1] [111]
+  putStrLn $ show $ bigMultiply [111,1] [1]
+  putStrLn $ show $ bigMultiply [111,1] [111,1]
+  putStrLn "==="
+  putStrLn $ show $ bigAdd [111,1] [0]
+  putStrLn $ show $ bigAdd [111,1] [110,11]
+  putStrLn $ show $ bigAdd [221,12] [100,111]
+  putStrLn $ show $ bigAdd [321,123] [0,111,1]
+  putStrLn $ show $ bigMultiply [98,74,1,3] [291,456,128,493]
   
   {-
   -- 3 * 4
