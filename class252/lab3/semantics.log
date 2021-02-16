@@ -1,0 +1,149 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=latex 2021.2.6)  15 FEB 2021 23:11
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**semantics.tex
+(./semantics.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+
+! LaTeX Error: File `fullpage.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: lab3
+
+! LaTeX Error: File `lab3.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: lab3
+
+! LaTeX Error: File `lab3.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+! Interruption.
+<to be read again> 
+                   }
+l.7 \usepackage
+               {color}^^M
+? clear
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+H for help, X to quit.
+? clear
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+H for help, X to quit.
+? quit
+OK, entering \batchmode...
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2019/11/23 v1.2a Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: dvips.def on input line 147.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/dvips.def
+File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-dvips.def
+File: l3backend-dvips.def 2020-02-03 L3 backend support: dvips
+\l__pdf_internal_box=\box45
+\g__pdf_backend_object_int=\count175
+\l__pdf_backend_content_box=\box46
+\l__pdf_backend_model_box=\box47
+\g__pdf_backend_annotation_int=\count176
+\g__pdf_backend_link_int=\count177
+\g__pdf_backend_link_sf_int=\count178
+)
+No file semantics.aux.
+\openout1 = `semantics.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 47.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 47.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 47.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 69.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 69.
+
+LaTeX Warning: Reference `fig:lang' on page 1 undefined on input line 83.
+
+ [1
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
+
+ []
+
+
+LaTeX Warning: Reference `fig:bigstep' on page 2 undefined on input line 131.
+
+
+LaTeX Warning: Reference `fig:lang' on page 2 undefined on input line 135.
+
+ [2] [3] [4] (./semantics.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 651 strings out of 483184
+ 9978 string characters out of 5966319
+ 247005 words of memory out of 5000000
+ 15721 multiletter control sequences out of 15000+600000
+ 537708 words of font info for 42 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 25i,15n,19p,166b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on semantics.dvi (4 pages, 8652 bytes).
