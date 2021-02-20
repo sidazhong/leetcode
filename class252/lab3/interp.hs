@@ -28,19 +28,17 @@ evaluate (Eif e1 e2 e3) = case evaluate e1 of
   -- | evaluate e1 == VTrue = evaluate e2
   -- | evaluate e1 == VFalse = evaluate e3
 
-
-
 -- e1 => n 
 evaluate (En n) = Vn n  
 
 -- e1 => n n'=n+1
--- evaluate (Esucc e1) = case evaluate e1 of
---   Vn n -> Vn (n+1)
+evaluate (Esucc e1) = case evaluate e1 of
+   Vn n -> Vn (n+1)
 
 -- e1 => n n'=n+1
-evaluate (Esucc e1) 
-  | evaluate e1 == Vn n = Vn (n+1)
-  where n = 100
+-- evaluate (Esucc e1) 
+  -- | evaluate e1 == Vn n = Vn (n+1)
+  -- where n = 100
 
 -- e1 => n n'=n-1 
 evaluate (Epred e1) = case evaluate e1 of
@@ -48,8 +46,7 @@ evaluate (Epred e1) = case evaluate e1 of
 
 prog1 = Eif ETrue ETrue EFalse
 prog2 = Eif (Eif ETrue EFalse ETrue) ETrue (Eif ETrue EFalse ETrue)
---prog3 = Esucc (Esucc (En 100))
-prog3 = Esucc (En 100)
+prog3 = Esucc (Esucc (En 100))
 prog4 = Epred (Epred (En 100))
 
 main :: IO ()
