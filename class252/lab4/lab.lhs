@@ -44,3 +44,106 @@ their absolute values.
 > sumAbs :: [Integer] -> Integer
 > sumAbs _ = error "TBD"
 
+
+
+
+
+
+
+
+
+lab4
+1. 
+
+--   :t f 
+--   f :: [a] -> a -> [a]  
+--   f :: c -> d -> c
+
+(\x y -> y:x) [] 1    # [1]
+The lambda expression.  ->  put 1 into an [].
+
+2. 
+foldl (\x y -> y:x) [] [1,2,3]   # [3,2,1]  
+The foldl, -> put each elements of [1,2,3] into an []
+
+3.
+myReversel :: [a] -> [a]
+myReversel x = foldl (\x y -> y:x) [] x 
+a function, -> just pass any array x to foldl. otherwise exactly the same as step2.
+
+4.
+-- a is list (not nessary)
+-- 
+myFoldl :: (a -> b -> a) -> a -> [b] -> a
+myFoldl _ base [] = base
+myFoldl f base (x:xs) = myFoldl f (f base x) xs
+This is from the lecture. 
+
+
+-- foldl (+) (1 + 2 + 3 + 0) [] 
+-- 1 + 2 + 3 + 0 
+-- 6 
+-- (+) 2 3    
+-- f 2 3
+
+
+
+
+
+:=  assignment
+	x=x+1
+	x := x +1 
+
+;   sequence
+	e1;e2 
+	e1 x := x+1
+	e2 x := x+2
+	 --x=3
+	
+σ   store
+	σ = e2
+	e1;e2 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

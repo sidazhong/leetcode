@@ -65,11 +65,6 @@ bigSubtract' (x:xs) (y:ys) z
     rs1 = x-y-z
     rs2 = x-y+maxblock
 
-
-
-
-
-
 bigEq :: BigNum -> BigNum -> Bool
 bigEq _ _ = error "Your code here"
 
@@ -80,7 +75,6 @@ bigDec x = bigSubtract x [1]
 -- school, except dealing with blocks of 3 digits rather than single digits.
 -- If you are having trouble finding a solution, write a helper method that
 -- multiplies a BigNum by an Int.
-
 
 
 bigMultiply :: BigNum -> BigNum -> BigNum
@@ -99,28 +93,33 @@ bigMultiply x (y:ys) = bigAdd (bigMultiply x [y]) ([0]++bigMultiply x ys)
 -- putStrLn $ show $ bigMultiply [111,1] [111,1] -- [321][234][1] -- 123321 + 1111000 = 1234321 -- [321,123] + [0,111,1] -- [321,123] + [0]++[111,1]
 
 bigMultiply' :: BigNum -> BigNum -> Block -> BigNum
-bigMultiply' [] y 0 = []
-bigMultiply' [] y z = [z]
---bigMultiply' _ [] _ = []
---bigMultiply' _ [0] _ = [0]
+bigMultiply' [] _ 0 = []
+bigMultiply' [] _ z = [z]
 bigMultiply' (x:xs) [y] z 
-  | x*y+z < maxblock = rs1: (bigMultiply' xs [y] 0)
-  | x*y >= maxblock = rs2: (bigMultiply' xs [y] (x*y `quot` maxblock))
-  | x*y+z >= maxblock = bigAdd [x*y] [z]
+  | x*y+z < maxblock = rs1: (bigMultiply' xs [y] 0)   -- case:  putStrLn $ show $ bigMultiply [98,74,1,3] [4]
+  | x*y >= maxblock = rs2: (bigMultiply' xs [y] (x*y `quot` maxblock))    -- case:  putStrLn $ show $ bigMultiply [999] [10]
+  | x*y+z >= maxblock = bigAdd [x*y] [z]     --case:  putStrLn $ show $ bigMultiply [500,1] [900]
   where 
-    rs1 = x*y+z
-    rs2 = x*y `mod` maxblock+z
+    rs1 = x * y + z
+    rs2 = x*y `mod` maxblock + z 
 
 
 
-
-
-
-
-
-
+-- putStrLn $ show $ bigPowerOf [2] [4] 
+-- -> 2 [4]
+-- -> 2 * 2 [3] 
+-- -> 2 * 2 * 2 [2] 
+-- -> 2 * 2 * 2 * 2 [1] 
+-- -> 2 * 2 * 2 * 2 
 bigPowerOf :: BigNum -> BigNum -> BigNum
-bigPowerOf _ _ = error "Your code here"
+bigPowerOf x [0] = [1]
+bigPowerOf x [1] = x
+bigPowerOf x y = bigMultiply x (bigPowerOf x (bigSubtract y [1]))
+
+
+
+
+
 
 prettyPrint :: BigNum -> String
 prettyPrint [] = ""
