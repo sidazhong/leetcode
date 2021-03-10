@@ -2,7 +2,7 @@
   Name: <Sida ZHong>
   Class: CS 252
   Assigment: HW1
-  Date: <Date assignment is due>
+  Date: <Date assignment is due 02/19/2021>
   Description: <Describe the program and what it does>
 -}
 
@@ -32,11 +32,8 @@ bigAdd' [] [] z = [z]
 bigAdd' x [] z = bigAdd' x [0] z
 bigAdd' [] y z = bigAdd' [0] y z
 bigAdd' (x:xs) (y:ys) z 
-  | x+y < maxblock = rs1: (bigAdd' xs ys 0)
-  | x+y >= maxblock = rs2: (bigAdd' xs ys 1)
-  where
-    rs1 = x+y+z  --z is the previous round, not current round
-    rs2 = x+y-maxblock
+  | (x+y+z) < maxblock = (x+y+z) : (bigAdd' xs ys 0)
+  | (x+y+z) >= maxblock = ((x+y+z)-maxblock) : (bigAdd' xs ys 1)
 
 
 
@@ -59,11 +56,8 @@ bigSubtract' [] [] z = [z]
 bigSubtract' x [] z = bigSubtract' x [0] z
 bigSubtract' [] y z = bigSubtract' [0] y z
 bigSubtract' (x:xs) (y:ys) z 
-  | x-y >= 0 = rs1: (bigSubtract' xs ys 0)
-  | x-y < 0 = rs2: (bigSubtract' xs ys 1)
-  where 
-    rs1 = x-y-z
-    rs2 = x-y+maxblock
+  | (x-y-z) >= 0 = (x-y-z) : (bigSubtract' xs ys 0)
+  | (x-y-z) < 0 = ((x-y-z)+maxblock) : (bigSubtract' xs ys 1)
 
 bigEq :: BigNum -> BigNum -> Bool
 bigEq _ _ = error "Your code here"
@@ -87,7 +81,7 @@ bigMultiply x (y:ys) = bigAdd (bigMultiply x [y]) ([0]++bigMultiply x ys)
 -- putStrLn $ show $ bigMultiply [98,74,1,3] [4] -- [392,296,4,12] 
 -- putStrLn $ show $ bigMultiply [500,1] [9] -- [500,13]	-- 500 * 9 -> pass "4" and left "500"
 -- putStrLn $ show $ bigMultiply [999] [10] --[990,9]	-- 999 * 10 -> pass "9" and left "990"
--- putStrLn $ show $ bigMultiply [500,1] [900] -- [0,350,1]	-- 500 * 900 -> pass "450" left "1000", and 1*900+450 = 1350 > 1000 -> bigadd
+-- putStrLn $ show $ bigMultiply [500,1] [900] -- [0,350,1]	-- 500 * 900 -> pass "450" left "1000", and 1*900+450 = 1350 -> pass 1 left 350
 -- putStrLn $ show $ bigMultiply [111,11] [100] -- [100][111][1] -- 111 * 100 -> pass 11 and left "100", and 11*100 + 11
 -- putStrLn $ show $ bigMultiply [111,1] [111] -- [321,123]
 -- putStrLn $ show $ bigMultiply [111,1] [111,1] -- [321][234][1] -- 123321 + 1111000 = 1234321 -- [321,123] + [0,111,1] -- [321,123] + [0]++[111,1]
@@ -96,13 +90,8 @@ bigMultiply' :: BigNum -> BigNum -> Block -> BigNum
 bigMultiply' [] _ 0 = []
 bigMultiply' [] _ z = [z]
 bigMultiply' (x:xs) [y] z 
-  | x*y+z < maxblock = rs1: (bigMultiply' xs [y] 0)   -- case:  putStrLn $ show $ bigMultiply [98,74,1,3] [4]
-  | x*y >= maxblock = rs2: (bigMultiply' xs [y] (x*y `quot` maxblock))    -- case:  putStrLn $ show $ bigMultiply [999] [10]
-  | x*y+z >= maxblock = bigAdd [x*y] [z]     --case:  putStrLn $ show $ bigMultiply [500,1] [900]
-  where 
-    rs1 = x * y + z
-    rs2 = x*y `mod` maxblock + z 
-
+  | (x*y+z) < maxblock = (x*y+z) : (bigMultiply' xs [y] 0)   
+  | (x*y+z) >= maxblock = ((x*y+z) `mod` maxblock) : (bigMultiply' xs [y] ((x*y+z) `quot` maxblock))  
 
 
 -- putStrLn $ show $ bigPowerOf [2] [4] 
@@ -115,8 +104,6 @@ bigPowerOf :: BigNum -> BigNum -> BigNum
 bigPowerOf x [0] = [1]
 bigPowerOf x [1] = x
 bigPowerOf x y = bigMultiply x (bigPowerOf x (bigSubtract y [1]))
-
-
 
 
 

@@ -32,8 +32,11 @@ evaluate (Eif e1 e2 e3) = case evaluate e1 of
 evaluate (En n) = Vn n  
 
 -- e1 => n n'=n+1
-evaluate (Esucc e1) = case evaluate e1 of
-   Vn n -> Vn (n+1)
+-- evaluate (Esucc e1) = case evaluate e1 of
+--   Vn n -> Vn (n+1)
+
+evaluate (Esucc (En n)) = Vn (n+1)    
+evaluate (Esucc e1) = evaluate e1
 
 -- e1 => n n'=n+1
 -- evaluate (Esucc e1) 
@@ -46,8 +49,9 @@ evaluate (Epred e1) = case evaluate e1 of
 
 prog1 = Eif ETrue ETrue EFalse
 prog2 = Eif (Eif ETrue EFalse ETrue) ETrue (Eif ETrue EFalse ETrue)
-prog3 = Esucc (Esucc (En 100))
-prog4 = Epred (Epred (En 100))
+prog3 = Esucc (En 100)
+prog4 = Esucc (Esucc (En 100))
+prog5 = Epred (Epred (En 100))
 
 main :: IO ()
 main = do
@@ -55,6 +59,7 @@ main = do
   putStrLn $ "Evaluating '" ++ (show prog2) ++ "' results in " ++ (show $ evaluate prog2)
   putStrLn $ "Evaluating '" ++ (show prog3) ++ "' results in " ++ (show $ evaluate prog3)
   putStrLn $ "Evaluating '" ++ (show prog4) ++ "' results in " ++ (show $ evaluate prog4)
+  putStrLn $ "Evaluating '" ++ (show prog4) ++ "' results in " ++ (show $ evaluate prog5)
   
   
   

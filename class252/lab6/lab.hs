@@ -13,11 +13,11 @@ findT v (Node val left right) =
   else
     findT v right
     
-    
 instance Functor Tree where
   fmap f (Node v left right) = Node (f v) (fmap f left) (fmap f right)  
   fmap f Empty = Empty
-    
   
---fmap (+1) (Node 3 (Node 1 Empty Empty) (Node 7 (Node 4 Empty Empty) Empty))
+main :: IO ()
+main = do  
+  print $ fmap (+1) (Node 3 (Node 1 Empty Empty) (Node 7 (Node 4 Empty Empty) Empty))
     
