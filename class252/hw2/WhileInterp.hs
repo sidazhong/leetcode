@@ -109,7 +109,8 @@ evaluate (Assign x e1) s =
 -- Sequence Expression Expression 
 evaluate (Sequence e1 e2) s =
   let (v1,s1) =  evaluate e1 s
-  in (evaluate e2 s1)
+      (v2,s2) =  evaluate e2 s1
+  in (v2, s2)
   
 
 -- =============================================================================  question
@@ -138,16 +139,12 @@ evaluate (Op o e1 e2) s =
 -- (If (Val (BoolVal True)) (Val (IntVal 1)) (Val (IntVal 2))) -- (IntVal 2,fromList [])
 -- if true then e1 else e2, s -> e1,s 
 -- if false then e1 else e2,s -> e2,s
-evaluate (If (Val (BoolVal True)) e1 e2) s = evaluate e1 s
-evaluate (If (Val (BoolVal False)) e1 e2) s = evaluate e2 s
-
-
+-- evaluate (If (Val (BoolVal True)) e1 e2) s = evaluate e1 s
+-- evaluate (If (Val (BoolVal False)) e1 e2) s = evaluate e2 s
 -- If Expression Expression Expression
-{-
 evaluate (If e1 e2 e3) s 
   | evaluate e1 s == (BoolVal True,s) = evaluate e2 s
   | evaluate e1 s == (BoolVal False,s) = evaluate e3 s
--}
 
 -- =============================================================================
 -- [ss-while] -- 55:47
