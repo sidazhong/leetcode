@@ -7,6 +7,16 @@ w_fact = (Sequence (Assign "N" (Val (IntVal 2))) (Sequence (Assign "F" (Val (Int
 
 testUnit :: IO ()
 testUnit = do
+  putStrLn $ show $ WhileInterp.run (Val (BoolVal True))
+  putStrLn $ show $ WhileInterp.run (AND (Val (BoolVal True)) (Val (BoolVal True)))
+  putStrLn $ show $ WhileInterp.run (AND (AND (Val (BoolVal True)) (Val (BoolVal True))) (Val (BoolVal False)))
+  
+  putStrLn $ show $ WhileInterp.run (OR (Val (BoolVal False)) (Val (BoolVal True)))
+  
+  
+  putStrLn $ show $ WhileInterp.run (NOT (Val (BoolVal True)))
+  putStrLn $ show $ WhileInterp.run (NOT (NOT (Val (BoolVal False))) )
+
   -- Should be: (IntVal 1,fromList [])
   putStrLn $ show $ WhileInterp.run (Val (IntVal 1))
   
@@ -31,6 +41,7 @@ testUnit = do
   -- Should be: (IntVal 666,fromList [("X",IntVal 666)])
   putStrLn $ show $ WhileInterp.run (Sequence (Assign "X" (Val (IntVal 666))) (Var "X"))
 
+
 main :: IO ()
 main = do
   testUnit
@@ -38,7 +49,6 @@ main = do
   putStrLn $ show $ WhileInterp.testProgram w_test
   -- Should be: fromList [("F",IntVal 2),("N",IntVal 0),("X",IntVal 1),("Z",IntVal 2)]
   putStrLn $ show $ WhileInterp.testProgram w_fact
-
 
 
 
