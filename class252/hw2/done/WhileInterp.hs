@@ -115,13 +115,6 @@ evaluate (Sequence e1 e2) s =
 -- =============================================================================  
 -- [ss-op] -- 42:24
 -- (Op Plus (Val (IntVal 9)) (Val (IntVal 2))) -- (IntVal 11,fromList [])
-
--- e1,s -> e1,s'
--- e1 op e2,s -> e1' op e2,s'
-
--- e,s -> e',s'
--- v op e,s -> v op e',s'
-
 -- v = v1 op v2
 -- v1 op v2,s -> v,s
 -- evaluate (Op o (Val v1) (Val v2)) s = (applyOp o v1 v2, s)
@@ -145,32 +138,10 @@ evaluate (If e1 e2 e3) s
   | evaluate e1 s == (BoolVal True,s) = evaluate e2 s
   | evaluate e1 s == (BoolVal False,s) = evaluate e3 s
   
-  
-
-
 -- =============================================================================
 -- [ss-while] -- 55:47
 -- (While (Val (BoolVal False)) (Val (IntVal 42))) -- (BoolVal False,fromList [])
 -- while (e1) e2, s -> if e1 then e2 ; while (e1) e2 else false, s
-{-
-evaluate (While e1 e2) s = evaluate (
-  If e1 
-    (Sequence e2 (While e1 e2)) 
-    (Val (BoolVal False))) s
-
-evaluate (While e1 e2) s 
-  | evaluate e1 s == (BoolVal True,s) = evaluate (Sequence e2 (While e1 e2)) s
-  | evaluate e1 s == (BoolVal False,s) = (BoolVal False,s)
--}
-
-{-
-evaluate (While e1 e2) s 
-  | evaluate e1 s == (BoolVal True,s) = (v1, s1)
-  | evaluate e1 s == (BoolVal False,s) = (BoolVal False,s)
-  where 
-    (v1,s1) = evaluate (Sequence e2 (While e1 e2)) s
--}
-
 evaluate (While e1 e2) s 
   | evaluate e1 s == (BoolVal True,s) = (v1, s1)
   | evaluate e1 s == (BoolVal False,s) = (BoolVal False,s)
@@ -180,82 +151,28 @@ evaluate (While e1 e2) s
   
 -- =============================================================================
 -- (Sequence (Assign "X" (Val (IntVal 666))) (Var "X")) -- (IntVal 666,fromList [("X",IntVal 666)])
--- main = do
---   case (Map.lookup "a" m') of
---     Just i -> putStrLn $ show i
---     _      -> error "Key is not in the map"
 evaluate (Var v) s = 
   case (Map.lookup v s) of
     Just i -> (i,s)
     _      -> error "Key is not in the map"
 
-{-
-w_test = 
-	(Sequence 
-		(Assign "X" 
-			(Op Plus 
-				(Op Minus 
-					(Op Plus 
-						(Val (IntVal 1)) 
-						(Val (IntVal 2))
-					) 
-					(Val (IntVal 3))
-				) 
-				(Op Plus 
-					(Val (IntVal 1)) 
-					(Val (IntVal 3))
-				)
-			)
-		) 
-		(Sequence 
-			(Assign "Y" 
-				(Val (IntVal 0))
-			) 
-			(While 
-				(Op Gt (Var "X") (Val (IntVal 0))		-------------------
-			) 
-			(Sequence (Assign "Y" (Op Plus (Var "Y") (Var "X"))) 
-			
-			(Assign "X" (Op Minus (Var "X") (Val (IntVal 1))))))))
--}
 
 -- =============================================================================
-
-
 evaluate (AND e1 e2) s 
   | evaluate e1 s == (BoolVal False,s) = (BoolVal False,s)
   | evaluate e2 s == (BoolVal False,s) = (BoolVal False,s)
   | evaluate (OR e1 e2) s == (BoolVal True,s) = (BoolVal True,s)
-  {-
-  | evaluate (OR e1 e2) s == (BoolVal False,s) = (BoolVal False,s)
-  | evaluate e1 s == (BoolVal True,s) = (BoolVal True,s)
-  | evaluate e2 s == (BoolVal True,s) = (BoolVal True,s)
-  -}
 
 -- =============================================================================
 evaluate (OR e1 e2) s 
   | evaluate e1 s == (BoolVal True,s) = (BoolVal True,s)
   | evaluate e2 s == (BoolVal True,s) = (BoolVal True,s)
   | evaluate (AND e1 e2) s == (BoolVal False,s) = (BoolVal False,s)
-  {-
-  | evaluate (AND e1 e2) s == (BoolVal False,s) = (BoolVal False,s)
-  | evaluate e1 s == (BoolVal True,s) = (BoolVal True,s)
-  | evaluate e2 s == (BoolVal True,s) = (BoolVal True,s)
-  -}
   
 -- =============================================================================
 evaluate (NOT e1) s 
   | evaluate e1 s == (BoolVal True,s) = (BoolVal False,s)
   | evaluate e1 s == (BoolVal False,s) = (BoolVal True,s)
-
-
-
-
-
-
-
-
-
 
 
 -- Evaluates a program with an initially empty state
