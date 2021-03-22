@@ -1,0 +1,354 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{listings}
+\usepackage{url}
+\usepackage{amsmath}
+
+% Code details
+\lstset{
+  language=Haskell,
+  tabsize = 4,
+  escapechar=@,
+  basicstyle=\ttfamily,
+  commentstyle=\tt,
+}
+
+% Header and footer details
+\pagestyle{headandfoot}
+\header{CS 252, Takehome Exam 1}{}{Name: \bigblank}
+%\headrule
+\footer{}{Page \thepage\ of \numpages}{}
+
+\setlength\answerskip{0ex}
+
+% Spacing and formatting, especially for blank lines.
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\blank}{\makebox[1in]{\hrulefill}}
+\newcommand{\midblank}{\makebox[.7in]{\hrulefill}}
+\newcommand{\bigblank}{\makebox[2in]{\hrulefill}}
+\newcommand{\hugeblank}{\makebox[3in]{\hrulefill}}
+\newcommand{\ansline}{\hfill\makebox[1in][r]{\hrulefill}}
+\newcommand{\anslinelong}{\hfill\makebox[2in][r]{\hrulefill}}
+
+\begin{document}
+
+\hrule
+{\vskip .2in}
+\noindent
+This is a 24 hour, open notes, books, etc. exam. \\
+{\bf ASK} if anything is not clear. \\
+{\bf WORK INDIVIDUALLY. }\\
+
+\noindent
+If there are any corrections to exam questions, they will be posted to Canvas.
+
+{\vskip .2in}
+\hrule
+{\vskip .3in}
+
+\begin{center}
+\gradetable
+\end{center}
+
+\section*{Notation:}
+{\Large
+\begin{tabular}{ll}
+  $\sigma(x)$ -- Get reference $x$ from store $\sigma$. \\
+  $\sigma[x:=v]$ -- Set reference $x$ to value $v$ in store $\sigma$. \\
+  %$e[x\rightarrow v]$ -- Replace {\em variable} $x$ with value $v$ in expression $e$. \\
+\end{tabular}
+}
+
+\pagebreak
+
+
+\begin{questions}
+
+  \question[15]
+  Consider the following language:
+
+  % Commands for formatting figure
+\newcommand{\mydefhead}[2]{\multicolumn{2}{l}{{#1}}&\mbox{\emph{#2}}\\}
+\newcommand{\mydefcase}[2]{\qquad\qquad\qquad\qquad\qquad\qquad& #1 &\mbox{#2}\\}
+
+% Commands for language format
+\newcommand{\setexp}[2]{\mbox{\tt set}~#1~#2}
+\newcommand{\readexp}[1]{\mbox{\tt read}~#1}
+\newcommand{\loopexp}[2]{\mbox{\tt loop}~#1~#2}
+\newcommand{\incexp}[1]{\mbox{\tt inc}~{#1}}
+\newcommand{\testexp}[2]{\mbox{\tt test}~{#1}~{#2}}
+\newcommand{\thenexp}[2]{#1~\mbox{\tt then}~{#2}}
+\newcommand{\crashexp}{\mbox{\tt crash}}
+
+\newcommand{\rel}[1]{ \mbox{\sc [#1]} }
+
+\newcommand{\sstep}[2]{{#1} \rightarrow {#2}}
+\newcommand{\sstepStore}[4]{{#1},{#2} \rightarrow {#3},{#4}}
+\newcommand{\bstep}[2]{{#1} \Downarrow {#2}}
+\newcommand{\bstepStore}[4]{{#1},{#2} \Downarrow {#3},{#4}}
+
+\newcommand{\ssrule}[3]{
+  \rel{#1} &
+  \frac{\strut\begin{array}{@{}c@{}} #2 \end{array}}
+       {\strut\begin{array}{@{}c@{}} #3 \end{array}}
+   \\~\\
+}
+
+\[
+  \begin{array}{ll@{\qquad\qquad\qquad}r}
+  \mydefhead{e ::=}{Expressions}
+    \mydefcase{n}{number (integer)}
+    \mydefcase{\setexp{x}{e}}{set variable}
+    \mydefcase{\readexp{x}}{read variable}
+    \mydefcase{\incexp{x}}{increment operator}
+    \mydefcase{\thenexp{e}{e}}{then expression}
+    \mydefcase{\testexp{e}{e}}{test expression}
+    \mydefcase{\loopexp{e}{e}}{loop}
+    \mydefcase{\crashexp}{crash expression}
+  \\
+  \mydefhead{x ::=\qquad\qquad\qquad\qquad}{Variables}
+\end{array}
+\]
+
+  The big-step operational semantics relation evaluates an expression to a {\bf number}.
+  \[\large
+    \bstepStore{e}{\sigma}{n}{\sigma'}
+  \]
+
+\noindent
+The store $\sigma$ is a mapping of references ($x$) to numbers ($n$).
+The evaluation rules are provided below.
+Note that $\crashexp$ has no evaluation rule,
+meaning that it causes evaluation to get stuck.
+
+
+\[
+  \begin{array}{c@{\quad}c}
+  \begin{array}{r@{\qquad\qquad}c}
+
+\ssrule{Num}{}{
+  \bstepStore{n}{\sigma}{n}{\sigma}
+}
+
+\ssrule{SetVar}{
+  \bstepStore{e}{\sigma}{n}{\sigma_1} \\
+  \sigma' = \sigma_1[x:=n]
+}{
+  \bstepStore{\setexp x e}{\sigma}{n}{\sigma'}
+}
+
+\ssrule{ReadVar}{
+  x \in domain(\sigma)
+}{
+  \bstepStore{\readexp x}{\sigma}{\sigma(x)}{\sigma}
+}
+
+\ssrule{Inc}{
+  \bstepStore{e}{\sigma}{n}{\sigma'} \\
+  n' = n+1
+}{
+  \bstepStore{\incexp e}{\sigma}{n'}{\sigma'}
+}
+
+\ssrule{Then}{
+  \bstepStore{e_1}{\sigma}{n_1}{\sigma_1} \\
+  \bstepStore{e_2}{\sigma_1}{n_2}{\sigma'}
+}{
+  \bstepStore{\thenexp{e_1}{e_2}}{\sigma}{n_2}{\sigma'}
+}
+
+  \end{array}
+  &
+  \begin{array}{r@{\quad}c}
+
+\ssrule{TestEq}{
+  \bstepStore{e_1}{\sigma}{n_1}{\sigma_1} \\
+  \bstepStore{e_2}{\sigma_1}{n_2}{\sigma'} \\
+  n1 = n2
+}{
+  \bstepStore{\testexp{e_1}{e_2}}{\sigma}{1}{\sigma'}
+}
+
+\ssrule{TestNeq}{
+  \bstepStore{e_1}{\sigma}{n_1}{\sigma_1} \\
+  \bstepStore{e_2}{\sigma_1}{n_2}{\sigma'} \\
+  n1 \neq n2
+}{
+  \bstepStore{\testexp{e_1}{e_2}}{\sigma}{0}{\sigma'}
+}
+
+\ssrule{LoopTrue}{
+  \bstepStore{e_1}{\sigma}{1}{\sigma'}
+}{
+  \bstepStore{\loopexp{e_1}{e_2}}{\sigma}{1}{\sigma'}
+}
+
+\ssrule{LoopFalse}{
+  \bstepStore{e_1}{\sigma}{0}{\sigma_1} \\
+  \bstepStore{e_2}{\sigma_1}{n}{\sigma_2} \\
+  \bstepStore{\loopexp{e_1}{e_2}}{\sigma_2}{n'}{\sigma'}
+}{
+  \bstepStore{\loopexp{e_1}{e_2}}{\sigma}{n'}{\sigma'}
+}
+
+\end{array}
+\end{array}
+\]
+
+In the {\tt prob1} directory of the exam zip file, you will find {\tt interp.hs}.
+The {\tt Expression} data type matching this language has been provided for you.
+Complete the {\tt evaluate} function so that its behavior
+matches the evaluation rules defined above.
+
+Any error cases should return {\tt Nothing} rather than calling {\tt error}.
+
+The {\tt test.hs} file has several cases for you to consider.
+The expected results are not specified,
+but you should be able to read the evaluation rules to see
+what the result of any program should be.
+Your may run the test cases from the command line by typing:
+
+\begin{verbatim}
+    $ runhaskell test.hs
+\end{verbatim}
+
+\eject
+
+  \question[15]
+
+% Commands for language format
+\newcommand{\rval}{\mbox{\tt red}}
+\newcommand{\gval}{\mbox{\tt green}}
+\newcommand{\bval}{\mbox{\tt blue}}
+\newcommand{\rot}[1]{\mbox{\tt rotate}~{#1}}
+\newcommand{\ife}[3]{\mbox{\tt if}~({#1})~{\tt then}~({#2})~{\tt else}~({#3})}
+
+Consider the following language and big-step operational semantics:
+\[
+  \begin{array}{ll@{\qquad\qquad\qquad}r}
+  \mydefhead{e ::=}{Expressions}
+  \mydefcase{v}{value}
+  \mydefcase{\ife e e e}{if expression}
+  \mydefcase{\rot e}{rotate expression}
+  \\
+  \mydefhead{v ::=\qquad\qquad\qquad\qquad}{Values}
+  \mydefcase{\rval}{red}
+  \mydefcase{\gval}{green}
+  \mydefcase{\bval}{blue}
+\end{array}
+\]
+
+\[
+  %\begin{array}{c@{\qquad\qquad}c}
+  \begin{array}{r@{\qquad}c}
+
+    \ssrule{if-ctxt}{
+      \sstep{e_1}{e_1'} \\
+    }{
+      \sstep{\ife{e_1}{e_2}{e_3}}{\ife{e_1'}{e_2}{e_3}}
+    }
+
+    \ssrule{if-red}{
+    }{
+      \sstep{\ife{\rval}{e_1}{e_2}}{e_2}
+    }
+
+    \ssrule{if-other}{
+      v \neq \rval
+    }{
+      \sstep{\ife{v}{e_1}{e_2}}{e_1}
+    }
+
+  %\end{array}
+  %&
+  %\begin{array}{r@{\qquad}c}
+
+    \ssrule{rot-ctxt}{
+      \bstep{e}{e'}
+    }{
+      \bstep{\rot e}{\rot {e'}}
+    }
+
+    \ssrule{rot-red}{
+    }{
+      \bstep{\rot \rval}{\gval}
+    }
+
+    \ssrule{rot-green}{
+    }{
+      \bstep{\rot \gval}{\bval}
+    }
+
+    \ssrule{rot-blue}{
+    }{
+      \bstep{\rot \bval}{\rval}
+    }
+  \end{array}
+  %\end{array}
+\]
+
+Write equivalent big-step operational semantics for this language.
+Submit a PDF of your semantics.
+(The LaTeX of this exam is included in the exam zip file.
+There are some latex commands in it that you may find useful.)
+
+
+\eject
+
+\question[15]
+
+From the exam zip file, modify {\tt prob3/employees.hs} to implement
+the {\tt totalManagerPayroll} and {\tt empsWithPayLowerThan} functions.
+
+You must use higher-order functions for full credit,
+and you may not use recursion in either of your solutions.
+
+\vskip 1in
+
+\question[15]
+
+From the exam zip file, modify {\tt prob4/linklist.lhs} to add support
+for linked lists to be used as functors, applicative functors, and monads.
+
+Support for functors is worth 8 points, support for applicative functors
+is worth 5 points, and support for monads is worth 2 points.
+
+\vskip 1in
+
+\question[15]
+
+From the exam zip file, modify {\tt prob5/trie.lhs} to implement
+the 'contains' function.
+\vskip 1in
+
+
+\question[15]
+
+\vskip 1in
+
+From the exam zip file, modify {\tt prob6/schemeParser.lhs} to implement
+a parser for a (very minimal) Scheme program parser.  The
+{\tt prob6/test.scm} file has a sample Scheme file for you to consider.
+
+Test your parser by calling:
+\begin{verbatim}
+  $ runhaskell schemeParser.hs test.scm
+\end{verbatim}
+
+\vskip 1in
+
+\question[10]
+When submitting your exam, include a text file with the following text:
+
+\begin{quote}
+  I have not worked with anyone else for these exam problems.
+  I have not consulted with any outside parties.  For any code
+  that I have used from an external source, I have cited the
+  original source within my code comments.
+\end{quote}
+
+
+
+\end{questions}
+\end{document}
+
