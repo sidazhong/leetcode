@@ -263,66 +263,69 @@ Finally, implement the interpreter to match your semantics.
 }
 
 \bsrule{bs-iftrue}{
-  \bstep{e_1}{\sigma}{\true}{\sigma} \\
-  \bstep{e_2}{\sigma}{v}{\sigma}
+  \bstep{e_1}{\sigma}{\true}{\sigma_1} \\
+  \bstep{e_2}{\sigma_1}{v}{\sigma_2}
 }{
-  \bstep{\ife{e_1}{e_2}{e_3}}{\sigma}{v}{\sigma}
+  \bstep{\ife{e_1}{e_2}{e_3}}{\sigma}{v}{\sigma_2}
 }
 
 \bsrule{bs-iffalse}{
-  \bstep{e_1}{\sigma}{\false}{\sigma} \\
-  \bstep{e_3}{\sigma}{v}{\sigma}
+  \bstep{e_1}{\sigma}{\false}{\sigma_1} \\
+  \bstep{e_3}{\sigma_1}{v}{\sigma_2}
 }{
-  \bstep{\ife{e_1}{e_2}{e_3}}{\sigma}{v}{\sigma}
+  \bstep{\ife{e_1}{e_2}{e_3}}{\sigma}{v}{\sigma_2}
 }
 
-\bsrule{bs-while}{
-  \bstep{\whilee{e_1}{e_2}}{\sigma_2}{v_1}{\sigma_1} \\
-  \bstep{e_2}{\sigma}{v_2}{\sigma_2}
+\bsrule{bs-whilefalse}{
+  \bstep{e_1}{\sigma}{\false}{\sigma_1}
 }{
-  \bstep{\whilee{e_1}{e_2}}{\sigma}{\ife{e_1}{{v_1},{\sigma_1}}{\false}}{\sigma}
+  \bstep{\whilee{e_1}{e_2}}{\sigma}{v_1}{\sigma_1}
+}
+
+\bsrule{bs-whiletrue}{
+  \bstep{e_1}{\sigma}{\true}{\sigma_1} \\
+  \bstep{e_2}{\sigma_1}{v_2}{\sigma_2} \\
+  \bstep{\whilee{e_1}{e_2}}{\sigma_2}{v_1}{\sigma_3} 
+}{
+  \bstep{\whilee{e_1}{e_2}}{\sigma}{v_1}{\sigma_3}
 }
 
 \bsrule{bs-and-true}{
-  \bstep{e_1}{\sigma}{\true}{\sigma} \qquad
-  \bstep{e_2}{\sigma}{\true}{\sigma} \qquad
-  \bstep{\orE{e_1}{e_2}}{\sigma}{\true}{\sigma}
+  \bstep{e_1}{\sigma}{\true}{\sigma_1} \\
+  \bstep{e_2}{\sigma_1}{v_2}{\sigma_2}
 }{
-  \bstep{\andE{e_1}{e_2}}{\sigma}{\true}{\sigma}
+  \bstep{\andE{e_1}{e_2}}{\sigma}{v_2}{\sigma_2}
 }
 
 \bsrule{bs-and-false}{
-  \bstep{e_1}{\sigma}{\false}{\sigma} \\
-  \bstep{e_2}{\sigma}{\false}{\sigma} \\
+  \bstep{e_1}{\sigma}{\false}{\sigma_1}
 }{
-  \bstep{\andE{e_1}{e_2}}{\sigma}{\false}{\sigma}
+  \bstep{\andE{e_1}{e_2}}{\sigma}{\false}{\sigma_1}
 }
 
 \bsrule{bs-or-true}{
-  \bstep{e_1}{\sigma}{\true}{\sigma} \\
-  \bstep{e_2}{\sigma}{\true}{\sigma}
+  \bstep{e_1}{\sigma}{\true}{\sigma_1} 
 }{
-  \bstep{\orE{e_1}{e_2}}{\sigma}{\true}{\sigma}
+  \bstep{\orE{e_1}{e_2}}{\sigma}{\true}{\sigma_1}
 }
 
 \bsrule{bs-or-false}{
-  \bstep{e_1}{\sigma}{\false}{\sigma} \qquad
-  \bstep{e_2}{\sigma}{\false}{\sigma} \qquad
-  \bstep{\andE{e_1}{e_2}}{\sigma}{\false}{\sigma}
+  \bstep{e_1}{\sigma}{\false}{\sigma_1} \\
+  \bstep{e_2}{\sigma_1}{v_2}{\sigma_2}
 }{
-  \bstep{\orE{e_1}{e_2}}{\sigma}{\false}{\sigma}
+  \bstep{\orE{e_1}{e_2}}{\sigma}{v_2}{\sigma_2}
 }
 
 \bsrule{bs-not-true}{
-  \bstep{e_1}{\sigma}{\false}{\sigma} 
+  \bstep{e_1}{\sigma}{\false}{\sigma_1} 
 }{
-  \bstep{\notE{e_1}}{\sigma}{\true}{\sigma}
+  \bstep{\notE{e_1}}{\sigma}{\true}{\sigma_1}
 }
 
 \bsrule{bs-not-false}{
-  \bstep{e_1}{\sigma}{\true}{\sigma} 
+  \bstep{e_1}{\sigma}{\true}{\sigma_1} 
 }{
-  \bstep{\notE{e_1}}{\sigma}{\false}{\sigma}
+  \bstep{\notE{e_1}}{\sigma}{\false}{\sigma_1}
 }
 
 

@@ -1,0 +1,27 @@
+Node False (
+	fromList [
+		('A',Node True (fromList [])),
+		
+		('i',Node False (fromList [
+			('n',Node True (fromList [
+				('n',Node True (fromList [])),
+				('v',Node False (fromList [
+					('e',Node False (fromList [
+						('s',Node False (fromList [
+							('t',Node True (fromList []))
+						]))
+					]))
+				]))
+			]))
+		])),
+		
+		('t',Node False (fromList [
+			('e',Node False (fromList [
+				('a',Node True (fromList [])),
+				('d',Node True (fromList [])),
+				('n',Node True (fromList []))
+			])),
+			('o',Node True (fromList []))
+		]))
+		
+	])

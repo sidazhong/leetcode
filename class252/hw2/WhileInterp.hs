@@ -190,6 +190,19 @@ evaluate (Var v) s =
     _      -> error "Key is not in the map"
 
 {-
+[BS-WhileFalse] 
+e1, sigma ->* false, sigma’ 
+------- 
+while(e1) e2, sigma ->* false sigma’ 
+[BS-WhileTrue] 
+e1, sigma ->* true, sigma1 
+e2, sigma1 ->* v, sigma2 
+while(e1) e2, sigma2 ->* v’, sigma’ 
+——— 
+while(e1) e2), sigma ->* v’, sigma’ 
+
+
+
 w_test = 
 	(Sequence 
 		(Assign "X" 

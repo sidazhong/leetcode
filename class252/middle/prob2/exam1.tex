@@ -1,0 +1,168 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{listings}
+\usepackage{url}
+\usepackage{amsmath}
+
+% Code details
+\lstset{
+  language=Haskell,
+  tabsize = 4,
+  escapechar=@,
+  basicstyle=\ttfamily,
+  commentstyle=\tt,
+}
+
+% Header and footer details
+\pagestyle{headandfoot}
+\header{CS 252, Takehome Exam 1}{}{Name: \bigblank}
+%\headrule
+\footer{}{Page \thepage\ of \numpages}{}
+
+\setlength\answerskip{0ex}
+
+% Spacing and formatting, especially for blank lines.
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\blank}{\makebox[1in]{\hrulefill}}
+\newcommand{\midblank}{\makebox[.7in]{\hrulefill}}
+\newcommand{\bigblank}{\makebox[2in]{\hrulefill}}
+\newcommand{\hugeblank}{\makebox[3in]{\hrulefill}}
+\newcommand{\ansline}{\hfill\makebox[1in][r]{\hrulefill}}
+\newcommand{\anslinelong}{\hfill\makebox[2in][r]{\hrulefill}}
+
+\begin{document}
+
+
+
+
+\begin{questions}
+
+  \question[15]
+  Consider the following language:
+
+  % Commands for formatting figure
+\newcommand{\mydefhead}[2]{\multicolumn{2}{l}{{#1}}&\mbox{\emph{#2}}\\}
+\newcommand{\mydefcase}[2]{\qquad\qquad\qquad\qquad\qquad\qquad& #1 &\mbox{#2}\\}
+
+% Commands for language format
+\newcommand{\setexp}[2]{\mbox{\tt set}~#1~#2}
+\newcommand{\readexp}[1]{\mbox{\tt read}~#1}
+\newcommand{\loopexp}[2]{\mbox{\tt loop}~#1~#2}
+\newcommand{\incexp}[1]{\mbox{\tt inc}~{#1}}
+\newcommand{\testexp}[2]{\mbox{\tt test}~{#1}~{#2}}
+\newcommand{\thenexp}[2]{#1~\mbox{\tt then}~{#2}}
+\newcommand{\crashexp}{\mbox{\tt crash}}
+
+\newcommand{\rel}[1]{ \mbox{\sc [#1]} }
+
+\newcommand{\sstep}[2]{{#1} \rightarrow {#2}}
+\newcommand{\sstepStore}[4]{{#1},{#2} \rightarrow {#3},{#4}}
+\newcommand{\bstep}[2]{{#1} \Downarrow {#2}}
+\newcommand{\bstepStore}[4]{{#1},{#2} \Downarrow {#3},{#4}}
+
+\newcommand{\ssrule}[3]{
+  \rel{#1} &
+  \frac{\strut\begin{array}{@{}c@{}} #2 \end{array}}
+       {\strut\begin{array}{@{}c@{}} #3 \end{array}}
+   \\~\\
+}
+
+\[
+  \begin{array}{ll@{\qquad\qquad\qquad}r}
+  \mydefhead{e ::=}{Expressions}
+    \mydefcase{n}{number (integer)}
+    \mydefcase{\setexp{x}{e}}{set variable}
+    \mydefcase{\readexp{x}}{read variable}
+    \mydefcase{\incexp{x}}{increment operator}
+    \mydefcase{\thenexp{e}{e}}{then expression}
+    \mydefcase{\testexp{e}{e}}{test expression}
+    \mydefcase{\loopexp{e}{e}}{loop}
+    \mydefcase{\crashexp}{crash expression}
+  \\
+  \mydefhead{x ::=\qquad\qquad\qquad\qquad}{Variables}
+\end{array}
+\]
+
+  The big-step operational semantics relation evaluates an expression to a {\bf number}.
+  \[\large
+    \bstepStore{e}{\sigma}{n}{\sigma'}
+  \]
+
+
+
+
+% Commands for language format
+\newcommand{\rval}{\mbox{\tt red}}
+\newcommand{\gval}{\mbox{\tt green}}
+\newcommand{\bval}{\mbox{\tt blue}}
+\newcommand{\rot}[1]{\mbox{\tt rotate}~{#1}}
+\newcommand{\ife}[3]{\mbox{\tt if}~({#1})~{\tt then}~({#2})~{\tt else}~({#3})}
+
+Consider the following language and big-step operational semantics:
+\[
+  \begin{array}{ll@{\qquad\qquad\qquad}r}
+  \mydefhead{e ::=}{Expressions}
+  \mydefcase{v}{value}
+  \mydefcase{\ife e e e}{if expression}
+  \mydefcase{\rot e}{rotate expression}
+  \\
+  \mydefhead{v ::=\qquad\qquad\qquad\qquad}{Values}
+  \mydefcase{\rval}{red}
+  \mydefcase{\gval}{green}
+  \mydefcase{\bval}{blue}
+\end{array}
+\]
+
+\[
+  %\begin{array}{c@{\qquad\qquad}c}
+  \begin{array}{r@{\qquad}c}
+
+    \ssrule{if-red}{
+      \bstep{e_1}{v_1} \\
+      v_1 = \rval \\
+      \bstep{e_3}{v_3}
+    }{
+      \bstep{\ife{e_1}{e_2}{e_3}}{v_3}
+    }
+
+    \ssrule{if-other}{
+      \bstep{e_1}{v_1} \\
+      v_1 \neq \rval \\
+      \bstep{e_2}{v_2}
+    }{
+      \bstep{\ife{e_1}{e_2}{e_3}}{v_2}
+    }
+
+  %\end{array}
+  %&
+  %\begin{array}{r@{\qquad}c}
+
+
+    \ssrule{rot-red}{
+     \bstep{e_1}{v_1} \\
+      \bstep{v_1}{\rval}
+    }{
+      \bstep{\rot e_1}{\gval}
+    }
+
+    \ssrule{rot-green}{
+      \bstep{e_1}{v_1} \\
+      \bstep{v_1}{\gval}
+    }{
+      \bstep{\rot e_1}{\bval}
+    }
+
+    \ssrule{rot-blue}{
+      \bstep{e_1}{v_1} \\
+      \bstep{v_1}{\bval}
+    }{
+      \bstep{\rot e_1}{\rval}
+    }
+    
+  \end{array}
+  %\end{array}
+\]
+
+\end{questions}
+\end{document}
+
