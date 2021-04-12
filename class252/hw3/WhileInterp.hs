@@ -55,7 +55,7 @@ data Binop =
 data Value =
     IntVal Int
   | BoolVal Bool
-  deriving (Show)
+  deriving (Show,Eq)
 
 
 fileP :: GenParser Char st Expression
@@ -135,6 +135,17 @@ termP = valP
     <?> "value, variable, 'if', 'while', or '('"
 
 -- ================================================================================
+varP :: GenParser Char st Expression
+varP = do
+  v <- stringP
+  return $ Var v
+  
+stringP :: GenParser Char st String
+stringP = do
+  sStr <- many1 letter
+  return sStr
+  
+-- ================================================================================
 valP :: GenParser Char st Expression
 valP = do
   v <- boolP <|> numberP
@@ -159,7 +170,7 @@ ifP = do
   string "if"
   e1 <- exprP' 
   string "then"
-  e2 <- exprP' 
+  e2 <- exprP'
   string "else"
   e3 <- exprP'
   string "endif"
@@ -167,15 +178,26 @@ ifP = do
 
 -- ================================================================================
 whileP :: GenParser Char st Expression
-whileP = error "TBD2"
+whileP = do
+  string "while"
+  e1 <- exprP'
+  string "do"
+  e2 <- exprP
+  string "endwhile"
+  return $ While e1 e2
 
 -- ================================================================================
 -- An expression in parens, e.g. (9-5)*2
-parenP = error "TBD3"
-
--- ================================================================================
-varP = error "TBD4"
-
+parenP :: GenParser Char st Expression
+parenP = do
+  string "("
+  t <- exprP'
+  string ")"
+  rest <- optionMaybe restP
+  return (case rest of
+    Nothing   -> t
+    Just (op, t') -> Op (transOp op) t t')
+  
 -- ================================================================================
 -- This function will be useful for defining binary operations.
 -- Unlike in the previous assignment, this function returns an "Either value".
@@ -199,12 +221,50 @@ applyOp Le (IntVal i) (IntVal j) = Right $ BoolVal $ i <= j
 -- should return Either values.  Left <error msg> indicates an error,
 -- whereas Right <something> indicates a successful execution.
 evaluate :: Expression -> Store -> Either ErrorMsg (Value, Store)
+
+-- ================================================================================
+evaluate (Var v) s = do
+  case (Map.lookup v s) of
+    Just i -> return (i,s)
+    _      -> Left "Key is not in the map"
+
+-- ================================================================================  
+evaluate (Val v) s = do
+  return (v, s) 
+
+-- ================================================================================
+evaluate (Assign x e1) s = do
+  (v1,s1) <- evaluate e1 s
+  return (v1,(Map.insert x v1 s1))
+
+-- ================================================================================
+evaluate (Sequence e1 e2) s = do
+  (v1,s1) <-  evaluate e1 s
+  (v2,s2) <-  evaluate e2 s1
+  return (v2, s2)
+
+-- ================================================================================
+-- Op Binop Expression Expression
 evaluate (Op o e1 e2) s = do
   (v1,s1) <- evaluate e1 s
   (v2,s') <- evaluate e2 s1
   v <- applyOp o v1 v2
   return (v, s')
-evaluate _ _ = error "TBD"
+
+-- ================================================================================
+evaluate (If e1 e2 e3) s 
+  | evaluate e1 s == Right (BoolVal True,s) = evaluate e2 s
+  | evaluate e1 s == Right (BoolVal False,s) = evaluate e3 s
+  | otherwise = Left ("Term condition is not a boolean value")
+  
+-- ================================================================================ 
+evaluate (While e1 e2) s 
+  | evaluate e1 s == Right (BoolVal True,s) = Right (v1, s1)
+  | evaluate e1 s == Right (BoolVal False,s) = Right (BoolVal False,s)
+  | otherwise = Left ("Term condition is not a boolean value")
+  where 
+    Right (v1,s1) = evaluate (While e1 e2) s2
+    Right (v2,s2) = evaluate e2 s
 
 -- ================================================================================
 -- Evaluates a program with an initially empty state
@@ -225,5 +285,41 @@ runFile fileName = do
       case (run exp) of
         Left msg -> print msg
         Right (v,s) -> print $ show s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
