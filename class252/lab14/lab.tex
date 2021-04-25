@@ -1,0 +1,277 @@
+\documentclass[addpoints]{exam}
+
+\usepackage{listings}
+\usepackage{url}
+\usepackage{amsmath}
+
+% Header and footer details
+
+\setlength\answerskip{0ex}
+
+% Spacing and formatting, especially for blank lines.
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\blank}{\makebox[1in]{\hrulefill}}
+\newcommand{\midblank}{\makebox[.7in]{\hrulefill}}
+\newcommand{\bigblank}{\makebox[2in]{\hrulefill}}
+\newcommand{\hugeblank}{\makebox[3in]{\hrulefill}}
+\newcommand{\ansline}{\hfill\makebox[1in][r]{\hrulefill}}
+\newcommand{\anslinelong}{\hfill\makebox[2in][r]{\hrulefill}}
+
+\begin{document}
+
+
+
+
+\newcommand{\mydefhead}[2]{\multicolumn{2}{l}{{#1}}&\mbox{\emph{#2}}\\}
+\newcommand{\mydefcase}[2]{\qquad\qquad\qquad\qquad\qquad\qquad& #1 &\mbox{#2}\\}
+
+% Commands for language format
+\newcommand{\setexp}[2]{\mbox{\tt set}~#1~#2}
+\newcommand{\readexp}[1]{\mbox{\tt read}~#1}
+\newcommand{\loopexp}[2]{\mbox{\tt loop}~#1~#2}
+\newcommand{\incexp}[1]{\mbox{\tt inc}~{#1}}
+\newcommand{\testexp}[2]{\mbox{\tt test}~{#1}~{#2}}
+\newcommand{\thenexp}[2]{#1~\mbox{\tt then}~{#2}}
+\newcommand{\crashexp}{\mbox{\tt crash}}
+\newcommand{\rel}[1]{ \mbox{\sc [#1]} }
+\newcommand{\sstep}[2]{{#1} \rightarrow {#2}}
+\newcommand{\bstep}[2]{{#1} \Downarrow {#2}}
+\newcommand{\tstep}[2]{{#1} \colon {#2}}
+
+\newcommand{\ssrule}[3]{
+  \rel{#1} &
+  \frac{\strut\begin{array}{@{}c@{}} #2 \end{array}}
+       {\strut\begin{array}{@{}c@{}} #3 \end{array}}
+   \\~\\
+}
+
+\newcommand{\Esucc}[1]{\mbox{\tt succ}~#1}
+\newcommand{\Epred}[1]{\mbox{\tt pred}~#1}
+\newcommand{\Eiszero}[1]{\mbox{\tt iszero}~#1}
+\newcommand{\Econcat}[2]{\mbox{\tt concat}~{#1}~{#2}}
+\newcommand{\Eisstring}[1]{\mbox{\tt isstring}~#1}
+\newcommand{\Eisint}[1]{\mbox{\tt isint}~#1}
+\newcommand{\Eisbool}[1]{\mbox{\tt isbool}~#1}
+\newcommand{\ife}[3]{\mbox{\tt if}~{#1}~\mbox{\tt then}~{#2}~\mbox{\tt else}~{#3}}
+\newcommand{\true}{\mbox{\tt true}}
+\newcommand{\false}{\mbox{\tt false}}
+
+\[
+  \begin{array}{ll@{\qquad\qquad\qquad}r}
+  \mydefhead{e ::=}{Expressions}
+    \mydefcase{false}{}
+    \mydefcase{true}{}
+    \mydefcase{i}{Integers}
+    \mydefcase{s}{Strings}
+    \mydefcase{\Esucc{e}}{}
+    \mydefcase{\Epred{e}}{}
+    \mydefcase{\Eiszero{e}}{}
+    \mydefcase{\ife e e e}{}
+    \mydefcase{\Econcat{e}{e}}{}
+    \mydefcase{\Eisstring{e}}{}
+    \mydefcase{\Eisint{e}}{}
+    \mydefcase{\Eisbool{e}}{}
+  \\
+  \mydefhead{t ::=}{}
+    \mydefcase{Bool}{}
+    \mydefcase{Int}{}
+    \mydefcase{String}{}
+  \\
+\end{array}
+\]
+
+% Commands for language format
+\[
+  \begin{array}{r@{\qquad}c}
+    \ssrule{ss-succ}{
+        \sstep{e_1}{e_1'}
+    }{
+        \sstep{succ~e}{e_1}
+    }
+    \ssrule{ss-succ}{
+        {i'=i+1}
+    }{
+        \sstep{succ~i}{i'}
+    }
+    \ssrule{ss-pred}{
+        \sstep{e_1}{e_1'}
+    }{
+        \sstep{pred~e}{e_1}
+    }
+    \ssrule{ss-pred}{
+        {i'=i-1}
+    }{
+        \sstep{pred~i}{i'}
+    }
+    \ssrule{ss-iszero}{
+        \sstep{e}{e'}
+    }{
+        \sstep{iszero~e}{e'}
+    }
+    \ssrule{ss-iszero}{
+    }{
+        \sstep{iszero~0}{true}
+    }
+    \ssrule{ss-iszero}{
+      {i\ne0}
+    }{
+        \sstep{iszero~i}{false}
+    }
+    \ssrule{ss-if}{
+     \sstep{e_1}{e_1'}
+    }{
+        \sstep{\ife{e_1}{e_2}{e_3}}{\ife{e_1'}{e_2}{e_3}}
+    }
+    \ssrule{ss-if}{
+    }{
+        \sstep{\ife{\true}{e_2}{e_3}}{e_2}
+    }
+    \ssrule{ss-if}{
+    }{
+        \sstep{\ife{\false}{e_2}{e_3}}{e_3}
+    }
+    \ssrule{ss-concat}{
+      \sstep{e_1}{e_1'}
+    }{
+      \sstep{concat~e_1~e_2}{concat~e_1'~e_2}
+    }
+    
+    \ssrule{ss-concat}{
+      \sstep{e_2}{e_2'}
+    }{
+      \sstep{concat~s_1~e_2}{concat~s_1~e_2}
+    }
+    
+    \ssrule{ss-concat}{
+      s_3 = concat~s_1~s_2
+    }{
+      \sstep{concat~s_1~s_2}{s_3}
+    }
+    
+\end{array}
+\]
+\[
+  \begin{array}{r@{\qquad}c}
+    \ssrule{ss-isbool}{
+        \sstep{e}{e'}
+    }{
+        \sstep{isbool~e}{e'}
+    }
+    \ssrule{ss-isbool}{
+    }{
+        \sstep{isbool~false}{true}
+    }
+    \ssrule{ss-isbool}{
+    }{
+        \sstep{isbool~true}{true}
+    }
+    \ssrule{ss-isbool}{
+    }{
+        \sstep{isbool~i}{false}
+    }
+    \ssrule{ss-isbool}{
+    }{
+        \sstep{isbool~s}{false}
+    }
+    
+    \ssrule{ss-isint}{
+        \sstep{e}{e'}
+    }{
+        \sstep{isint~e}{e'}
+    }
+    \ssrule{ss-isint}{
+    }{
+        \sstep{isint~false}{false}
+    }
+    \ssrule{ss-isint}{
+    }{
+        \sstep{isint~true}{false}
+    }
+    \ssrule{ss-isint}{
+    }{
+        \sstep{isint~i}{true}
+    }
+    \ssrule{ss-isint}{
+    }{
+        \sstep{isbool~s}{false}
+    }
+    
+    
+    
+    \ssrule{ss-isstring}{
+        \sstep{e}{e'}
+    }{
+        \sstep{isstring~e}{e'}
+    }
+    \ssrule{ss-isstring}{
+    }{
+        \sstep{isstring~false}{false}
+    }
+    \ssrule{ss-isstring}{
+    }{
+        \sstep{isstring~true}{false}
+    }
+    \ssrule{ss-isstring}{
+    }{
+        \sstep{isstring~i}{false}
+    }
+    \ssrule{ss-isstring}{
+    }{
+        \sstep{isstring~s}{true}
+    }
+    
+  \end{array}
+\]
+
+
+\[
+  \begin{array}{r@{\qquad}c}
+    \ssrule{ts-succ}{
+        \tstep{e}{Int}
+    }{
+        \tstep{succ~e}{Int}
+    }
+    \ssrule{ts-pred}{
+        \tstep{e}{Int}
+    }{
+        \tstep{pred~e}{Int}
+    }
+    \ssrule{ts-iszero}{
+        \tstep{e}{Int}
+    }{
+        \tstep{iszero~e}{Bool}
+    }
+    \ssrule{ts-isbool}{
+        \tstep{e}{Bool}
+    }{
+        \tstep{isbool~e}{Bool}
+    }
+    \ssrule{ts-isint}{
+        \tstep{e}{Int}
+    }{
+        \tstep{isint~e}{Bool}
+    }
+    \ssrule{ts-istring}{
+        \tstep{e}{String}
+    }{
+        \tstep{istring~e}{Bool}
+    }
+    \ssrule{ts-if}{
+        \tstep{e_1}{Bool} \\
+        \tstep{e_2}{T} \\
+        \tstep{e_3}{T}
+    }{
+        \tstep{\ife{e_1}{e_2}{e_3}}{T}
+    }
+    \ssrule{ts-concat}{
+        \tstep{e_1}{String} \\
+        \tstep{e_2}{String}
+    }{
+        \tstep{contac~e1~e2}{String}
+    }
+    
+  \end{array}
+\]
+
+\end{document}
+
