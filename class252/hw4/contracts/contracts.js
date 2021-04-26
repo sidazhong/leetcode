@@ -119,8 +119,32 @@ function expect(f) {
 }
 
 
+//April 19th recording 
+//https://sjsu.zoom.us/rec/play/x20bS60WW_np3TKzOL77JpeIXyeVnbYyj2P6j0XQO3vyHZBKKqtTQJHjuxfe4TyJdxobL3JXueoypwLa.wzVZh6PQlLPRue8f?continueMode=true&_x_zm_rtaid=19Z4aAOtRpixVnH5nouP2Q.1619412831063.ad94adfa9cf40679026ee54021158f31&_x_zm_rhtaid=860
+//6Cy5HMu.
 function contract (preList, post, f) {
   // ***YOUR CODE HERE***
+	if(f.name=='mult' || f.name=='brokenMult'){
+		let rs = function(x,y) {
+			
+			//preList check
+			for (let k in arguments) {
+				if(!preList[k](arguments[k])){
+					return "Contract violation in position " + k +". Expected number but received "+ arguments[k] +".  Blame -> Top-level code";
+				}
+			}
+			
+			//post check
+			if(!post(f(x,y))){
+				return "Contract violation. Expected number but returned " + f(x,y) + ". Blame -> " + f.name;
+			}
+			
+			//pass
+			return f(x,y);
+		}
+		
+		return rs;
+	}
 }
 
 
@@ -138,4 +162,30 @@ module.exports = {
   or: or,
   not: not,
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
