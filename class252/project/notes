@@ -1,0 +1,190 @@
+http://libaccess.sjlibrary.org/login?url=
+
+普通
+	79%的网站是PHP开发的
+
+PHP开源项目安全问题
+	github 前100的PHP项目中有27%是不安全的，其中58%的漏洞是脚本注入
+	硬件，人，代码是黑客主要攻击的三个部分，其中代码部分是最容易被攻击也是最容易察觉和组织的层面
+	PHP项目的活跃程度和漏洞无必然关系
+	
+	四分之一的PHP程序至少有一个漏洞，这些漏洞普遍存在与PHP框架中
+	最主要的漏洞是XSS，但是都比较容易补救
+	SQL注入漏洞基本不存在
+	
+	PHP有多脆弱？ 75%项目是安全的
+	SQL注入漏洞非常非常的少，比较作者比较吃惊
+	什么原因导致漏洞比较多，活跃程度并没有关联。跟项目的开发时间有关，网站开发通常都比较快，快也是PHP的最大优势之一
+	开发经验会大大减少漏洞的产生
+	PHP简单易学，导致非常多的初学者加入到开发项目中，这极大增加了漏洞产生
+	漏洞都非常容易补救
+	XSS (Cross Site Scripting) 
+		一般是写入一小段前端代码通常JS，保存在数据库里，其他用户点击触发盗取cookie
+	
+性能比较 JSON Parsers 在各种语言的解析速度
+	Json是最主流的数据类型
+	评判标准为：处理时间，CPU使用率
+	Python3: 原生的json parser
+	javascript: nodejs 12
+	PHP: apache2
+	
+	速度：
+		js java .net 不相上下，js最快
+		Python 和 PHP 速度一样，最慢，而且其他三种语言慢了3倍左右
+		js在文件小于100K时，速度最快
+		.net在文件大于600K后，基本和PHP Python一样了
+		其他三种语言解析时间与文件大小无明显关联 
+	
+	内存消耗：
+		.net 和 Python很小
+		js最多，比Python高10几倍以上，JAVA也很高，在8倍左右
+		PHP处于中间值，但也比Python高很多
+		
+	CPU消耗：
+		5种语言都差不多，值得注意的是PHP相对最低
+
+	PHP相对比较弱一些，在速度和空间上都没有突出的优点，java空间换时间，python时间换空间
+
+PHP与.net性能比较
+	网页加载	（现在已经很少有用PHP家在网页的了，都是JS）
+		静态页面.net快2倍
+	算法处理	（在网页级别略显不重要）
+		tower of hanoi 河内塔算法，net快10倍
+		大数字相加，数据int -> string 类型变换，php快8倍
+		排序，net快20倍
+	数据库管理	（非常重要，可以说是唯一的瓶颈）
+		删除，net快2倍
+		插入，php快1.5倍
+		查询，php快一点点
+	文件上传	（非常重要）
+		10M小文件，php快0.1秒
+		100M大文件，php快1秒
+	文件读写 （非常重要）
+		net快3倍
+
+	net优势，静态网页加载，算法，文件读写
+	php优势，数据库，处理变量类型，文件上传
+	
+Framework
+	非常外行
+	
+Hack （可以深究）（论点很赞）
+	https://www.zhihu.com/question/23114861
+	Facebook 推出的，解决动态PHP变量类型造成的混乱，强制改为静态类型
+	动态变量质量会下降，静态变量开发效率会下降 statically type languages  VS dynamically type languages
+	为了减少错误，但很多项目认为不值得
+	在执行程序中，变量类型相互转换的应用场景并不多，因为不易于代码管理和阅读，可以转换，但是完全没必要
+	类型转换可能是隐性的，也可以是显性的
+		$inc= "1";	
+		$val= 1 + $inc;   //2, $inc 就被隐性转换为 int
+		$val= 1+"1"   		//2
+		$weight = 0;
+		$weight += 0.001;	//0.001 int隐性转换为double
+		
+	作者意见为不赞同把php升级为hack，没有必要
+	https://www.zhihu.com/question/23114861
+	https://hacklang.org/
+	https://www.youtube.com/watch?v=eDz8IbGsVrc&t=308s
+		
+动态变量
+	eval() 魔术方法  	eval('echo 1+1;'); //2
+	handle accesses of object fields and uses of methods that are either not defined or not visible
+	Brian Kernighan "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it"											
+	
+	
+	
+	
+	
+
+魔术方法
+	https://segmentfault.com/a/1190000007250604
+	call 可以作为例子
+		
+		
+php proxy
+	https://www.giorgiosironi.com/2010/02/practical-php-patterns-proxy.html
+	https://sourcemaking.com/design_patterns/proxy/php
+	
+	
+黑客例子
+	https://ieeexplore.ieee.org/document/9128275
+	
+PHP 中的 &符号
+	https://zhuanlan.zhihu.com/p/367806946
+	
+	
+	
+PHP7
+	https://www.youtube.com/watch?v=P58g--fPNDM
+	hhvm 
+	zend engine
+	https://www.youtube.com/watch?v=Yhn5snJGvAo
+	https://www.youtube.com/watch?v=B2USQ0NX6qk
+		
+	opcodes
+	https://php.watch/articles/php-dump-opcodes
+	phpdbg -p test.php
+	phpdbg5.6 phpdbg7.2
+	
+	php -d opcache.optimization_level=-1 -d opcache.opt_debug_level=0x20000 test.php
+	Dead code elimination for web systems written in PHP: Lessons learned from an industry case
+	
+	php eaccelerator
+		直接执行opcode
+	
+PHP 介绍
+	Dynamic Type language
+	Primitive Types
+	错误解释
+	Data-flow analysis
+	
+	https://github.com/pangudashu/php7-internal
+	https://cdn.learnku.com/uploads/images/201911/08/9064/RenemNqswm.png!large
+	
+	
+
+
+要点：
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

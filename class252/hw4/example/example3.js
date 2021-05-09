@@ -29,6 +29,7 @@ Account.prototype.sufficientFunds = function(v) {
   return isPositive(v) && v <= this.balance;
 }
 Account.prototype.sufficientFunds.expected = "sufficent funds";
+
 Account.prototype.deposit = contract(
   [and(isPositive, isInteger)],
   any,
@@ -36,6 +37,7 @@ Account.prototype.deposit = contract(
     this.balance += amt;
   }
 );
+
 Account.prototype.withdraw = contract(
   [Account.prototype.sufficientFunds],
   any,
@@ -43,7 +45,6 @@ Account.prototype.withdraw = contract(
     this.balance -= amt;
   }
 );
-
 
 var a = new Account("Alice", 500);
 try {

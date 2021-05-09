@@ -123,30 +123,30 @@ function expect(f) {
 //https://sjsu.zoom.us/rec/play/x20bS60WW_np3TKzOL77JpeIXyeVnbYyj2P6j0XQO3vyHZBKKqtTQJHjuxfe4TyJdxobL3JXueoypwLa.wzVZh6PQlLPRue8f?continueMode=true&_x_zm_rtaid=19Z4aAOtRpixVnH5nouP2Q.1619412831063.ad94adfa9cf40679026ee54021158f31&_x_zm_rhtaid=860
 //6Cy5HMu.
 function contract (preList, post, f) {
-  // ***YOUR CODE HERE***
-	if(f.name=='mult' || f.name=='brokenMult'){
-		let rs = function(x,y) {
-			
-			//preList check
-			for (let k in arguments) {
-				if(!preList[k](arguments[k])){
-					return "Contract violation in position " + k +". Expected number but received "+ arguments[k] +".  Blame -> Top-level code";
+	let handler = {
+	  apply: function(thisFunc, thisObj, thisArg) {
+	  	//check preList
+			for (let k in thisArg) {
+				let check_preList = preList[k].call(thisObj,thisArg[k]);
+				if(!check_preList){
+					throw {"message":"Contract violation in position " + k +". Expected "+preList[k].expected+" but received "+ thisArg[k] +".  Blame -> Top-level code"};
 				}
 			}
 			
-			//post check
-			if(!post(f(x,y))){
-				return "Contract violation. Expected number but returned " + f(x,y) + ". Blame -> " + f.name;
+			//check
+	 		let check_post = thisFunc.apply(thisObj,thisArg);
+			if(!post(check_post)){
+				throw {"message":"Contract violation. Expected "+post.expected+" but returned " + check_post + ". Blame -> " + f.name};
 			}
 			
 			//pass
-			return f(x,y);
-		}
-		
-		return rs;
-	}
-}
+			return check_post;
+	  }
+	};
 
+	let proxyF = new Proxy(f, handler);
+	return proxyF;
+}
 
 module.exports = {
   contract: contract,
