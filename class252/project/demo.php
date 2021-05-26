@@ -1,22 +1,44 @@
 <?php 
+
+$a="11test";
+if($a==11){
+    echo 1;
+}
+exit;
+
+$a="4admin";
+switch ($a) {
+    case 1:
+        echo "fail1";
+        break;
+    case 2:
+        echo "fail2";
+        break;
+    case 3:
+        echo "fail3";
+        break;
+    case 4:
+        echo 'flag{xxxxxx}';  //结果输出flag
+        break;
+    default:
+        echo "failall";
+        break;
+}
+exit;
+
+
 //动态参数
-/*
 $a="1";
 $a++;
 var_dump($a);
 echo "=====================================================\n";
-exit;
-*/
 
-/*
-//===
 var_dump("test" == true);
 var_dump("test" == 0);
 var_dump(0 == true);
 var_dump(0 == false);
 echo "=====================================================\n";
 exit;
-*/
 
 /*
 //all empty

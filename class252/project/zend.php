@@ -1,11 +1,4 @@
 <?php 
-/*
-function test1(){
-    $a = "test";
-    return "test";
-}
-*/
-
 function test2(){
     if ($x){
         $a = [1,2];

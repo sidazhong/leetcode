@@ -1,0 +1,280 @@
+概述
+		PHP一直是非常流行的脚本语言，大概占全世界语言的25%。在1996年浏览器刚诞生的时期，PHP一直享有非常高的声誉，无数的网站由此孕育而生。
+		“PHP是世界上最好的语言”，最早的官方文档就是这么写的。
+		但是2015年以后PHP开始走下坡路，越来越多人发现PHP存在严重的隐患。更糟糕的是，很多人开始质疑PHP存在的必要性，很多人预测未来10年以内PHP将会消失。
+		但是，PHP在一片质疑声中存活了下来。在这几年中，无数的语言消失了，但是2021的PHP不仅没有消失，还是占据将近80%的互联网市场。
+		在这篇研究论文中，会首先介绍PHP的历史，PHP的安全问题，然后测试PHP的性能，讨论PHP有些新的提升，最后展望PHP的未来。
+		
+		PHP has always been a very popular scripting language, Approximately 25% of the world’s programming languages are using it. 
+		When the browser was born in 1996, PHP had a very high reputation, and countless websites were born.
+		"PHP is the best language in the world", this is how the earliest official document was written.
+		But after 2015, PHP's popularity began to decline, and more and more people found that PHP has serious hidden problems.
+		what was worse, many people began to question the necessity of PHP. Many people predict that PHP will disappear in the next 10 years.
+		However, PHP survived the doubt. 
+		In the past few years, countless languages have disappeared, but not only did PHP in 2021 not disappear, it still occupies nearly 80% of the Internet market.
+		In this research paper, It will first introduce the history of PHP, PHP's security issues, then test the performance of PHP, discuss some new improvements in PHP, and finally look forward to the future of PHP.
+
+PHP的历史
+		在1995年，刚诞生的PHP并不是一门后台语言，甚至可以说不是一门程序语言。PHP的创始人Rasmus Lerdorf在很多演讲中说过，他当初设计PHP意图就是想要一个辅助HTML小工具而已。
+		但PHP灵活的语言特性，和快速简单的学习曲线迅速俘获了大量程序员的芳心。越来越多的人投入到PHP的开发使用中，PHP的功能需求也与日俱增。
+		3年以后，以色列的两位工程师Zeev Suraski 和 Andi Gutmans重新用C编写了PHP的compilar，并命名为Zend Engine。
+		至此，PHP成为了一个非常成功而灵活的前端语言，可以随意在HTML静态网站中加入动态交互的操作。
+		在fastCGI运用到PHP以后，PHP逐渐开始变成了一门后台语言。PHP-fastCGI是一种通讯协议，可以链接PHP脚本文件和类似nginx与apache这样的网站服务器。
+		2004年，Andrei Nigmatulin开发了PHP-fpm。PHP-fpm是一种进程管理系统，用于协调PHP-fastCIG通讯协议的进程。这极大提高了PHP与网络服务器之间的稳定性。PHP迎来了最辉煌的年代。
+		2010年以后，由于智能手机的崛起，人们逐渐把重心转移到手机的小程序上，网站的整个市场需求开始萎缩。
+		这时候PHP的问题就暴露了出来，由于PHP诞生在网络中，所以PHP只能运用在网络领域，在其他领域开发中，完全不会用到PHP。
+		这点跟JAVA截然不同，JAVA在网络开发中其实也一直占有一席之地，在手机开发和其他领域中更是得心应手。这使得JAVA的blibraries和社区都极其活跃和丰富，这也是JAVA这么多年屹立不倒的原因之一。
+		2015年以后，人工智能的崛起更是进一步压缩了网络开发的空间。越来越多的人会去选择学习Python这种与系统和智能开发相关的语言，赶上新时代的潮流。
+		而网站开发已经被认为是技术含量很低的工作了。所以说整个PHP的兴衰史，其实是互联网发展的兴衰史。
+		PHP由于在早期单一领域发展过于迅速，很多底层的结构没有很好设计和扩展，从而背上了沉重的历史包袱。
+		举一个例子，PHP的内置函数有些看起来正常（strpos()），有些会用下划线（str_replace()），有些会用数字（nl2br()），
+		有些颠倒名词和动词（substr(); strrev();），PHP的代码实在不够优雅。
+		现在很多PHP底层问题并不是不能解决，而是如果解决，就会让很多的中小互联网公司倒闭，毕竟这些公司没有钱和精力去重构代码。
+		PHP现在处于一个非常尴尬的阶段，陷在了网络的围墙中，无法脱胎换骨去赶上新时代的潮流。
+		
+PHP history
+		In 1995, the newly born PHP was not a backend language, or not even a programming language. 
+		Rasmus Lerdorf, the creator of PHP, said in many speeches that his original intention of designing PHP was a simple HTML tool.
+		However, PHP flexible features and simple learning curve quickly catched the eyes of a large number of programmers.
+		More and more people were devoted to the development of PHP, and the requirements of PHP were also increasing day by day.
+		Three years later, two Israeli engineers, Zeev Suraski and Andi Gutmans, re-written the PHP compilar in C and named it Zend Engine.
+		So far, PHP has become a very successful and flexible front-end language, which can add dynamic interactive operations to HTML static websites.
+		After fastCGI was applied to PHP, PHP was becoming a background language. PHP-fastCGI is a communication protocol that can connect PHP script files and web servers like nginx and apache.
+		In 2004, Andrei Nigmatulin developed PHP-fpm. PHP-fpm is a process management system used to coordinate the process of the PHP-fastCIG communication protocol.
+		This greatly improves the stability between PHP and the web server. PHP ushered in its most glorious era. 
+		After 2010, due to the rise of smart phones, people start to focus on small programs on mobile phones, and the entire market demand for websites began to shrink.
+		At this time, the problem of PHP was exposed. Since PHP was born on the Internet, PHP can only be used in the website application. In other fields of development, PHP will not be used at all.
+		This is completely different from some universal programing languages like JAVA. JAVA has always occupied a place in network development, and it is also very handy in mobile phone development and other fields.
+		This makes JAVA's blibraries and communities very active, which is one of the reasons why JAVA is still popular for so many years.
+		After 2015, the rise of artificial intelligence has further compressed the living space for website development.
+		More and more people will choose to learn Python or some languages related to system and intelligent development, to catch up with the trend of the new era.
+		And website development has been considered a low-tech job. So the whole history of the rise and fall of PHP is actually the history of the website.
+		Due to the rapid development of PHP in the early days, many low level structures were not well designed and expanded, which carried a heavy historical burden.
+		For example, some of PHP internal functions look normal (strpos()), some use underscores (str_replace()), and some use numbers (nl2br()), some inverted nouns and verbs (substr(); strrev();). 
+		The PHP code is not elegant at all. Nowadays, many potential PHP problems are not unsolvable, but if solved, many small and medium website companies will be greatly impacted. 
+		These companies do not have enough money and time to refactor the code. PHP is now in a very embarrassing stage, stuck in the wall of the website, unable to reinvent itself to catch up with the trend of the new era.
+
+
+安全问题
+		PHP语言本身并没有任何漏洞，而且我不相信任何语言有安全上面的漏洞。因为PHP是动态语言类型，所以会有一些奇怪的特性。如果有人不了解些因素，就会发生奇怪的bug或者安全隐患。
+		但是这些都是人为造成的结果，并不是PHP内部函数或编译器的漏洞。举一个最常见的例子，在图一中，虽然变量a是字符串，if的判断条件是整数，但是程序通过了条件语句，最后输出结果为“1”。
+		这是因为当变量为不同类型时，PHP会自动截取最前面的字符串作为判断条件。此种情况的解决方法是使用“===”。这样条件语句会判断变量类型。
+		并不是只有PHP才有这个问题，javascript也有同样的问题，所有动态语言都有这个问题。由于PHP在网站上非常流行，因此许多问题被误解为只会发生在PHP语言。
+		而且这些安全问题都非常容易解决 [1]。在前100个流行的github PHP项目里，已经完全没有sql注入的问题了，这跟我的预期差不多。现在大部分PHP都是用的MVC框架[2]。
+		这些框架严格把前端HTML渲染和后端的数据控制阻断开，根本不会发生sql注入的情况。目前PHP网站受到最多的攻击是 XSS (Cross Site Scripting)，占到了半数以上。
+		此类攻击大部分发生在允许用户上传代码的网站，比如说自定义博客介绍。黑客会上传JS或其他脚本语言代码，当其他用户浏览此黑客个人首页时，非法代码会自动执行盗取当前用户浏览器信息。
+		当然解决方案也是非常简单，只要过滤非法上传的代码即可。研究还表明，一个PHP项目的活跃度与安全漏洞并没有直接关系。这说明即使很多人参与的PHP开源项目还是会有bug产生。
+		我认为是因为PHP开发项目的重心为需求和速度，而并不是维护。PHP可以比任何语言更快速的开发项目，这也是容易造成漏洞的最大原因之一，此观点我会在下面PHP存在的价值中讨论。
+		
+Security issues		
+		The PHP language itself does not have any loopholes, and I don't believe that any language has security loopholes.
+		Because PHP is a dynamic language type, it has some strange features. If someone does not understand these factors, strange bugs or security risks will occur.
+		These are man-made results, not PHP internal functions or compiler vulnerabilities. 
+		To give a most common example, in Figure 1, although the variable a is a string, and the condition of if statement is an integer, the program will still pass the statement, and the final output result is "1".
+		This is because when the variable types are different, PHP will automatically intercept the first string as the condition.
+		The solution to this situation is to use "=== ", the conditional statement will determine the variable type. 
+		Not only PHP has this problem, javascript also has the same problem, all dynamic languages have this problem.
+		Since PHP is very popular on websites, many problems are misunderstood as only occurring in the PHP language. And these security issues are very easy to solve [1].
+		In the first 100 popular github PHP projects, there is no SQL injection problem at all, which is almost as I expected. MVC framework [2] is used for most of PHP now.
+		These frameworks strictly block front-end HTML rendering and back-end data control, and SQL injection will not happen at all. Currently, the most attacked PHP website is XSS (Cross Site Scripting), which accounts for more than half.
+		Most of XSS attacks occur on websites that allow users to upload code, such as customize blogger sites. 
+		Hackers will upload JS or other scripting language codes. When other users browse the hacker's personal homepage, the illegal code will be automatically executed to steal the current user's browser information.
+		Of course, the solution is also very simple, as long as you filter illegally uploaded codes. Research also shows that the activities of the PHP project are not directly related to security vulnerabilities. This shows that even PHP open source projects that many people participate in still have errors.
+		I think it is because the focus of PHP development projects is demand and speed, not maintenance. PHP can develop projects faster than any language, which is also one of the biggest reasons for vulnerabilities.
+		
+性能与测试
+		测试json格式文件解析
+			此测试比较PHP，JS与Python解析100MB json文件的性能。结果是PHP的性能是非常差的[3]。如图二所示，PHP既不占空间优势，也不占时间优势，换句话说就是性价比很低。
+			举例来说，JS的执行速度比PHP快3倍以上，而内存消耗是PHP的2倍。Python的执行速度和PHP一样慢，但是Python的内存消耗只有PHP的4分之一。
+			这个测试的前提条件是使用2017年以前的语言版本，测试的PHP版本为5.6，nodejs为10，Python为2.3。
+			在用新的PHP7.2和node14进行测试后，PHP的速度为JS的1.4倍，内存反而超过了JS为2倍。非常惊讶，PHP7.2在某些方面已经超过了JS的运行速度。
+			JS在之前一直被认为是最快的动态语言。PHP7的性能有极大的提高，这个会在后面PHP的未来中介绍。
+		
+		数据库操作
+			此测试比较PHP与ASP的综合性能。结果是ASP总测试分数高于PHP[4]。此测试从5个方面衡量，静态网页加载速度，算法处理，数据库管理，文件上传和文件读写。
+			ASP在文件上传和数据库操作方面落后PHP，其他方面全部胜出。尤其在算法速度上更是领先PHP20倍。ASP真的比PHP好吗？ 我有不同的看法。
+			我认为在网站开发领域，数据库是最重要的指标，也是最大的瓶颈。网站和其他个人应用程序不同。网站主要是以展示信息为主，
+			这就导致其最大瓶颈为高并发时服务器对数据库的读写。网站层面的算法通常都比较简单，即使有复杂的算法也可以用定时任务，或者缓存延迟等及他方法解决。所以最不重要的方面就是算法处理。
+			虽然静态页面的速度ASP领先与PHP，但静态页面加载速度本来就是非常快的，而且通常会配有DNS静态缓存支持。ASP运行速度领先并不能带来多大优势，而数据库的劣势却是致命的。
+			总而言之，我认为ASP在综合性能上领先PHP，但是在网络性能上却落后于PHP。
+			
+		内存分配
+			此测试比较PHP，JS和Ruby对大数组内存的使用与分配。这个测试在演讲中展示过了，结果为PHP比JS多用了4倍的内存，运行时间慢了8倍左右。
+			Ruby的内存使用和JS是一样的，运行速度比JS慢了3倍。JS在数组分配中大获全胜。此测试暴露出了PHP早期版本中最大的问题，也是PHP速度慢的最直接原因之一。
+			PHP的数组在底层compilar中是用hashtable来处理的。如图三所示，基于C compilar的动态语言，变量需要额外的空间存储变量类型，还需要存储内存分配的地址。
+			但是PHP在最后却用hashtable的数据结构，这使得原本48byte的空间一下翻了2倍。PHP的数组非常强大，可以在无任何声明的情况下直接把数组转为hashtable。
+			这其实是PHP一大特色之一，合并array和hashtable为associated array。这样的key value pair数据结构操作起来无比简单，但是我认为代价实在太高了。
+			并不是所有的情况都需要hashtable来处理，这样非常的低效率。在新的PHP7中，此问题已经解决。
+			解决的方法比较晦涩难懂，大概意思就是取消了用doubly linked list这种数据结构，采用的新方式是用指针做小内存分配排序。此方面因为涉及太多底层知识，超出了我的理解范围。
+	
+Performance and testing	
+		Test parsing json file
+			This test compares the performance of PHP, JS and Python in parsing 100MB json files. The result is that the performance of PHP is very poor [3].
+			As shown in Figure 2, PHP neither takes advantage of space nor time, in other words, it is very low cost performance. 
+			For example, the execution speed of JS is more than 3 times that of PHP, but the memory consumption is only twice that of PHP.
+			The execution speed of Python is as slow as PHP, but the memory consumption of Python is only one-fourth that of PHP.
+			The prerequisite for this test is to use the language version before 2017, the tested PHP version is 5.6, nodejs is 10, and Python is 2.3.
+			After testing with the new PHP7.2 and node14, PHP is 1.4 times faster than JS, and its memory is 2 times faster than JS.
+			Very surprised, PHP7.2 has surpassed the running speed of JS in some respects. 
+			JS has always been considered the fastest dynamic language before. The performance of PHP7 has been greatly improved, which will be introduced in the future of PHP.
+			
+		Database operation
+			This test compares the comprehensive performance of PHP and ASP. The result is that the total ASP test score is higher than PHP [4].
+			This test measures from 5 aspects, static web page loading speed, algorithm processing, database management, file upload and file reading and writing.
+			ASP's performance in file upload and database operations falls behind PHP, and wins in all other aspects. Especially in terms of algorithm speed, it is 20 times ahead of PHP. 
+			Is ASP really better than PHP? I have a different view. I think in website development, the database is the most important indicator and the biggest bottleneck.
+			The website is different from other personal applications. The website is mainly to display information, This leads to the biggest bottleneck that the server reads and writes to the database during periods of high concurrency.
+			The algorithm of the website is usually relatively simple, even if there is a complicated algorithm, it can be solved by other methods such as cronjob tasks, or memcache delay.
+			So the least important aspect is algorithm processing. Although the speed of static page ASP is ahead of PHP, the loading speed of static page is inherently very fast how, and it is usually supported by DNS static caching support.
+			ASP running speed leading does not bring much advantage, but the disadvantage of the database is fatal. 
+			All in all, I think ASP is ahead of PHP in overall performance, but fall behinds PHP in network performance. Such a key value pair data structure is extremely simple to operate, but I think the cost is too high.
+			
+		Memory allocation
+			This test compares the usage and allocation of large memory by PHP, JS and Ruby. This test was shown in the presentation, and the result is that PHP uses 4 times more memory than JS, and the execution time is about 8 times slower.
+			Ruby's memory usage is the same as JS, and it runs 3 times slower than JS. JS has a big win in array allocation. This test exposed the biggest problem in early versions of PHP, and it is also one of the most direct reasons for PHP's slow speed.
+			PHP arrays are processed by hashtable in the compilar. As shown in Figure 3, based on the dynamic language of C compilar, variables need extra space to store the variable type, and also need to store the address allocated by the memory.
+			However PHP uses the hashtable data structure at the end, which doubles the original 48byte memory space. 
+			PHP array is very powerful, it can directly convert the array into a hash table without any declaration.
+			This is actually one of the major features of PHP, combining array and hashtable into an associated array. Not all situations need to be handled by hashtable, which is very inefficient.
+			In the new PHP7, this problem has been resolved. The solution is rather obscure. The overall concept is to cancel the data structure of the doubly linked list, and the new method adopted is to use pointers for small memory allocation and sorting.
+			This aspect involves too much low-level knowledge, which is beyond my comprehension.
+			
+PHP的提升
+		PHP7.2在2017年低发布，其性能提升有着非常大的提升，在性能与测试的章节已经提到过了。PHP compilar的底层语言是C，最早是由两位以色列工程师Zeev Suraski 和 Andi Gutmans 在1998年完成的，取名为Zend Engine。
+		新版PHP不仅重新设计了hashtable的compilar结构，还整体提升了compilar的性能。如图四所示，其新加入的opcache功能可以检测是否有重复代码执行，
+		如果有重复的代码，那么会直接调用内存里已经编译好的opcode到VM（Vitual machine）执行。中间省略了lexer，parser和compilar的环节，使得运行速度大大提高。                                              
+		PHP的创始人在2018年5月的演讲中[6]还介绍了一个新的引进概念为DCE（dead code elimination），此技术可以降大大减少编译后的opcode，这就意味着可以直接加快VM的执行速度。
+		如图五所示，test2() 是一个非常“bad”的function，可能是PHP程序员写的。if条件中的变量$x未定义，所以下面的代码永远不会执行。数组$a定义了两次。
+		最后的返回结果是数组$a的第一个元素，这就意味着无论何种情况，最后结果只会返回1。
+		如图六所示，此为未经过优化的opcode，一共有7行。
+		如图七所示，此为经过PHP7.2版本优化过的opcode，一共有6行。
+		如图八所示，此为经过PHP7.3版本优化过的opcode，一共有2行。
+		第一行为检查变量$x，第二行为返回整数1。这已经是最佳优化结果。可以看出PHP的compilar随着版本提升变得越来越聪明。
+	
+PHP improvements
+		PHP7.2 was released at the end of 2017, and its performance has been greatly improved, as mentioned in the chapter on performance and testing.
+		The language of PHP compilar is C, which was first completed in 1998 by two Israeli engineers, Zeev Suraski and Andi Gutmans, and named it Zend Engine.
+		The new version of PHP not only redesigns the compilar structure of hashtable, but also improves the performance of compilar. 
+		As shown in Figure 4, its newly added opcache module can detect whether there is repeated code execution. 
+		If there are duplicate codes, The compiled opcode in the memory will directly call the VM (virtual machine) to execute, skip it through the lexical analyzer, parser and compiler, thus greatly improving the running speed.
+		In his speech in May 2018 [6], the creator of PHP also introduced a new concept called DCE (dead code elimination). 
+		This technology can greatly reduce the compiled opcode, which means that the execution speed of the VM can be directly accelerated.
+		As shown in Figure 5, test2() is a very "bad" function, probably written by a PHP programmer. The variable $x in the if condition is undefined, so the following code will never be executed. The array $a is defined twice.
+		The return result is the first element of the array $a, which means that no matter what the situation, the final result will only return 1.
+		As shown in Figure 6, this is an unoptimized opcode with a total of 7 lines.
+		As shown in Figure 7, this is an opcode optimized by the PHP7.2 version, with a total of 6 lines.
+		As shown in Figure 8, this is an opcode optimized by the PHP7.3 version, with a total of 2 lines. The first line checks the variable $x, and the second line returns the integer 1.
+		It can be seen that the compilar of PHP becomes smarter and smarter as the version improves.
+		
+PHP的未来
+		Facebook在2014年基于PHP语法推出过一个静态变量的语言为HACK[7]。但是几年过去了，此语言并没有造成很大的反响。the reason is 大部分正规的PHP项目都有很好代码优化，因为动态变量造成的问题几乎为0。
+		没有人会定义一个字符串变量然后在去加一个整数。这就使得把PHP改为静态变量语言的做法优势很小。即使重构了静态变量的代码，也没有很大区别，但是重构代码的花费却是高昂的。
+		很多程序员已经适应了这门语言，程序员和PHP语言一样也在进步中。这就又引出一个最大的问题，PHP是否会被其他语言代替？ 我认为未来10年以内是不会的。
+		我认为PHP是唯一最适用网站开发的语言。因为网站独特的开发模式，其需求变化的非常之快，所以需要一种灵活的动态语言去驾驭。
+		ASP和Ruby也是网站开发的语言，但是这些年呈大幅下降趋势，所以对PHP不会构成威胁。威胁最高的是上升趋势的Python和Javascript。
+		Javascript更多是应用在一门客户端的语言，类似VUE，ANGUALR，REACT这样的框架都是客户端的逻辑。早期的Jquery和Ajax也是处理客户端的逻辑。Python的社区更多的会去关注人工智能和操作系统级别的应用。
+		只有PHP是完完全全只专注网站开发的。在开头提到过PHP只能适用与网站开发，这其实既是缺点又是优点。PHP的性能的大幅提升也说明PHP有着一个稳定而强大的社区在背后支持。
+		很多语言都在默默中消失了，但是PHP能走到今天，其最主要的原因就是 “everyone hates PHP”。
+
+PHP future
+		Facebook introduced the static variable language HACK based on PHP syntax in 2014 [7]. But a few years later, this language did not cause great repercussions.
+    The reason is most regular PHP projects have good code optimization, problems caused by dynamic variables are almost zero. No one will define a string variable and then add an integer after it.
+    This makes the advantage of changing PHP to a static language very small. Even if the code of static variables is refactored, there is no big difference, but the cost of refactoring the code is high.
+    Many programmers have adapted to dynamic languages, and programmers, like the PHP language, are also making progress. This brings up the biggest question, will PHP be replaced by other languages? I think it is not within the next 10 years.
+		I think PHP is the only language most suitable for website development. Because of the unique development model of the website, its requirments change very quickly, so a flexible dynamic language is needed to control it.
+		ASP and Ruby are also languages for website development, but they have been declining sharply over the years, so they will not pose a threat to PHP.
+		The most threatening is the rising trend of Python and Javascript. 
+		Javascript is more of a client-side language, and frameworks like VUE, ANGUALR, and REACT are all client-side logic. Early Jquery and Ajax are also on client-side.
+		The Python community paid more attention to artificial intelligence and operating system-level applications.
+		Only PHP is completely dedicated to website development. I mentioned at the beginning that PHP can only be applied to website development, which is actually both a disadvantage and an advantage.
+		The dramatic increase in PHP's performance also shows that PHP has a stable and strong community behind it. Many languages have disappeared silently, but the main reason why PHP can go to this day is "everyone hates PHP".
+		
+
+
+
+[1]: Beware of The Vulnerability! How Vulnerable Are GitHub’s Most Popular PHP Applications?
+A. Ibrahim, M. El-Ramly and A. Badr, "Beware of the Vulnerability! How Vulnerable are GitHub's Most Popular PHP Applications?," 2019 IEEE/ACS 16th International Conference on Computer Systems and Applications (AICCSA), Abu Dhabi, United Arab Emirates, 2019, pp. 1-7, doi: 10.1109/AICCSA47632.2019.9035265.
+
+[2]: A New PHP Web Application Development Framework Based on MVC Architectural Pattern and Ajax Technology
+S. I. Adam and S. Andolo, "A New PHP Web Application Development Framework Based on MVC Architectural Pattern and Ajax Technology," 2019 1st International Conference on Cybernetics and Intelligent System (ICORIS), Denpasar, Indonesia, 2019, pp. 45-50, doi: 10.1109/ICORIS.2019.8874912.
+
+[3]: Performance Analysis of Native JSON Parsers in Java, Python, MS.NET Core, JavaScript, and PHP
+H. K. Dhalla, "A Performance Analysis of Native JSON Parsers in Java, Python, MS.NET Core, JavaScript, and PHP," 2020 16th International Conference on Network and Service Management (CNSM), Izmir, Turkey, 2020, pp. 1-5, doi: 10.23919/CNSM50824.2020.9269101.
+
+[4]: Comparison the processing speed between PHP and ASP.NET
+K. Bounnady, K. Phanthavong, S. Pathoumvanh and K. Sihalath, "Comparison the processing speed between PHP and ASP.NET," 2016 13th International Conference on Electrical Engineering/Electronics, Computer, Telecommunications and Information Technology (ECTI-CON), Chiang Mai, Thailand, 2016, pp. 1-5, doi: 10.1109/ECTICon.2016.7561484.
+
+[5]: https://www.npopov.com/2011/12/12/How-big-are-PHP-arrays-really-Hint-BIG.html
+Nikita Popov, "How big are PHP arrays (and values) really? (Hint: BIG!)" 2011, https://www.npopov.com/2011/12/12/How-big-are-PHP-arrays-really-Hint-BIG.html 
+
+[6]: https://www.youtube.com/watch?v=rKXFgWP-2xQ&t=45s
+Coding Tech, "PHP in 2018 by the Creator of PHP", https://www.youtube.com/watch?v=rKXFgWP-2xQ&t=45s
+
+[7]: Are PHP Applications Ready for Hack?
+L. Eshkevari, F. Dos Santos, J. R. Cordy and G. Antoniol, "Are PHP applications ready for Hack?," 2015 IEEE 22nd International Conference on Software Analysis, Evolution, and Reengineering (SANER), Montreal, QC, Canada, 2015, pp. 63-72, doi: 10.1109/SANER.2015.7081816.
+
+
+https://docs.google.com/document/d/1rUlTEg2hjG1IXu2MEQA0HBoDjbENfiZwfmou9kakD9k/edit?usp=sharing
+
+
+
+
+
+
+
+
+
+
+
+
+PHP has always been a very popular scripting language, Approximately 25% of the world’s programming languages are using it. When the browser was born in 1996, PHP had a very high reputation, and countless websites were born."PHP is the best language in the world", this is how the earliest official document was written.But after 2015, PHP's popularity began to decline, and more and more people found that PHP has serious hidden problems.What was worse, many people began to question the necessity of PHP. Many people predict that PHP will disappear in the next 10 years.However, PHP survived the doubt. In the past few years, countless languages have disappeared, but not only did PHP in 2021 not disappear, it still occupies nearly 80% of the Internet market.In this research paper, It will first introduce the history of PHP, PHP's security issues, then test the performance of PHP, discuss some new improvements in PHP, and finally look forward to the future of PHP.
+In 1995, the newly born PHP was not a backend language, or not even a programming language. Rasmus Lerdorf, the creator of PHP, said in many speeches that his original intention of designing PHP was a simple HTML tool. However, PHP's flexible features and simple learning curve quickly catched the eyes of a large number of programmers. More and more people were devoted to the development of PHP, and the requirements of PHP were also increasing day by day. Three years later, two Israeli engineers, Zeev Suraski and Andi Gutmans, re-written the PHP compiler in C and named it Zend Engine. So far, PHP has become a very successful and flexible front-end language, which can add dynamic interactive operations to HTML static websites. After fastCGI was applied to PHP, PHP was becoming a background language. PHP-fastCGI is a communication protocol that can connect PHP script files and web servers like nginx and apache. In 2004, Andrei Nigmatulin developed PHP-fpm. PHP-fpm is a process management system used to coordinate the process of the PHP-fastCIG communication protocol. This greatly improves the stability between PHP and the web server. PHP ushered in its most glorious era.  After 2010, due to the rise of smartphones, people started to focus on small programs on mobile phones, and the entire market demand for websites began to shrink. At this time, the problem of PHP was exposed. Since PHP was born on the Internet, PHP can only be used in the website application. In other fields of development, PHP will not be used at all. This is completely different from some universal programing languages like JAVA. JAVA has always occupied a place in network development, and it is also very handy in mobile phone development and other fields. This makes JAVA's libraries and communities very active, which is one of the reasons why JAVA is still popular for so many years. After 2015, the rise of artificial intelligence has further compressed the living space for website development. More and more people will choose to learn Python or some languages related to system and intelligent development, to catch up with the trend of the new era. And website development has been considered a low-tech job. So the whole history of the rise and fall of PHP is actually the history of the website. Due to the rapid development of PHP in the early days, many low level structures were not well designed and expanded, which carried a heavy historical burden. For example, some of PHP internal functions look normal (strpos()), some use underscores (str_replace()), and some use numbers (nl2br()), some inverted nouns and verbs (substr(); strrev();).  The PHP code is not elegant at all. Nowadays, many potential PHP problems are not unsolvable, but if solved, many small and medium website companies will be greatly impacted.  These companies do not have enough money and time to refactor the code. PHP is now in a very embarrassing stage, stuck in the wall of the website, unable to reinvent itself to catch up with the trend of the new era.
+The PHP language itself does not have any loopholes, and I don't believe that any language has security loopholes. Because PHP is a dynamic language type, it has some strange features. If someone does not understand these factors, strange bugs or security risks will occur. These are man-made results, not PHP internal functions or compiler vulnerabilities. To give a most common example, in Figure 1, although the variable a is a string, and the condition of if statement is an integer, the program will still pass the statement, and the final output result is "1". This is because when the variable types are different, PHP will automatically intercept the first string as the condition. The solution to this situation is to use "=== ", the conditional statement will determine the variable type.  Not only PHP has this problem, javascript also has the same problem, all dynamic languages have this problem. Since PHP is very popular on websites, many problems are misunderstood as only occurring in the PHP language. And these security issues are very easy to solve [1]. In the first 100 popular github PHP projects, there is no SQL injection problem at all, which is almost as I expected. MVC framework [2] is used for most of PHP now. These frameworks strictly block front-end HTML rendering and back-end data control, and SQL injection will not happen at all. Currently, the most attacked PHP website is XSS (Cross Site Scripting), which accounts for more than half. Most XSS attacks occur on websites that allow users to upload code, such as custom blogger sites.  Hackers will upload JS or other scripting language codes. When other users browse the hacker's personal homepage, the illegal code will be automatically executed to steal the current user's browser information. Of course, the solution is also very simple, as long as you filter illegally uploaded codes. Research also shows that the activities of the PHP project are not directly related to security vulnerabilities. This shows that even PHP open source projects that many people participate in still have errors. I think it is because the focus of PHP development projects is demand and speed, not maintenance. PHP can develop projects faster than any language, which is also one of the biggest reasons for vulnerabilities.
+
+This test compares the performance of PHP, JS and Python in parsing 100MB json files. The result is that the performance of PHP is very poor [3]. As shown in Figure 2, PHP neither takes advantage of space nor time, in other words, it is very low cost performance.  For example, the execution speed of JS is more than 3 times that of PHP, but the memory consumption is only twice that of PHP. The execution speed of Python is as slow as PHP, but the memory consumption of Python is only one-fourth that of PHP. The prerequisite for this test is to use the language version before 2017, the tested PHP version is 5.6, nodejs is 10, and Python is 2.3. After testing with the new PHP7.2 and node14, PHP is 1.4 times faster than JS, and its memory is 2 times faster than JS. Very surprised, PHP7.2 has surpassed the running speed of JS in some respects.  JS has always been considered the fastest dynamic language before. The performance of PHP7 has been greatly improved, which will be introduced in the future of PHP.
+This test compares the comprehensive performance of PHP and ASP. The result is that the total ASP test score is higher than PHP [4]. This test measures from 5 aspects, static web page loading speed, algorithm processing, database management, file upload and file reading and writing. ASP's performance in file upload and database operations falls behind PHP, and wins in all other aspects. Especially in terms of algorithm speed, it is 20 times ahead of PHP.  Is ASP really better than PHP? I have a different view. I think in website development, the database is the most important indicator and the biggest bottleneck. The website is different from other personal applications. The website is mainly to display information, This leads to the biggest bottleneck that the server reads and writes to the database during periods of high concurrency. The algorithm of the website is usually relatively simple, even if there is a complicated algorithm, it can be solved by other methods such as cronjob tasks, or memcache delay. So the least important aspect is algorithm processing. Although the speed of static page ASP is ahead of PHP, the loading speed of static page is inherently very fast how, and it is usually supported by DNS static caching support. ASP running speed leading does not bring much advantage, but the disadvantage of the database is fatal.  All in all, I think ASP is ahead of PHP in overall performance, but fall behinds PHP in network performance.
+This test compares the usage and allocation of large memory by PHP, JS and Ruby. This test was shown in the presentation, and the result is that PHP uses 4 times more memory than JS, and the execution time is about 8 times slower. Ruby's memory usage is the same as JS, and it runs 3 times slower than JS. JS has a big win in array allocation. This test exposed the biggest problem in early versions of PHP, and it is also one of the most direct reasons for PHP's slow speed. PHP arrays are processed by hashtable in the compilar. As shown in Figure 3, based on the dynamic language of C compilar, variables need extra space to store the variable type, and also need to store the address allocated by the memory. However PHP uses the hashtable data structure at the end, which doubles the original 48byte memory space.  PHP array is very powerful, it can directly convert the array into a hash table without any declaration. This is actually one of the major features of PHP, combining array and hashtable into an associated array. Not all situations need to be handled by hashtable, which is very inefficient. In the new PHP7, this problem has been resolved. The solution is rather obscure. The overall concept is to cancel the data structure of the doubly linked list, and the new method adopted is to use pointers for small memory allocation and sorting. This aspect involves too much low-level knowledge, which is beyond my comprehension.
+		
+PHP7.2 was released at the end of 2017, and its performance has been greatly improved, as mentioned in the chapter on performance and testing. The language of PHP compilar is C, which was first completed in 1998 by two Israeli engineers, Zeev Suraski and Andi Gutmans, and named it Zend Engine. The new version of PHP not only redesigns the compilar structure of hashtable, but also improves the performance of compilar.  As shown in Figure 4, its newly added opcache module can detect whether there is repeated code execution.  If there are duplicate codes, The compiled opcode in the memory will directly call the VM (virtual machine) to execute, skip it through the lexical analyzer, parser and compiler, thus greatly improving the running speed. In his speech in May 2018 [6], the creator of PHP also introduced a new concept called DCE (dead code elimination).  This technology can greatly reduce the compiled opcode, which means that the execution speed of the VM can be directly accelerated. As shown in Figure 5, test2() is a very "bad" function, probably written by a PHP programmer. The variable $x in the if condition is undefined, so the following code will never be executed. The array $a is defined twice. The return result is the first element of the array $a, which means that no matter what the situation, the final result will only return 1. As shown in Figure 6, this is an unoptimized opcode with a total of 7 lines. As shown in Figure 7, this is an opcode optimized by the PHP7.2 version, with a total of 6 lines. As shown in Figure 8, this is an opcode optimized by the PHP7.3 version, with a total of 2 lines. The first line checks the variable $x, and the second line returns the integer 1. It can be seen that the compilar of PHP becomes smarter and smarter as the version improves.
+
+Facebook introduced the static variable language HACK based on PHP syntax in 2014 [7]. But a few years later, this language did not cause great repercussions. The reason is most regular PHP projects have good code optimization, problems caused by dynamic variables are almost zero. No one will define a string variable and then add an integer after it. This makes the advantage of changing PHP to a static language very small. Even if the code of static variables is refactored, there is no big difference, but the cost of refactoring the code is high. Many programmers have adapted to dynamic languages, and programmers, like the PHP language, are also making progress. This brings up the biggest question, will PHP be replaced by other languages? I think it is not within the next 10 years. I think PHP is the only language most suitable for website development. Because of the unique development model of the website, its requirments change very quickly, so a flexible dynamic language is needed to control it. ASP and Ruby are also languages for website development, but they have been declining sharply over the years, so they will not pose a threat to PHP. The most threatening is the rising trend of Python and Javascript.  Javascript is more of a client-side language, and frameworks like VUE, ANGUALR, and REACT are all client-side logic. Early Jquery and Ajax are also on client-side. The Python community paid more attention to artificial intelligence and operating system-level applications. Only PHP is completely dedicated to website development. I mentioned at the beginning that PHP can only be applied to website development, which is actually both a disadvantage and an advantage. The dramatic increase in PHP's performance also shows that PHP has a stable and strong community behind it. Many languages have disappeared silently, but the main reason why PHP can go to this day is "everyone hates PHP".
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

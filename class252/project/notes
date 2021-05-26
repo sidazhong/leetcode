@@ -126,7 +126,7 @@ PHP7
 	phpdbg -p test.php
 	phpdbg5.6 phpdbg7.2
 	
-	php -d opcache.optimization_level=-1 -d opcache.opt_debug_level=0x20000 test.php
+	php7.2 -d opcache.optimization_level=-1 -d opcache.opt_debug_level=0x20000 zend.php
 	Dead code elimination for web systems written in PHP: Lessons learned from an industry case
 	
 	php eaccelerator
@@ -141,11 +141,26 @@ PHP 介绍
 	https://github.com/pangudashu/php7-internal
 	https://cdn.learnku.com/uploads/images/201911/08/9064/RenemNqswm.png!large
 	
+	https://www.npopov.com/2014/12/22/PHPs-new-hashtable-implementation.html
+	https://www.npopov.com/2015/05/05/Internal-value-representation-in-PHP-7-part-1.html
+	https://www.npopov.com/2015/06/19/Internal-value-representation-in-PHP-7-part-2.html
+	
+	
+	https://www.npopov.com/2011/12/12/How-big-are-PHP-arrays-really-Hint-BIG.html
+	
 	
 
 
 要点：
+	一个整型是4个字节	//4
+	因为是若类型语言，需要一个额外的union pointer操作，多出8个字节，目的是make some value accessible as various types	//12
+	因为12不会被8整除，所以一共需要16个字节	//16
+	union操作除了存储8个字节的value，还需要8个字节存储类型和garbage collection information. //32
+	还需要16个字节的allocation header, 用于分配内存空间		//48
+	PHP的数组其实就是哈系表	在多出96字节的 Bucket structure	//144
 	
+	totoal::
+	144 * 1000000 = 	144000000 bytes / 1024 = 140625 KB / 1024 = 137.32MB
 	
 	
 	
