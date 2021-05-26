@@ -1,0 +1,157 @@
+\documentclass[addpoinT]{exam}
+
+\usepackage{listings}
+\usepackage{url}
+\usepackage{amsmath}
+
+% Header and footer details
+
+\setlength\answerskip{0ex}
+
+% Spacing and formatting, especially for blank lines.
+\newcommand{\code}[1]{{\tt #1}}
+\newcommand{\blank}{\makebox[1in]{\hrulefill}}
+\newcommand{\midblank}{\makebox[.7in]{\hrulefill}}
+\newcommand{\bigblank}{\makebox[2in]{\hrulefill}}
+\newcommand{\hugeblank}{\makebox[3in]{\hrulefill}}
+\newcommand{\ansline}{\hfill\makebox[1in][r]{\hrulefill}}
+\newcommand{\anslinelong}{\hfill\makebox[2in][r]{\hrulefill}}
+
+\begin{document}
+
+
+
+
+\newcommand{\mydefhead}[2]{\multicolumn{2}{l}{{#1}}&\mbox{\emph{#2}}\\}
+\newcommand{\mydefcase}[2]{\qquad\qquad\qquad\qquad\qquad\qquad& #1 &\mbox{#2}\\}
+
+% Commands for language format
+\newcommand{\setexp}[2]{\mbox{\tt set}~#1~#2}
+\newcommand{\readexp}[1]{\mbox{\tt read}~#1}
+\newcommand{\loopexp}[2]{\mbox{\tt loop}~#1~#2}
+\newcommand{\incexp}[1]{\mbox{\tt inc}~{#1}}
+\newcommand{\testexp}[2]{\mbox{\tt test}~{#1}~{#2}}
+\newcommand{\thenexp}[2]{#1~\mbox{\tt then}~{#2}}
+\newcommand{\crashexp}{\mbox{\tt crash}}
+\newcommand{\rel}[1]{ \mbox{\sc [#1]} }
+\newcommand{\sstep}[2]{{#1} \rightarrow {#2}}
+\newcommand{\bstep}[2]{{#1} \Downarrow {#2}}
+\newcommand{\Ttep}[2]{{#1} \colon {#2}}
+
+\newcommand{\ssrule}[3]{
+  \rel{#1} &
+  \frac{\strut\begin{array}{@{}c@{}} #2 \end{array}}
+       {\strut\begin{array}{@{}c@{}} #3 \end{array}}
+   \\~\\
+}
+
+\newcommand{\Esucc}[1]{\mbox{\tt succ}~#1}
+\newcommand{\Epred}[1]{\mbox{\tt pred}~#1}
+\newcommand{\Eiszero}[1]{\mbox{\tt iszero}~#1}
+\newcommand{\Econcat}[2]{\mbox{\tt concat}~{#1}~{#2}}
+\newcommand{\Eisstring}[1]{\mbox{\tt isstring}~#1}
+\newcommand{\Eisint}[1]{\mbox{\tt isint}~#1}
+\newcommand{\Eisbool}[1]{\mbox{\tt isbool}~#1}
+\newcommand{\ife}[3]{\mbox{\tt if}~{#1}~\mbox{\tt then}~{#2}~\mbox{\tt else}~{#3}}
+\newcommand{\true}{\mbox{\tt true}}
+\newcommand{\false}{\mbox{\tt false}}
+
+Question 1
+
+inc (true) ~~~ -~- e is not specified as an int type
+
+\[
+  \begin{array}{r@{\qquad}c}
+    \ssrule{T-INC}{
+    }{
+        \Ttep{inc~e}{Int}
+    }
+  \end{array}
+\]
+
+Question 2 
+
+modified rules [t-IF] [t-TRUE] [t-FALSE]
+
+\[
+  \begin{array}{r@{\qquad}c}
+    \ssrule{T-INT}{
+    }{
+        \Ttep{i}{Int}
+    }
+    \ssrule{T-TRUE}{
+    }{
+        \Ttep{true}{Bool}
+    }
+    \ssrule{T-FALSE}{
+    }{
+        \Ttep{false}{Bool}
+    }
+    \ssrule{T-if}{
+        \Ttep{e_1}{Bool} ~~~~
+        \Ttep{e_2}{T} ~~~~
+        \Ttep{e_3}{T}
+    }{
+        \Ttep{\ife{e_1}{e_2}{e_3}}{T}
+    }
+    \ssrule{T-INC}{
+        \Ttep{e}{Int}
+    }{
+        \Ttep{inc~e}{Int}
+    }
+    \ssrule{T-DEC}{
+        \Ttep{e}{Int}
+    }{
+        \Ttep{dec~e}{Int}
+    }
+    \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
+  \end{array}
+\]
+
+Question 3 
+
+add rules [t-ISBOOL] [t-ISINT]
+\[
+  \begin{array}{r@{\qquad}c}
+    \ssrule{T-INT}{
+    }{
+        \Ttep{i}{Int}
+    }
+    \ssrule{T-TRUE}{
+    }{
+        \Ttep{true}{Bool}
+    }
+    \ssrule{T-FALSE}{
+    }{
+        \Ttep{false}{Bool}
+    }
+    \ssrule{T-if}{
+        \Ttep{e_1}{T_1} ~~~~
+        \Ttep{e_2}{T_2} ~~~~
+        \Ttep{e_3}{T_2}
+    }{
+        \Ttep{\ife{e_1}{e_2}{e_3}}{T_2}
+    }
+    \ssrule{T-INC}{
+    }{
+        \Ttep{inc~e}{Int}
+    }
+    \ssrule{T-DEC}{
+    }{
+        \Ttep{dec~e}{Int}
+    }
+    \ssrule{T-ISBOOL}{
+        \Ttep{e}{Bool}
+    }{
+        \Ttep{isbool~e}{Bool}
+    }
+    \ssrule{T-ISINT}{
+        \Ttep{e}{Int}
+    }{
+        \Ttep{isint~e}{Bool}
+    }
+  \end{array}
+\]
+
+\end{document}
+
