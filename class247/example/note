@@ -1,0 +1,5 @@
+编译 生成 work-obj93.cf
+	ghdl -a hello.vhdl
+	
+执行文件 （类名）
+	ghdl -r hello_world
