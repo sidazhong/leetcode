@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../cs247.gen/sources_1/ip/ProgramMemory_1/sim/ProgramMemory.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

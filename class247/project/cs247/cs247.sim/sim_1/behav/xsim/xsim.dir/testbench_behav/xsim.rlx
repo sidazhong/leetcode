@@ -1,0 +1,12 @@
+
+{ 
+    crc :  3640840427791828592  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto 1cc9d55033624592ba1f64f77bbab8cc --incr --debug typical --relax --mt 8 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl" , 
+    buildDate : "Jul 28 2021" , 
+    buildTime : "13:18:05" , 
+    linkCmd : "/usr/bin/gcc -Wa,-W  -O -fPIC  -m64  -Wl,--no-as-needed  -Wl,--unresolved-symbols=ignore-all  -o \"xsim.dir/testbench_behav/xsimk\"   \"xsim.dir/testbench_behav/obj/xsim_0.lnx64.o\" \"xsim.dir/testbench_behav/obj/xsim_1.lnx64.o\" -L\"/tools/Xilinx/Vivado/2021.1/lib/lnx64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

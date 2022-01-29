@@ -1,0 +1,13 @@
+x-special/nautilus-clipboard
+copy
+file:///home/sida/Desktop/Acknowledge%20Payment.pdf
+file:///home/sida/Desktop/Kazam_screenshot_00008.png
+file:///home/sida/Desktop/depositphotos_86357470-stock-illustration-set-of-ballerinas-silhouettes-isolated.jpg
+file:///home/sida/Desktop/hand-drawn-vintage-gramophone-with-music-notes-vector-illustration-GR3K15.jpg
+file:///home/sida/Desktop/First_island_chain_perimeter_(marked_in_red).jpg
+file:///home/sida/Desktop/unnamed.gif
+file:///home/sida/Desktop/Kazam_screenshot_00006.png
+file:///home/sida/Desktop/1.png
+file:///home/sida/Desktop/Screen%20Shot%202021-12-06%20at%202.18.43%20PM.png
+file:///home/sida/Desktop/2236953.jpg
+file:///home/sida/Desktop/4.png

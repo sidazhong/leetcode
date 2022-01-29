@@ -1,0 +1,536 @@
+A
+	芯片短缺
+	鸵鸟方案
+	垄断
+	介绍一写CPU
+	介绍芯片
+	水+简单+内容多
+B
+	量子计算机
+	研发很慢
+	7 nm 发生量子隧穿，使经典计算机无用
+	量子观测到，就失效了
+	主要原理是观察量子状态
+	薛定谔的猫
+	双缝实验
+	量子纠缠
+	半水
+C
+	量子计算机
+	历史
+	0 1 的概率
+	波粒二相，平行计算
+	量子纠缠
+	IBM最厉害
+	量子纠错很难
+	Shor’s Algorithm 在量子计算机中的应用
+	big data or machine learning 应用
+	可以有效地利用量子计算来解决运输和物流问题。
+	金融，天体的应用
+	水+简单
+D
+	高性能处理器对制作和动画的影响
+	CPU 和 GPU 对动画的渲染
+	CPU串行，GPU并行
+	CPU处理复杂问题
+	GPU不可叠加 
+	不知所云，水，可能是抄的
+	
+E
+	分支预测：回顾
+	人工智能适合分支
+	静态分支 少资源
+	动态分支 复杂 提高精准度
+	有权重处理
+	太水了，最烂的一个
+	
+F
+	领先芯片的设计、特性和架构，自动驾驶汽车
+	介绍5个level的自动驾驶定义
+	自动驾驶历史
+	多传感器成本高，少传感器容易死
+	测试很难
+	水，简单，可以考虑
+	
+G
+	云计算架构概述
+	5个特征
+	4个部署模型
+	可以考虑
+	
+
+H
+	多芯片模块及其性能
+	主要为介绍，
+	可以考虑
+	
+I - 洞察苹果硅芯片
+	太长了
+	
+J 节能移动云计算
+	格式有问题
+	
+K 虚拟化的演变
+	虚拟机
+	简单，完全可以考虑
+	
+N 获得能源效率的趋势分析 数据中心	
+
+O - 基于深度神经网络的计算机体系结构计算
+	看不懂
+	
+
+	
+	
+	
+期末考试
+A	
+	芯片短缺 （monolithic chip）
+	Examples of “active	components” are transistors and diodes 
+	Examples of	“passive components” are capacitors and resistors.
+	Semiconductor chips 设计生活的各个地方，所以shortage of semiconductors 影响了世界
+	疫情更加重了芯片短缺
+	举例，苹果在许多国家都有芯片厂家，芯片短缺可能导致很多大的工厂倒闭
+	1971 intel发明了第一块微型芯片 （Intel® 4004）， 12->4 规模 （MCS-4）
+		CPU 
+		ROM
+		RAM
+		Shift-register
+	Intel® 8086 
+		1978
+		x86
+		16 bit
+		运行原理在第二页
+		芯片迈向世界的一步
+	Intel® i9-12900K,最受市场欢迎的
+	对比芯片发展
+		transistors 2300 -> 560 million
+		The circuit processing die 1000 nanometers -> 32 nanometers
+		processing speed kHz -> GHz, 1M faster than before
+	解决方法
+		鸵鸟算法
+			直接忽略可能存在的问题，像鸵鸟一样埋在沙子里就没有问题了，这个方法厉害了我擦！
+			什么都不要做，不要打破已有的平衡
+			芯片短缺跟deadlock问题很像，A需要B，B需要A 资源
+			目前情况，如果不采取措施，芯片问题会恶性循环，这个方案估计不work，当然不可能啦！
+		保证底层市场供应链稳定
+			找寻多家市场帮助，看似简单，实则麻烦
+			市场垄断，光刻机举例 ASML 有62%市场
+			每个市场都有自己的领域，所以很难找到替代
+			就算找到替代品，也可能不兼容。法律问题也难处理
+		重新设计PCB
+			Process Control Block （PCB） 第4页详细介绍了
+				Process ID
+				Process State
+				Pointer
+				Priority
+				Program Counter
+				Central Processing Unit Registers
+				Input/ Output
+				Accounting Information
+			看不出为啥这样可以解决方法....
+		移植代码
+			代码可能语言不兼容
+			据我所知，VHDL可以和verilog很好的兼容，在Vivado模拟器里甚至可以混写，兼容应该不是一个问题 
+			看不出为啥这样可以解决方法....
+			作者倾向这个选项，但是移植代码成本太高了，对于大公司来说都负担不起，更别说小公司了。
+		
+文章没有解释太多芯片短缺的原因，只提到是因为供应量增大和疫情原因。
+作者倾向移植代码的解决方法，但是移植代码成本太高了，对于大公司来说都负担不起，更别说小公司了。
+我更倾向第二种方案，保证市场供应链稳定。这样就必须要打破大公司垄断的问题，垄断是个科技行业非常严重的问题！ 
+这个方案是最没有成本的，因为只需要大公司CEO的一句话就行了。希望大公司可以开源技术，分享技术，因为我们都生活在地球上。
+
+The article did not explain the reasons for the shortage of chips, only mentioned that it was because of the increase in supply and the epidemic.
+The author prefers the solution of porting code, but the cost of porting code is too high for most of the company.
+I prefer the second solution to ensure the stability of the market supply chain. 
+In this way, it is necessary to break the monopoly of large companies. Monopoly is a very serious problem in the technology industry.
+This solution is the least costly, because it only needs a word from the CEO. 
+Hope that big companies can open source and share technology, because we all live on the earth.
+
+
+
+F	领先芯片的设计、特性和架构 自动驾驶汽车
+	Nvidia’s Drive hardware and software
+	fully automated driving system
+	Autonomous Driving (AD)
+	level of autonomous driving (NHTSA)
+		No automation，大部分车都这样
+		Semi-autonomous cars，开启一个小功能，adaptive cruise control
+		Driver-assisted automation，多个小功能，自动停车，自动刹车，没有主要功能
+		Conditional driving automation，所有功能，但是驾驶员需要警惕
+		High driving automation，所有功能，但是驾驶员比不需要警惕
+		Full driving automation，所有功能，不需要驾驶员
+	history
+		100年历史 American wonder，radio-controlled
+		google 这方面很厉害，Sebastian Thrun 2009，Uber, Microsoft, Tesla都在做
+		2016 第一次事故，两车相撞很难分辨谁的错误，technology and legality.
+	TECHNOLOGY STACK 技术栈
+		Driving Assistance Software(DAS)，导航与决策
+		Sensor fusion and Mapping，解码感应器，传递感应器信号
+		CPU/GPU/Custom，处理器
+		Sensors，感应器，
+			Cameras, 
+				可识别具体物体，identify humans, lanes, signals, animals，有难度
+			Radars and Sonars.
+				识别障碍物，但是小障碍物效果不好
+			Lidars，激光雷达，localization, mapping, and obstacle avoidance
+				制造三维空间模型，很可靠，晚上也能用
+		更多的sensor花钱，但是稳定，需要平衡
+	Delphi 一个公司
+		组据都是别的公司拼起来的
+	NVIDIA DRIVE SOFTWARE 一个软件
+		真实世界不好测试，这个软件用来测试的
+		GPUs (graphics processing units)， SoCs (systems on a chip)
+	NVIDIA DRIVE family
+		sensors,DRIVE AGX for compute，software tools
+		Drive Hyperion，development platform，开发平台
+		Drive SDK，为DRIVE AV 和 OS 提供支持，包含各种功能
+		Drive OS，操作系统
+		Drive AV，包含各种功能，perception, mapping, and planning
+	Companies using NVIDIA’s chips
+		30 TOPS (30,000,000,000,000 operations per second)
+		Pegasus,first computer chips for developing fully autonomous vehicles
+		Volvo Cars，开发各种无人汽车
+		Xpeng P7 第一个用NVIDIA's chip的，NVIDIA DRIVE AGX Xavier, system-on-a-chip (SoC)
+		Smart Electric Platform Architecture (SEPA) 2 chips, Nvidia and Qualcomm’s Snapdragon
+		Mercedes-Benz，200TOPS
+		Tesla 准备做自己的SoC
+	BENEFITS OF AUTONOMOUS VEHICLES
+		减少交通事故，94%的交通事故是人为的，同时可以减少修复车辆的费用
+		解决交通堵塞，作者意图是说，人的反映速度很慢
+		解决残疾人开车问题
+	大趋势是电车和自动驾驶
+	
+	
+		
+	in five levels of autonomous driving，level 3 与 level 4 似乎没有区别？ 
+	
+		
+	
+G	
+	云计算机
+	online storage and services，越来越流行
+		reduce investments and proportional costs.
+		increase scalability easy
+		increase availability and reliability
+	定义
+		a style of computing in which scalable and elastic IT-enabled capabilities are delivered as a service to external customers using Internet technologies.
+		网络和共享资源，
+	five essential characteristics
+		On Demand Self Service 按需自助服务，用户自己就可以搞定，自给自足
+		Broad Network Access，可以为用户做任何服务
+		Resource Pooling，虚拟IP，虚拟位置
+		Rapid Elasticity，自由分配虚拟资源，任意扩展或缩小服务范围
+		Measured Service，可以自由管理经营云服务
+	Five major actors
+		cloud consumer	消费云服务资源 
+		cloud provider	提供云服务资源
+		cloud auditor	确保云的安全性，有效性
+		cloud broker	提供云服务的第三方商家，中介
+		cloud carrier		连接和传输，云消费者的提供商。
+	Four deployment models
+		Private cloud，both cloud consumer and cloud provider，公司内部使用
+		Public cloud，由第三方提供的公共云服务，网络支持，扩展可靠，但是不安全
+		Community cloud，大型社区和组织内部使用
+		Hybrid cloud，公共和私有，区分数据的安全等级
+	three cloud delivery models
+		个人控制从大变小，供应商控制从小变大
+		Infrastructure-as-a-Service (IaaS) 设施
+			Microsoft，google，amazon
+			high level of control and responsibility
+			裸机，需要自己做一切
+		Platform-as-a-Service (PaaS) 平台
+			已经搭建好了操作系统，运行平台
+			可以是自己机器环境的备份，也可以是第三方平台给其他人使用
+		Software-as-a-Service (SaaS) 软件
+			Google Apps
+			Microsoft office
+			所有软件都安装好了，用户立刻可以使用
+	CLOUD ARCHITECTURES
+		Workload Distribution Architecture，负载均衡分配云端的资源
+		Resource pooling Architecture，共享云端资源，好处为，资源的重新使用，资源合理利用，减少花费
+		resource pool，多个pool合并起来，举例：audit monitor，cloud usage monitor, hypervisor
+		Dynamic Scalability Architecture	提前设定好预设条件，触发后会扩展分配云资源,举例cloud usage monitor, hypervisor, and pay-per-use monitor.
+		Elastic Resource Capacity Architecture	不需要触发任何条件就可以扩展分配云资源，Intelligent Automation Engine
+	
+	在Five major actors里面，cloud broker和cloud carrier角色好像是重复的，或者说cloud carrier的定义不是很明确，最好能举个例子。
+	在ESSENTIAL CHARACTERISTICS章节提到了云服务有Rapid Elasticity特性，文中指出“
+	the capabilities available for provisioning seem to be unlimited and can be appropriated any time”。但是在随后的“Public cloud”章节提到，
+	Public cloud的缺点为“less secure and not customizable”。据我所知，大部分的Public cloud是非常好扩展和customizable的，这是不是跟前面的特性有点矛盾？
+	
+	In Five major actors, the roles of cloud broker and cloud carrier seem to be duplicated, or the definition of cloud carrier is not very clear. It is best to give an example.
+	In the chapter of ESSENTIAL CHARACTERISTICS, it is mentioned that cloud services have Rapid Elasticity features. it is points out 
+	"the capabilities available for provisioning seem to be unlimited and can be appropriated any time". However as mentioned in the subsequent "Public cloud" chapter,
+	The disadvantage of Public Cloud is "less secure and not customizable". As far as I know, most public clouds are very scalable and customizable. 
+	Does this contradict the previous feature?
+	
+H	多芯片模块及其性能
+	Printed Circuit Boards (PCB) 印刷电路板 多个芯片组合为一个整体
+	Semiconductor dies 半导体芯片
+	Integrated Circuit （IC）集成电路
+	Graphics processing units （GPU）
+	Multichip Module (MCM) Hybrid Integrated Circuit
+		原因是failure of Moore’s law
+		主要用于 Deep learning，Space avionics
+		好处 Better Performance
+			Flexibility，
+				因为是多个芯片组合，更容易替换
+			Reduced Complexit，
+				封装组合的芯片，更容易管理，perform an entire operation or function as a whole
+			Compact nature，
+				多个芯片组合，更容易利用空间容量
+			energy efficient，
+				比一般的PCB packed densely，更紧凑
+		类型
+			MCM- L
+				substrates are laminated	压板
+				high density Printed
+				laminates are plastic
+				便宜，常用
+			MCM-D
+				substrates are deposited	沉积
+				多层叠加
+				metals
+				用于 military, space, sonar 贵
+			MCM-C
+				ceramic substrate 陶瓷基板
+				thick cofired ceramic
+				High temperature cofired ceramic (HTCC)，Low temperature cofired ceramic (LTCC)
+				便宜，常用
+	PACKING
+		目的是保护MCM
+		plastic encapsulation 塑料薄膜包裹，只用与单芯片，多芯片会被损坏
+		selective encapsulation 选择性封装一部分，解决MCM封装问题
+		Epoxy encapsulation 液态封装，解决MCM封装问题
+	TESTING
+		MCM测试更难，更复杂 ？？
+		Hierarchical testing，按逻辑分层测试，层级有Ingredients，Interconnects，Interactions，Interface
+		Design for Test (DFT)，按物理硬件测试
+			Boundary scan，shifting data around the chips and work as a scan from one end boundary to another。
+				把测试数据从一个chip shift到另一个chip，就像人体血液流动一样，从而区分出boundary，然后在每个boundary里进行测试
+			Built-in Self-Test (BIST)，测试每一个component，但是整合测试会遇到问题。
+	CHALLENGES
+		Cost，太贵，生产速度低
+		Thermal management，components太密集，容易过热
+		Repair and Rework，太密集，不好修理，
+			twisting and tensile forces
+			certain thermoplastic adhesives 可以不同的温度测试和修复不同的组建
+		Known Good Die (KGD) 好的芯片
+			Microelectronics and Computer Technology Corp （MCC）
+			封装好的ICs 会一直有high confidence level to perform
+			太复杂，参考Bathtub failure曲线，更容易出问题，所以替换die的idea比KGD要好
+		Yield 
+			defect rate (DR)
+			Assembly Yield
+			Die yield
+			wirebound 引线，链接IC用的 Wire bonding is the method of making interconnections between an integrated circuit
+			In computer science, yield is an action that occurs in a computer program during multithreading, of forcing a processor to relinquish control of the current running thread, and sending it to the end of the running queue, of the same scheduling priority.
+			assumbly Yield 可接受的组件与生产的总组件的比率构成了组装过程的产量。
+			die yield 裸片良率是指从到达该工艺部分的晶圆中通过晶圆探针测试的良好裸片的数量。 ... 产量也是整体晶圆加工成本中最重要的一个因素。
+			
+			图的大概意思就是，wirebound越多，module yield越低，成反比，the number of good dice that pass the testing
+			
+		Bathtub Curve
+			infant mortality
+			wear out
+	APPLICATIONS
+		Wireless devices,Power amplifiers, High power devices, portables,wearables and space applications.
+		Thermal Conduction Modules (TCM)，IBM
+		switching circuits，AT&T
+		Radars，Hughes Aircraft
+		Simba，deep learning
+		MCM-GPU 4个GPU拼在一起
+			GPU分成更小的组件为GPM，cache data only from its local DRAM
+			提升速度，50个workloads里面30个工作的很好
+			multi-GPU system，lower inter-GPU bandwidth 跟不上，导致性能下降，整体比MCM-GPU弱3倍，另类设计的Monolithic也勉强和MCM-GPU打平
+			
+		
+	在INTRODUCTION介绍了MCM的有点，其中一个是Reduced Complexity。但是在TESTING章节，提到了 
+	“MCMs are a combination of densely packed components and very large die，where testing and fault detection is hard”。
+	好像MCM并没有Reduced Complexity。在CHALLENGES的cost章节再次提到了 “increase in complexity” 会导致成本增加生产减低，Does this contradict the previous feature?
+		
+
+k	
+	虚拟化的演变
+		优点，灵活，可扩展，高效
+		一个物理机器支持多个虚拟机器，an abstraction layer
+		1960 IBM 第一太虚拟机 System/360 model 67，VM诞生，可以运行多个OS在一个物理机器上
+		Hypervisors  virtual machine monitors to run VMs in an isolated provisioned environment
+		多个用户共享资源池 networking, databases, CPU，提高性能和产出，减少成本
+	产生虚拟机的原因
+		资源分配不平衡 single-vendor information technology，
+		公司运行多种legacy apps on multiple OS，加大开销
+		vendor lock-in，用户无法使用其他的供应商
+	Hypervisor
+		虚拟机管理程序，负责分配资源，有很好的可移植行
+		Bare Metal Hypervisor	裸机
+			一个机器管理多个机器，直接硬件管理GUEST，常用在大厂里
+		Hosted Hypervisor 托管
+			一个软件管理多个GUEST OS，常用在家用机
+	VM
+		通过Hypervisor与硬件交互，完全独立，有自己一整套设备
+		没有自己独立的硬件支持，只是代码“借用”硬件
+		作为image存储在硬盘中，并且和主host完全隔绝
+	VIRTUALIZATION 虚拟化
+		减少成本，一台机器充分利用资源
+		高容错性，可以直接copy虚拟机的image到另一台机器
+		高移植性，可以直接copy虚拟机的image到另一台机器
+		高性能，更新虚拟机比更新物理机器更方便 ？
+		更好的控制DevOps，还是copy虚拟机到任意测试机器
+		更好的检测和故障排除，hypervisor可以监控多个虚拟机的情况，一旦出了问题，还可以用额外的机器做备份
+	Types of Virtualization 虚拟化的类型
+		Desktop Virtualization，多个OS的桌面并存
+		Virtual Desktop Virtualization，一个机器可同时使用多个OS
+		Local Desktop Virtualization，多个OS在一个桌面，用hypervisor管理
+		Network Virtualization，多个网络硬件并存，可以同时控制traffic, nodes and routing
+		Storage Virtualization，多个硬盘并存，可以随意增加减少
+		Data Virtualization，多处来源的种数据整合为一个数据，more integration capabilities
+		CPU Virtualization，一个CPU 作为多个CPU使用
+	
+在VIRTUALIZATION章节，作者提到了虚拟机的Increased efficiency and Productivity。因为虚拟机安装或更新程序不用像物理机器one by one去安装。
+我认为程序还是要一个个安装的，但是虚拟机优势是可以远程操作，很多更新程序需要手动重新启动服务器，这样会中断服务器的SSH链接，换句话讲，必须去物理机房才能安装，这非常的麻烦。
+服务器硬盘一般就1年多的寿命，如果坏了就需要手动更换，1年听起来很长，但如果有10台服务器100块硬盘（刀片服务器），那么平均一个星期就得去2次机房更换硬盘！
+所以我觉得虚拟机可以剩下很多往返机房的人工费的路费。
+	
+	
+	A F G H K
+	
+	
+	
+	
+476
+	AGK
+	
+A
+	这篇文章讨论了这两年芯片紧缺的问题。芯片紧缺的原因是芯片需求量的增大和疫情的影响。文章主要分成3大块，芯片的重要性，芯片的历史，解决芯片短缺的方案。
+	
+	作者首先指出芯片的重要性，芯片不只是在电脑中才有，任何电器都有芯片，从最复杂的计算机到家用烤面包机。作者还举出了例子，比如苹果手机的芯片分配给了许多国家制造，
+	任何一个部件出现短缺都可能导致整个产业链的中断，所以第一个结论是芯片的短缺是一个非常严重的问题，可能会导致全世界的经济产业崩溃。
+	
+	然后作者列出了芯片的发展史，从第一块最简单芯片到Intel I9，经过50多年的发展，芯片的速度提高了百万倍，体积也缩小了百万倍。
+	
+	最后作者举出了四种解决芯片短缺的方案。
+		第一种方案类似与鸵鸟的头埋在沙子里，大概意思就是“芯片短缺也许不是一个问题，大家想多了，过一阵子自然问题就自己解决了“。
+	这个观点让我想到了1930年美国的经济大萧条，当时有两种观点，1不应该干预自由市场，2由政府干预自由市场。结果是罗斯福新政拯救了美国。芯片短缺明显是个恶性循环，
+	如果什么都不做，问题会越来越严重，这个观点我和作者是一样的。
+	
+		第二种方案是大家联合起来，大科技公司共享技术，这样如果有一家芯片短缺，那么可以寻求其他厂家的帮助。这个观点作者认为”不可能“。
+		原因为3点，1大公司垄断高科技，不会分享技术。2各个厂家芯片技术不兼容，3可能有法律纠纷。我认为这是最可行的方案，现在的主流都是科技共享，代码共享。
+		大公司的垄断本身也不合法。而法律问题和技术问题，我认为只要大家坐在一起商量方案，不会解决不了。
+		
+		第三种方案是重新设计底层的CPU，这个方案我认为完全解决不了问题，而且还会增加成本。
+		
+		第四种方案是移植代码，作者倾向这个方案。但是移植代码成本太高了，对于大公司来说都负担不起，更别说小公司了。在技术不共享，大公司相互猜疑的情况下更是难上加难
+		所以这个方案我不支持。
+		
+G
+	这篇文章全面的介绍了云计算。
+		
+	文章首先介绍了云的一些特点，
+		Users can use the cloud by themselves, self-sufficient, cloud can also provide any service for users. cloud is all Virtual
+		and freely allocate resources, arbitrarily expand or reduce the scope of services. people can also freely manage and operate cloud services.
+		
+	文章介绍了云的一些用户角色，我认为可以精简为3大类，
+		1. consumer，使用云资源的用户
+		2. manager，管理和维护云资源的人
+		3. mediator，提供云服务的第三方商家
+		
+	文章介绍了几种云的安全类型，我认为可以精简为3大类
+		1. private，一般在大公司内部员工使用
+		2. public，由第三方提供的公共云服务，网络支持，扩展可靠，但是不安全。文章提到了一种Community cloud，我认为属于public的一种，但是安全性更高一些。
+		3. Hybrid， 公共和私有的结合，不同的安全等级
+	
+	文章又介绍了3种云的市场类型
+		个人控制和供应商控制度成反比。
+		1. 完全裸机，用户需要安装OS和一切程序
+		2. 提供OS和一些简单的配置，用户需要自己安装程序
+		3. 完全提供所有的程序，用户不需要做任何事情，直接拿过来用
+		
+	一些云服务器的资源分配的ARCHITECTURES，可以概括为3种
+		1. 需要手动处理，分类资源，做负载均衡
+		2. 提前设定好预设条件，触发后会扩展分配云资源
+		3. 不需要触发任何条件就可以扩展分配云资源，有AI自己控制和计算当前最佳方案
+		
+	全文作者多次强调了云服务器的优点，总体概括为三点
+		1. 自由，对于用户来说，用户可以自由的扩大或缩小云的规模，而且可以多种服务挑选。对于厂家来说不在局限一个物理空间，而是可以虚拟化的经营，全世界任意分配资源。
+		2. 高效，大型云端服务器有很多共享资源的方法，可以让云服务器更稳定，速度更快，容错率更高
+		3. 成本，更大的利用资源，虚拟的机器可以更简单的移植和更新，大幅度降低成本，提高利用率。
+	
+	
+	
+	这个文章讨论了 Multichip Module Chip 的优点和缺点
+	
+	首先作者提出了MCM的需求原因是failure of Moore’s law。 芯片已经到了瓶颈，无法越做越小了，只能用其他的方法。
+	
+	MCM的优势为：
+		Flexibility， Because it is a combination of multiple chips, it is easier to replace
+		Reduced Complexity， 这点不太同意，因为作者只是说MCM布线比单芯片要简单一些，这只是一个方面而已。However，在随后的文章中提到了测试MCM比一般的单芯片要复杂很多，
+		随后又提出MCM因为工艺复杂性，比单芯片价格高，产量低。最后在 Known Good Die （KGD）环节又提出了MCM的复杂性会使得barthtub 的wear out 时间提前，
+		又举出了例子，当
+		
+		 
+		考虑到这些原因，我认为MCM并没有降低复杂性。而是大大提高了复杂度，在开发，研制，测试，已经最后的使用环节，都比一般的单芯片要复杂，需要考虑更多的因素。
+		energy efficient，MCM更好的利用了空间，使得芯片更紧凑。
+		
+	MCM的劣势为：
+		测试困难，因为是多个component组合而成，不好做integration testing。 作者列出了一系列方法，大致分为2类
+		1. 按逻辑分层测试，比如Interactions，Interface
+		2. 按物理硬件测试, 第一种为单纯的测试每一个小部件，但是整合测试时，会产生比较大的问题。第二种方法把测试数据从一个chip shift到另一个chip，就像人体血液流动一样，
+		从而区分出boundary，然后在每个boundary里进行测试，这个我认为最为合理，是物理硬件和逻辑层结合的一种测试方法。
+	
+		价格太高了，生产速度比较慢
+		
+		容易过热，因为部件太密集。
+		
+		
+		
+		
+		
+		
+		文章介绍了两种虚拟机管理方法， 第一种 是 One machine manages multiple machines, direct hardware management, commonly used in large factories
+		第二种为一个软件管理多个GUEST OS，常用在家用机
+	
+	
+			VM
+		通过Hypervisor与硬件交互，完全独立，有自己一整套设备
+		没有自己独立的硬件支持，只是代码“借用”硬件
+		作为image存储在硬盘中，并且和主host完全隔绝
+		
+	
+		文章阐明了虚拟化的几个重要概念，
+			1 虚拟化的电脑没有自己的硬件，是用代码“借用”硬件，
+			2. 虚拟化的电脑实体是磁盘上的一个image。
+			3. 虚拟的电脑和host是完全隔绝的，逻辑上区分为2个电脑
+			
+		文章介绍了一些虚拟化的优点，这些有点基本上和文章（G） cloud相同点很多。比如说减低了成本，提高了收益。本质上cloud和VM就是一种包含关系，cloud就是通过VM来实现的。
+		
+		这篇文章谈到了更多重容错性的优势。当一台VM的物理硬件出错，可以直接复制image到另一台机器继续执行，这个是VM最大的优势。还不只这一点，在测试的环节，
+		可以把image复制到不同的机器来测试兼容性。当一个机器只是一段代码，要比真正的一台”物理机器“更具有优势。 很显然，manipulate软件比硬件要容易很多，这个是作者的主要观点
+		
+			
+	
+	文章还介绍了一些虚拟化硬件的类型，任何硬件都可以虚拟化，包括CPU，Network，Data，Storage。我认为Storage的虚拟化是必不可少的，虚拟Storage可以让硬盘”无限“存储数据。
+	我有一些工作的经验。在没有VM的时代，服务器是在机房里。机房里面最容易坏，或者说最容易出问题的就是硬盘。一般服务器端硬盘寿命只有1年，1年听起来很长，但如果有10台服务器100块硬盘（刀片服务器），
+	那么基本上每个星期都有硬盘会坏掉。处理这些硬盘大大增加的工作量和时间。而且每块硬盘的存储空间有限，要定期的做数据archive。虚拟的storage完美的解决这些问题。
+	
+	
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

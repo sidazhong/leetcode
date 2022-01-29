@@ -1,0 +1,12 @@
+0.7
+2020.2
+Jul 28 2021
+13:18:05
+/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.gen/sources_1/ip/ProgramMemory_1/sim/ProgramMemory.v,1637114002,verilog,,/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/ALU.v,,ProgramMemory,,,,,,,,
+/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.sim/sim_1/behav/xsim/glbl.v,1623370582,verilog,,,,glbl,,,,,,,,
+/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sim_1/new/testbench.v,1635730489,verilog,,,,testbench,,,,,,,,
+/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/ALU.v,1637111073,verilog,,/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/CPU.v,,ALU,,,,,,,,
+/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/CPU.v,1637111104,verilog,,/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/CalPart.v,,CPU,,,,,,,,
+/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/CalPart.v,1637111083,verilog,,/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/Memorypart.v,,CalPart,,,,,,,,
+/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/Memorypart.v,1637111093,verilog,,/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/RF.v,,MemoryPart,,,,,,,,
+/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sources_1/new/RF.v,1635745167,verilog,,/home/sida/workspace/local.sida.com/class247/project/cs247/cs247.srcs/sim_1/new/testbench.v,,RF,,,,,,,,

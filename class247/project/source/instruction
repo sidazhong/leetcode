@@ -1,0 +1,8 @@
+Raa=INPUT								00001000aa			
+ASSIGN Raa=nnnnnnnn			1aannnnnnn			
+ADD Rcc=Raa+Rbb					0100ccbbaa			
+INC Raa++								0010aa0001			
+IF Raa<Rbb THEN FALSE		000111aabb			
+IF FALSE JUMP nnnn			000101nnnn
+OUT=Raa									00001001aa			
+HALT										0000000000

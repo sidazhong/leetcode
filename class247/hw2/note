@@ -1,0 +1,310 @@
+1) The following circuit contains two gates. Independent of time, it would functionally produce a constant output
+of C = 0. However, as this problem demonstrates, timing is a critical design parameter which must be factored into
+account by computer architects. The issue being examined in this problem is that of a Race or Glitch Condition.
+The tell-tale sign that a circuit may exhibit a timing glitch is a situation where one input path to a gate is longer that
+of the other. The existence of this condition is obvious and easy to spot in the circuit below; however, for complex
+circuits with multiple computation paths and large fan-in/fan-out between gates, the potential for hidden glitches
+can be quite high. It is in this area that computer-aided design tools, such as VHDL, can offer valuable assistance to
+the engineer in terms of predicting actual performance of the circuit as a function of time.
+
+Simulate the circuit using a structural architecture to determine its output response for various combinations of
+delay values for each gate. For example, try all four combinations of NOT delay = (2ns or 4ns) and AND delay =
+(1ns or 3ns). Run a sufficient number of simulations while permuting the delay values on each of the gates so that
+you can answer (and provide documentation) for the questions below.
+
+In particular, assume the actual purpose of the circuit is to deliberately produce a pulse (glitch) at output C
+whenever input A has a positive (0 to 1) transition. [40 pts]
+	
+	a) If both gates have non-zero inertial delay values, what relationship must exist between the delay time of
+	the INVERTER and the delay time of the AND gate in order for the circuit to produce a pulse ?
+	
+	INVERTER delay time > AND gate delay time
+	
+	b) Assuming the constraint in (a) above is satisfied and that a positive transition of A occurs at time T, at
+	what time will the beginning of the pulse occur at output C ?
+	
+	c) Assuming the constraint
+	
+	
+	
+NOT delay = (2ns or 4ns) and AND delay = (1ns or 3ns).
+
+NOT 2ns AND 1ns
+NOT 2ns AND 3ns
+NOT 4ns AND 1ns
+NOT 4ns AND 3ns
+	
+	
+ENTITY ENOT_2 IS 
+	PORT (a: IN BIT ; c : OUT BIT);
+END ENOT_2;
+ARCHITECTURE behavioral OF ENOT_2 IS
+BEGIN 
+	c <= NOT a AFTER 2 ns;
+END behavioral;	
+	
+ENTITY ENOT_4 IS 
+	PORT (a: IN BIT ; c : OUT BIT);
+END ENOT_4;
+ARCHITECTURE behavioral OF ENOT_4 IS
+BEGIN 
+	c <= NOT a AFTER 4 ns;
+END behavioral;	
+	
+ENTITY EAND_1 IS 
+	PORT (a,b : IN BIT ; c : OUT BIT);
+END EAND_1;
+ARCHITECTURE behavioral OF EAND_1 IS
+BEGIN 
+	c <= a AND b AFTER 1 ns;
+END behavioral;
+
+ENTITY EAND_3 IS 
+	PORT (a,b : IN BIT ; c : OUT BIT);
+END EAND_3;
+ARCHITECTURE behavioral OF EAND_3 IS
+BEGIN 
+	c <= a AND b AFTER 3 ns;
+END behavioral;
+	
+Entity TESTER IS 
+	PORT (A : OUT BIT ; C : IN BIT);
+END TESTER;
+ARCHITECTURE behavioral OF TESTER IS
+BEGIN 
+	A <= '0' AFTER 0 ns,
+				'1' AFTER 20 ns;
+END behavioral;	
+	
+	
+	
+==================================================================================	
+
+ENTITY INVERTER1 IS
+	PORT (A : IN BIT ; C : OUT BIT);
+END INVERTER1;
+ARCHITECTURE structure OF INVERTER1 IS
+COMPONENT ENOT_2 PORT(a:IN BIT;c:OUT BIT); END COMPONENT;
+COMPONENT EAND_1 PORT(a,b:IN BIT;c:OUT BIT); END COMPONENT;
+SIGNAL B:BIT;
+BEGIN
+	u1: ENOT_2 PORT MAP (A,B);
+	u2: EAND_1 PORT MAP (A,B,C);
+END structure;
+	
+ENTITY TESTBENCH1 IS
+END TESTBENCH1;
+ARCHITECTURE structure OF TESTBENCH1 IS
+COMPONENT TESTER PORT(A:OUT BIT; C:IN BIT); END COMPONENT;
+COMPONENT INVERTER1 PORT(A:IN BIT; C:OUT BIT); END COMPONENT;
+SIGNAL A,C:BIT;
+BEGIN
+	tester1: TESTER PORT MAP (A,C);
+	UUT: INVERTER1 PORT MAP (A,C);
+END structure;
+	
+==================================================================================
+ENTITY INVERTER2 IS
+	PORT (A : IN BIT ; C : OUT BIT);
+END INVERTER2;
+ARCHITECTURE structure OF INVERTER2 IS
+COMPONENT ENOT_2 PORT(a:IN BIT;c:OUT BIT); END COMPONENT;
+COMPONENT EAND_3 PORT(a,b:IN BIT;c:OUT BIT); END COMPONENT;
+SIGNAL B:BIT;
+BEGIN
+	u1: ENOT_2 PORT MAP (A,B);
+	u2: EAND_3 PORT MAP (A,B,C);
+END structure;
+	
+ENTITY TESTBENCH2 IS
+END TESTBENCH2;
+ARCHITECTURE structure OF TESTBENCH2 IS
+COMPONENT TESTER PORT(A:OUT BIT; C:IN BIT); END COMPONENT;
+COMPONENT INVERTER2 PORT(A:IN BIT; C:OUT BIT); END COMPONENT;
+SIGNAL A,C:BIT;
+BEGIN
+	tester1: TESTER PORT MAP (A,C);
+	UUT: INVERTER2 PORT MAP (A,C);
+END structure;
+	
+==================================================================================
+ENTITY INVERTER3 IS
+	PORT (A : IN BIT ; C : OUT BIT);
+END INVERTER3;
+ARCHITECTURE structure OF INVERTER3 IS
+COMPONENT ENOT_4 PORT(a:IN BIT;c:OUT BIT); END COMPONENT;
+COMPONENT EAND_1 PORT(a,b:IN BIT;c:OUT BIT); END COMPONENT;
+SIGNAL B:BIT;
+BEGIN
+	u1: ENOT_4 PORT MAP (A,B);
+	u2: EAND_1 PORT MAP (A,B,C);
+END structure;
+	
+ENTITY TESTBENCH3 IS
+END TESTBENCH3;
+ARCHITECTURE structure OF TESTBENCH3 IS
+COMPONENT TESTER PORT(A:OUT BIT; C:IN BIT); END COMPONENT;
+COMPONENT INVERTER3 PORT(A:IN BIT; C:OUT BIT); END COMPONENT;
+SIGNAL A,C:BIT;
+BEGIN
+	tester1: TESTER PORT MAP (A,C);
+	UUT: INVERTER3 PORT MAP (A,C);
+END structure;
+	
+==================================================================================
+ENTITY INVERTER4 IS
+	PORT (A : IN BIT ; C : OUT BIT);
+END INVERTER4;
+ARCHITECTURE structure OF INVERTER4 IS
+COMPONENT ENOT_4 PORT(a:IN BIT;c:OUT BIT); END COMPONENT;
+COMPONENT EAND_3 PORT(a,b:IN BIT;c:OUT BIT); END COMPONENT;
+SIGNAL B:BIT;
+BEGIN
+	u1: ENOT_4 PORT MAP (A,B);
+	u2: EAND_3 PORT MAP (A,B,C);
+END structure;
+	
+ENTITY TESTBENCH4 IS
+END TESTBENCH4;
+ARCHITECTURE structure OF TESTBENCH4 IS
+COMPONENT TESTER PORT(A:OUT BIT; C:IN BIT); END COMPONENT;
+COMPONENT INVERTER4 PORT(A:IN BIT; C:OUT BIT); END COMPONENT;
+SIGNAL A,C:BIT;
+BEGIN
+	tester1: TESTER PORT MAP (A,C);
+	UUT: INVERTER4 PORT MAP (A,C);
+END structure;
+	
+	
+	
+	
+2)  Because of space and power constraints, satellites often only use dual processors instead of triple processors for increased reliability.  
+Describe various ways in which detection and/or correction can be accomplished under this architecture.  
+Under these situations, is real-time correction of faults possible ?   
+Specify how you define “real-time” in your answer.  [15 pts]
+
+http://libaccess.sjlibrary.org/login?url=https://ieeexplore.ieee.org/document/4019522
+
+real-time correction is dual-processor is possiable.
+
+real-time correction definition: When faults detected, a system will not restart the execution or retrieve new data from previous task.
+
+一般的dual-processors会有两个processors同时处理相同的task，当任何一个processors检测到错误，system会马上switch到另一个processor上.
+satellites因为要做到最大化的Energy Efficient，所以2个processor区分为一个primary processor 和一个 secondary processor. 
+The secondary processor runs later than the primary processor, as late as possible while meeting the deadline.
+
+A checkpoint is inserted at the completion of the primary processor. 
+If there is no fault, the secondary processor terminates its execution. 
+Otherwise, should the fault occur, the second processor continues and completes the application before its deadline.
+
+
+secondary processor 比 primary processor 运行的时间要晚一些，as late as possible while meeting the deadline. 
+当主primary processor检测到错误，还是会switch到secondary processor. 这个跟普通的dual-processors一样的。
+但是当primary processor 没有检测到任何错误，过了一个check point，这时候secondary processor会提前结束当前的task。
+primary processor and secondary processor处理任务的时间差可以节省非常多的资源。理论情况下，可以节省80%的能源
+
+	
+3)  Explain the flaw in this statement: "A system with built-in TMR redundancy is always more reliable than a simplex system with no redundancy".  
+Sketch any graphs that may be appropriate.  Provide an intuitive explanation for why the graph is shaped the way it is.  [15 pts]
+
+A system with built-in TMR redundancy is "not" always more reliable than a simplex system with no redundancy.
+
+It is possible to analyze the Bathtub curve to explain why the Failure of TMR is higher than the simplex after T point.
+
+Bathtub curve shows a high probability of failure during burn-in phase，
+that is because although all components are new, there will be manufacturer defects, algrithm defects or any defects in the components.
+TMR can tolerate these defects better than a simplex system. This is why in the beginning, the TMR system showed better reliability.
+
+However, when the components enter the wear phase, the failure is increasing, and it is inevitable. 
+TMR can tolerate defects, but it can not stop the component getting old, that is depends on the material of the component rather than the algorithm.
+Because TMR consists of multiple simplex system, the old parts will accumulate faster than simplex system.
+That's why TMR system dropped reliability after a certian point
+  
+
+
+4)  Newer generation cars often have adaptive cruise control (ACC).  
+Like ordinary cruise control, it allows the driver to set a constant speed for the car without having to continually press on the gas pedal; 
+however, it is more intelligent.  A radar/laser/camera unit located behind the grille determines the speed and distance of the vehicle in front.  
+If necessary, ACC will automatically slow down the car to maintain a safe following distance should the car in front slow.  
+When the distance to the vehicle in front is computed to be safe again, ACC accelerates the car to resume its last speed setting.  
+Pretend you are a designer of ACC.  Identify potential failure modes that your ACC must be capable of dealing with.  
+List as many as you can.  For example, 
+your car is running on ACC when a loose plastic grocery bag or newspaper page on the freeway is kicked up by the car 
+in front of you and clings to your car’s grille.  [15 pts]
+
+The road ahead was repaired, but the warning sign was blown down by the wind.
+
+In heavy rain or snow, the camera or sensor will be blurred.
+
+A "large paper box" is in the middle of the road, and it is completely safe to run over it, but the car identified it to be a dangerous obstacle.
+
+A "small metal box" is in the middle of the road, running over from above will cause the car to tip over, but the car identified it to be a safe obstacle.
+
+If the zombie apocalypse happens, the car will not run over the zombie, because they are identified as pedestrians crossing the road.
+
+	
+5)  Imagine in the future, two self-driving cars get into an accident.  Who's at fault ?  [15 pts]
+	Fail soft
+	Bath-tub curve
+	
+	如果只是轻微的accident，那么可以调用车载摄像头查看最后相撞画面。
+	本着Fail soft的原则，越靠近Fail soft原则，车祸责任越小。
+	车辆相撞的Fail soft原则，我个人认为是刹车，就是遇到任何情况，最先刹车并且停下来的车，最有Fail soft的优先权。
+	从刹车到静止时间最长的那辆车，付全部责任。
+	
+	如果两辆车撞爆炸了，烧成灰了，就像Tesla那样。 那么可以使用Bath-tub curve的原则。
+	查看车辆使用历史记录，新车和旧车的failure fate比较高，对比reliability 最差的那辆车，付全部责任。
+	
+	If it is only a minor accident, The collision screen can be reviewed through the car camera.
+	The closer to the "Fail soft" principle, the less responsibility. The Fail soft principle of vehicle collision, I personally think it is braking.
+	A stopped car will not cause any accidents, So full responsibility for the slowest braking vehicle.
+	
+	If two cars collide and burn to ashes like Tesla. The principle of Bath-tub curve can be used.
+	Check the vehicle usage history, The failure fate of new cars and old cars is relatively high. Compare the car with the worst reliability.
+	The poor one will take full responsibility.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

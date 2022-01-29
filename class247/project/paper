@@ -1,0 +1,112 @@
+Abstract
+	这个project会设计一个简单的CPU。在这个CPU内存加载了一个循环程序。这个程序会计算0到一个数字的总和。
+	举例，如果输入的数字是N，则输出为0+1+2+....(N-2)+(N-1)。此程序用高级语言表示为 for(i=0;i<N;i++;){reuslt+=i;}。
+	这个project的目的就是弄明白高级语言是如何解，并在机器里面运行的。CPU按照冯诺依曼结构结构设计，包含2个主要模块，为Control unit 和 Processing unit。
+	processing unit接入input Data，输出output data，里面包含Arithmetic Logic Unit (ALU)，一个2位地址的Register File(RF)，和一个“神奇”的JUMP指令模块。
+	Control unit里面包含一个ROM memory，ROM里面有编译好的二进制代码，就是那个循环程序，一个4位地址的instruction register(IR), 和一个Program Counter (PC).
+	模拟器使用Xilinx Vivado，操作系统环境为Linux Ubuntu，hardware description language为verilog。Vivado是可以支持VHDL和verilog混写的。
+	最初项目打算使用VHDL，但是后来发现verilog明显比VHDL更友好，更贴近高级语言语法，所以改用了verilog。
+	模拟的硬件芯片型号为basys3 XC7A35T-1CPG236C，属于Artix家族，28nm技术，市场价格为149美元。
+	
+Compiler and Instructions
+	早期芯片的设计，程序和数据是完全分开的，程序是硬件化的。这样使得计算机非常的不灵活，一台电脑只能在同一时间做一件事情，如果电路设计为打印机，就不能做计算器了。
+	冯诺依曼结构彻底改变了这点，程序作为data直接导入到了memory里，而不是设计在电路中，这直接导致了software和程序员的诞生。所以，在此项目中第一步要做的事情就是把高级程序语言解析成OPCODE。
+	因为程序非常简单，所以无需用到任何特定的高级程序语言和解析器，用pseudocode模拟就够了。
+	高级程序语言为： 图1
+	OPCODE为：图2
+	很明显这个程序需要3个寄存器作为变量来辅助ALU操作，R0,R1,R3，这提示未来RF的地址位为2。
+	还需把INPUT赋值变量的操作，addition，increment，JUMP，IF condition。
+	在有了OPCODE以后，需要一个instruction table把这些OPCODE用bianry code 来总结表示出来。
+	instruction table为：图3
+	最后把这些OPCODE根据instruction table合并为编译的binary file，准备未来放到Memory模块的ROM里面。Vivado识别的二进制编译文件后缀为.coe，格式如下。
+	编译好的二进制指令：图4
+	
+Control unit
+	设计图：图5
+	Control unit的3个主要组成部分为IR，PC 和 ROM。 输出为10位的instruction，输入为Jmux，Jmux是个可以控制insturctin jump的信号，下面会提到。
+	OPCODE会先直接导入到4位地址的ROM里面。instruction的地址会记录到PC里，在由一个递增模块去驱动。
+	从ROM出来指令会记录到IR to hold the instruction currently being executed。
+	因为程序中包含一个JUMP指令，而JUMP指令的2位地址是由指令的后4个bit决定的。
+	举例，instruction table第7行是JUMP命令“IF FALSE JUMP nnnn:  00_0101_nnnn” 对应OPCODE第7行的JUMP程序“IF FALSE THEN GO ADDR 03:  00_0101_0011”，
+	后4位为0011，代表PC的地址需要跳转到0011，而0011地址的OPCODE是 “01_0001_0100 : R1+=R0”，R1+=R0就是循环的本体，从执行高级语言的循环操作。
+	所以Jmux 信号判断PC里的instruction地址是否递增或跳转到instruction的后4位地址。Jmux是从ALU模块根据Memory输出的instruction生成的，将在下一个章节介绍。
+
+Processing unit 
+	设计图：图6
+	processing unit的2个主要组成部分为RF和ALU。RF是一种可以快速读写的register storage，输入为Data Input和一些由Contorl unit传入过来的控制信号，
+	比如WE(write enable) WA(write address) RAE(read A enable) RAA(read A address)....。输出为A，B两个10 bit的data，作为ALU的输入。
+	ALU是一个combinational logic unit，没有clock，the output is a pure function of the present input。
+	当输入端A，B data进来以后，会根据输入信号OP1,OP2,OP3，直接生成输出data R。这3个信号是由Control unit输出的。
+	举例，instruction table第3行是加法命令“ADD Rcc=Raa+Rbb :	0100ccbbaa”， 对应OPCODE第4行“0100010100: R1+=R0”，最后4位的0100就是信号OP2,OP1,OP0，
+	因为只有加减，所以3个bit就足够了，不需要最后一个0。前面6位01_01_00分别代表地址R1，R1，R0，正好对应R1=R1+R0。
+	但是ALU其实只做了R1+R0的加法运算，输入的结果R则重新返回RF，并且赋值给R1。这些都是Control unit返回的instruction给予的操作，其细节将会在CPU部分再次描述。
+	ALU中还有一个特殊运算，当输入A>B，输出数据R会为0。此逻辑对应电路图最下面的XOR门，最后会输出一个信号Z(Jmux)作为Contorl Unit的PC地址跳转信号。
+	在XOR门的truth table中，所有输入信号都为0输出信号才会为1。当Jmux为1时，在Control Unit的PC会进行increment指令，这就代表不执行JMP命令,继续在OPCODE指令中前进,从而跳出了循环。
+	换句话说，OPCODE中跳出循环的IF条件是用XOR门来实现的。在高级语言中，这就好比(IF A): return True，A可以是任何类型的值都通过。(ELSE A==0)，那么只能返回False。
+	
+CPU Pipeline
+	设计图：图7
+	完成Control unit和Processing unit，就可以用CPU把这两个模块连在一起了，需要一个pipeline流程。CPU的pipeline主要有3个步骤，首先从IR获取instruction，
+	然后decode instruction对应各个模块的控制信号，最后把信号链接到模块中执行操作。如果按照模块走流程，第一步是获取input Data，然后启动PC，
+	这样可以把ROM里的instruction输入到IR里，然后RF会从IR里获取指令，指令会告诉ALU进行运算，最后ALU把运算结果输出。在具体实施过程中，需要先设计一个4位的CPU cycle，一共16个phase。
+	一个Phase有1个时钟时间，在此期间会控制某个模块的信号切换，当16个Phase结束后，CPU的一个周期结束，这代表ROM里的一行instruction执行完毕。
+	举例，如图7表格所示，最先打开的信号其实是IRload，而且是在phase 15执行，IRload控制instruction的输入到RF里，这表示如果IRload关闭，CPU是不会执行任何指令的。
+	IRload在phase 15执行的意图是让第一个CPU cycle不做任何动作，第一个周期稳定后在执行IR，这样可以提高容错率。IE表示input enable，是在phase 1执行的，而不是phase 0。
+	这里IE故意跳过第0个周期，因为IR里的instruction loading 到RF“可能”有延迟。最早设计在phase 0中，但是Simulation发现IE始终没有正确的信号。
+	设计图：图8
+	IE的周期结束后，会先在phase 2 里读取IR中的RF地址(REA/RAA...)，然后在phase 3把读取到的地址进行ALU操作(OP 0/1/2)，然后在phase 4把ALU的结果重新写入RF (WE/WA)。
+	这3个phase是一个逻辑运算过程，在OPCODE中表示为R1+=R0。所以逻辑运算给了3个phase的时间。phase 5是ZE表示跳转指令，此信号就是Memory unit中的Jmux。
+	phase 6是PCLoad，表示执行下一个instruction。最后phase 7表示输出结果。16个phase只用了8个，剩下一半在闲置状态，但是16是神奇的数字啊。
+	
+Simulation
+	CPU 的testbench非常简单,把clock设置为每10ns切换信号,把输入信号设置为10。最后把clock和input signal， output signal接入到CPU就完成了。
+	设置CPU执行1ms的时间，检查一下输入与输出信号，模拟信号图如预期所示。
+	模拟图：图9
+	如上图所示，如果输入是10，那么按照程序，输出结果应为0+1+2+3+..+9=45。
+	检查一下程序中变量R0，R1，R3的情况，这3个变量在寄存器RF中，模拟信号图如预期所示。
+	模拟图：图10
+	如上图所示，R3作为input的assign变量，始终保持为10。R2没有在程序中用到，所以信号为X。R1输出结果变量，每一个周期都在增长，0,1,3,6,10,15.....45。
+	R0作为循环的条件counter，每一个周期在increment，0,1,2,3,4.....10
+	检查一下CPU中phase和指令的情况
+	模拟图：图11
+	如上图所示，第一个周期，IR指令为00_0000_0000。正如上一章所讲的，PCload是从最后的phase 15开始执行的，而不是phase 0，这样CPU在启动的最初一个周期内不执行任何动作，
+	而是在最后的phase 15准备第一个指令，所以CPU是从第二个周期开始获取IR的第一个指令的。根据OPCODE第一行，第一个IR指令为00_0010_0011。正如图中所示，
+	并且在15个phase后开始执行第二个OPCODE指令。
+
+Summary
+	真实的CPU肯定要复杂很多，但这个项目展示了一个程序从高级语言，到OPCODE，到binary code，到Control unit，到Processing unit，组合为CPU的一个过程。
+	虽然程序很简单，但是涉及到了很多常用的OPCODE指令，包括IF条件，循环，变量赋值，逻辑运算，输入和输出。在CPU 时间规划的过程，完成了一套指令。
+	在simulation中，查看了每个信号的状态，主要包括phase，register file, instruction register,input, output, 观察这些信号在每条指令中是如何变化的。
+	在未来，设计好的线路图还可以burn在芯片中，来进行硬件测试。instructin table也可以扩展出更多的功能。
+	虽然写高级语言的程序员平时不会接触到digital circuits。但是了解了CPU的运行原理后，在写代码中会无意考虑到CPU的运行和耗能，这是很宝贵的经验。
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
