@@ -9,18 +9,22 @@ class Solution(object):
 
         l=0
         r=len(numbers)-1
-
-        while l!=r:
+        rs = []
+        while l<r:
             if numbers[l]+numbers[r]==target:
-                return [l+1,r+1]
-            if numbers[l]+numbers[r]>target:
+                r -= 1
+                l += 1
+                if r != l:
+                    rs.append([l+1,r+1])
+            elif numbers[l]+numbers[r]>target:
                 r -= 1
             else:
                 l += 1
 
-        return []
+        return rs
 
 
-numbers = [2,7,11,15]
-target = 9
+numbers = [1,2,3,4,5,6,7,8,9]
+target = 8
 print(Solution().twoSum(numbers,target))
+

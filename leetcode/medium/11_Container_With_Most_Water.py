@@ -34,6 +34,5 @@ class Solution(object):
 
         return rs
 
-
 height=[2,3,4,5,18,17,6]
 print(Solution().maxArea(height))

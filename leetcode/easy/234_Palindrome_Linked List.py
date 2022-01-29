@@ -76,3 +76,6 @@ head=ListNode(1,ListNode(2,ListNode(3,ListNode(2,ListNode(1)))))
 #head=ListNode(1,ListNode(2,ListNode(2,ListNode(1))))
 rs=Solution().isPalindrome(head)
 print(rs)
+
+
+head=ListNode(2,ListNode(0,ListNode(-4,ListNode(2))))
